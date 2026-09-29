@@ -126,14 +126,26 @@
         .formula-card {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
-            padding: 1rem 1.5rem;
+            padding: 1.2rem 1.5rem;
             border-radius: 6px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
         .formula-card code {
+            display: inline-block;
             font-size: 1.1rem;
             color: var(--accent-color);
             font-weight: bold;
+            margin: 0.5rem 0;
+            padding: 0.3em 0.6em;
+            background: var(--code-bg);
+            border-radius: 4px;
+        }
+        .formula-legend {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 0.5rem;
         }
 
         code, pre {
@@ -252,18 +264,15 @@
             }
         }
 
-        // Ansichts-Umschalter: Wissenschaftlich, Einfache Sprache, Formeln
         function switchView(targetView) {
             let sciElements = document.getElementsByClassName('view-scientific');
             let simpElements = document.getElementsByClassName('view-simple');
             let formElements = document.getElementsByClassName('view-formula');
 
-            // Alles ausblenden
             for (let el of sciElements) el.style.display = 'none';
             for (let el of simpElements) el.style.display = 'none';
             for (let el of formElements) el.style.display = 'none';
 
-            // Zielansicht einblenden
             if (targetView === 'scientific') {
                 for (let el of sciElements) el.style.display = 'block';
             } else if (targetView === 'simple') {
@@ -276,7 +285,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Schalter für Theme, Einfache Sprache, Formel-Zentrale und Sprache -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfache Sprache</button>
@@ -394,52 +402,66 @@
                 </div>
             </div>
 
-            <!-- FORMEL-ZENTRALE / MATHEMATICAL CORE (DE) -->
+            <!-- FORMEL-ZENTRALE / MATHEMATICAL CORE (DE MIT LEGENDE) -->
             <div class="view-formula">
                 <div class="formula-version-box">
                     <h1>Formel-Zentrale: Der mathematische Kern des DQF-Frameworks</h1>
-                    <p>Kompakte Übersicht aller zentralen mathematischen Gleichungen und Zustandsparameter des Quantenfluid-Modells.</p>
+                    <p>Kompakte Übersicht aller zentralen mathematischen Gleichungen, Zustandsparameter und ihrer Definitionen.</p>
                     
                     <div class="formula-card">
                         <h3>1. Zustandsgleichung des Quantenfluids</h3>
-                        <p>Beschreibung des polytropen Drucks im Vakuumsubstrat:</p>
                         <code>P = K · ρ^γ</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>P</em> = Druck | <em>K</em> = Polytrope Konstante | <em>ρ</em> = Dichte des Quantenfluids | <em>γ</em> = Polytroper Exponent
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>2. Schallgeschwindigkeit im Vakuum</h3>
-                        <p>Die fundamentale Lichtgeschwindigkeit als hydrodynamische Schallgeschwindigkeit:</p>
                         <code>c = √(∂P / ∂ρ)</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>c</em> = Schallgeschwindigkeit des Substrats (entspricht der Lichtgeschwindigkeit) | <em>∂P/∂ρ</em> = Änderung des Drucks zur Dichte
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>3. Isomorphe Sättigungsgrenze</h3>
-                        <p>Verhinderung von Punkt-Singularitäten skaliert über den Goldenen Schnitt:</p>
                         <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>S_res</em> = Sättigungsgrenzwert | <em>v</em> = Geschwindigkeitsfeld | <em>ρ_0</em> = Basisdichte | <em>Φ⁻¹</em> = Goldener Schnitt (~0.618)
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>4. Kompressible Wellengleichung</h3>
-                        <p>Akustische Kosmologie und Raum-Hintergrundrauschen:</p>
                         <code>∂²p/∂t² - c² ∇²p = 0</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>p</em> = Akustischer Druck (Druckstörung) | <em>t</em> = Zeit | <em>∇²</em> = Laplace-Operator (räumliche Krümmung)
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>5. Hydrodynamische Rotverschiebung</h3>
-                        <p>Energie-Dissipation von Photonen an das Vakuumsubstrat:</p>
                         <code>dE/dx = -γ_diss · E</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>E</em> = Energie des Photons | <em>x</em> = Zurückgelegte Wegstrecke | <em>γ_diss</em> = Dissipationskoeffizient
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>6. Effektive Gravitationskraftdichte</h3>
-                        <p>Gravitation als negativer Dichte- und Druckgradient im Fluid:</p>
                         <code>f_grav = -∇P</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>f_grav</em> = Effektive Gravitationskraftdichte | <em>-∇P</em> = Negativer Druckgradient im Quantenfluid
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>7. PRV-Resonanzbedingung</h3>
-                        <p>Experimentelle Verifikation der Vakuum-Grundfrequenz:</p>
                         <code>ω_res = k · c</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>ω_res</em> = Vakuum-Eigenresonanz | <em>k</em> = Wellenzahl
+                        </div>
                     </div>
                 </div>
             </div>
@@ -578,52 +600,66 @@
                 </div>
             </div>
 
-            <!-- FORMULA CENTER / MATHEMATICAL CORE (EN) -->
+            <!-- FORMULA CENTER / MATHEMATICAL CORE (EN WITH LEGEND) -->
             <div class="view-formula">
                 <div class="formula-version-box">
                     <h1>Formula Center: The Mathematical Core of the DQF Framework</h1>
-                    <p>Compact overview of all core mathematical equations and state parameters of the quantum fluid model.</p>
+                    <p>Compact overview of all core mathematical equations, state parameters, and their definitions.</p>
                     
                     <div class="formula-card">
                         <h3>1. Equation of State of the Quantum Fluid</h3>
-                        <p>Description of polytropic pressure in the vacuum substrate:</p>
                         <code>P = K · ρ^γ</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>P</em> = Pressure | <em>K</em> = Polytropic constant | <em>ρ</em> = Density of the quantum fluid | <em>γ</em> = Polytropic exponent
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>2. Speed of Sound in Vacuum</h3>
-                        <p>Fundamental speed of light as hydrodynamic sound speed:</p>
                         <code>c = √(∂P / ∂ρ)</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>c</em> = Sound speed of the substrate (corresponds to speed of light) | <em>∂P/∂ρ</em> = Change of pressure relative to density
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>3. Isomorphic Saturation Limit</h3>
-                        <p>Prevention of point singularities scaled via the Golden Ratio:</p>
                         <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>S_res</em> = Saturation limit | <em>v</em> = Velocity field | <em>ρ_0</em> = Baseline density | <em>Φ⁻¹</em> = Golden Ratio (~0.618)
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>4. Compressible Wave Equation</h3>
-                        <p>Acoustic cosmology and space background noise:</p>
                         <code>∂²p/∂t² - c² ∇²p = 0</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>p</em> = Acoustic pressure (pressure disturbance) | <em>t</em> = Time | <em>∇²</em> = Laplace operator (spatial curvature)
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>5. Hydrodynamic Redshift</h3>
-                        <p>Energy dissipation of photons into the vacuum substrate:</p>
                         <code>dE/dx = -γ_diss · E</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>E</em> = Photon energy | <i>x</i> = Traveled distance | <em>γ_diss</em> = Dissipation coefficient
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>6. Effective Gravitational Force Density</h3>
-                        <p>Gravitation as negative density and pressure gradient in the fluid:</p>
                         <code>f_grav = -∇P</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>f_grav</em> = Effective gravitational force density | <em>-∇P</em> = Negative pressure gradient in the quantum fluid
+                        </div>
                     </div>
 
                     <div class="formula-card">
                         <h3>7. PRV Resonance Condition</h3>
-                        <p>Experimental verification of the fundamental vacuum frequency:</p>
                         <code>ω_res = k · c</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>ω_res</em> = Vacuum eigenresonance | <em>k</em> = Wavenumber
+                        </div>
                     </div>
                 </div>
             </div>
