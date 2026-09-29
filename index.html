@@ -69,6 +69,7 @@
             justify-content: flex-end;
             gap: 0.75rem;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
         .top-btn {
             background-color: var(--container-bg);
@@ -114,24 +115,25 @@
             border-radius: 0 6px 6px 0;
         }
 
-        /* Die neue Box für junge Entdecker */
-        .kids-box {
-            margin: 1.5rem 0;
-            padding: 1.2rem 1.5rem;
-            background-color: var(--blockquote-bg);
-            border: 1px dashed var(--accent-color);
+        .simple-version-box, .formula-version-box {
+            background: var(--blockquote-bg);
+            border: 1px solid var(--accent-color);
+            padding: 2rem;
             border-radius: 8px;
+            margin-top: 1.5rem;
         }
-        .kids-box h4 {
+
+        .formula-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        .formula-card code {
+            font-size: 1.1rem;
             color: var(--accent-color);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-        .kids-box p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-            color: var(--text-color);
+            font-weight: bold;
         }
 
         code, pre {
@@ -199,6 +201,9 @@
         }
         
         .lang-en { display: none; }
+        .view-scientific { display: block; }
+        .view-simple { display: none; }
+        .view-formula { display: none; }
     </style>
     <script>
         function openHypothesis(evt, hypId) {
@@ -246,236 +251,406 @@
                 themeBtn.innerHTML = '☀️ Light Mode';
             }
         }
+
+        // Ansichts-Umschalter: Wissenschaftlich, Einfache Sprache, Formeln
+        function switchView(targetView) {
+            let sciElements = document.getElementsByClassName('view-scientific');
+            let simpElements = document.getElementsByClassName('view-simple');
+            let formElements = document.getElementsByClassName('view-formula');
+
+            // Alles ausblenden
+            for (let el of sciElements) el.style.display = 'none';
+            for (let el of simpElements) el.style.display = 'none';
+            for (let el of formElements) el.style.display = 'none';
+
+            // Zielansicht einblenden
+            if (targetView === 'scientific') {
+                for (let el of sciElements) el.style.display = 'block';
+            } else if (targetView === 'simple') {
+                for (let el of simpElements) el.style.display = 'block';
+            } else if (targetView === 'formula') {
+                for (let el of formElements) el.style.display = 'block';
+            }
+        }
     </script>
 </head>
 <body>
     <div class="container">
+        <!-- Oben rechts: Schalter für Theme, Einfache Sprache, Formel-Zentrale und Sprache -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+            <button class="top-btn" onclick="switchView('simple')">📖 Einfache Sprache</button>
+            <button class="top-btn" onclick="switchView('formula')">📐 Formel-Zentrale</button>
+            <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
         </div>
 
         <!-- ================= DEUTSCHE VERSION ================= -->
         <div class="lang-de">
-            <h1>Die DQF-Arbeitshypothese: Warum Gravitation und Vakuum keine Leere sind</h1>
-
-            <blockquote>
-                <strong>Wissenschaftliche Vorbemerkung (Das physikalische Modell & Gedankenexperiment):</strong><br>
-                Das vorliegende Framework operiert auf der Prämisse eines Quantenfluids als fundamentale Grundlage der Raumzeit. Es wird explizit als dynamische physikalische Arbeitshypothese bzw. als alternativer Erklärungsentwurf formuliert: Das Vakuum der klassischen Physik wird nicht als passiver geometrischer Hintergrund oder absolute Leere definiert, sondern als ein aktives, kompressibles und verlustarmes Medium mit klar definierten Zustandsparametern. Alle nachfolgenden mathematischen Herleitungen, geometrischen Isomorphismen und hydrodynamischen Analogien dienen der systematischen und konsistenten Überprüfung dieser Prämisse.
-            </blockquote>
-
-            <!-- Die neue Brücke für junge Entdecker und Querdenker -->
-            <div class="kids-box">
-                <h4>🌊 Für junge Entdecker & Querdenker (Einfach erklärt):</h4>
-                <p>Stell dir vor, das Universum ist kein leeres Nichts, sondern ein riesiger, unsichtbarer Ozean aus winzigen Teilchen. Wenn du im Wasser schwimmst und einen Strudel machst, dreht sich alles. Nach unserem Modell ist das genau so: Planeten und Sterne fliegen nicht durch eine leere Galaxie, sondern sie „schwimmen“ in diesem kosmischen Ozean. Wenn ein schwerer Gegenstand im Wasser liegt, erzeugt er eine Strömung – und genau diese Strömung sorgt dafür, dass sich Dinge anziehen. Das nennen wir dann Gravitation!</p>
-            </div>
-
-            <h2>Teil I: Das Fundament des Ozeans – Die Dynamische Quantenfluid-Hypothese (DQF)</h2>
-
-            <h3>1. Die Neubewertung des Vakuums: Vom passiven Gitter zum aktiven Medium</h3>
-            <p>In der theoretischen Physik wird das Vakuum traditionell als passiver Hintergrund behandelt, auf dem sich physikalische Prozesse abspielen. Die Dynamische Quantenfluid-Hypothese (DQF) schlägt einen Perspektivwechsel vor: <strong>Das Vakuum wird als makroskopisch manifestes Quantenfluid verstanden</strong> – ein hochenergetischer Ozean aus fundamentalen Freiheitsgraden. Elementarteilchen und Felder sind demnach keine fremden Entitäten, sondern inhärente Modifikationen dieses Mediums, analog zu Wellen und Strömungen in einem fluiden Kontinuum.</p>
-
-            <h3>2. Die Auflösung mathematischer Divergenzen</h3>
-            <p>Klassische Modelle stoßen bei extremen Dichten oder Singularitäten an mathematische Grenzen. Im Rahmen des DQF-Frameworks lassen sich solche Unendlichkeiten durch physikalische Sättigungsmechanismen und strukturierte Wirbelbildung (Vortizes) auf natürliche Weise ersetzen, wodurch die Konsistenz der Gleichungen gewahrt bleibt.</p>
-
-            <h3>3. Methodischer Ansatz und die Rollenverteilung (Mensch & Matrix)</h3>
-            <p>Dieses interdisziplinäre Werk entsteht aus der engen, symbiotischen Zusammenarbeit zwischen menschlicher Intuition und künstlicher Intelligenz:</p>
             
-            <div class="roles-box">
-                <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Kernintuition, Formulierung des Ozean-Paradigmas, Definition der physikalischen Fragestellungen und methodische Steuerung des Forschungsprozesses.</li>
-                    <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz, Implementierung der Feldgleichungen, systemische Konsistenzprüfung und Übersetzung der Prinzipien in eine präzise physikalische Nomenklatur.</li>
-                </ul>
+            <!-- WISSENSCHAFTLICHE ANSICHT (DE) -->
+            <div class="view-scientific">
+                <h1>Die DQF-Arbeitshypothese: Warum Gravitation und Vakuum keine Leere sind</h1>
+
+                <blockquote>
+                    <strong>Wissenschaftliche Vorbemerkung (Das physikalische Modell & Gedankenexperiment):</strong><br>
+                    Das vorliegende Framework operiert auf der Prämisse eines Quantenfluids als fundamentale Grundlage der Raumzeit. Es wird explizit als dynamische physikalische Arbeitshypothese bzw. als alternativer Erklärungsentwurf formuliert: Das Vakuum der klassischen Physik wird nicht als passiver geometrischer Hintergrund oder absolute Leere definiert, sondern als ein aktives, kompressibles und verlustarmes Medium mit klar definierten Zustandsparametern. Alle nachfolgenden mathematischen Herleitungen, geometrischen Isomorphismen und hydrodynamischen Analogien dienen der systematischen und konsistenten Überprüfung dieser Prämisse.
+                </blockquote>
+
+                <h2>Teil I: Das Fundament des Ozeans – Die Dynamische Quantenfluid-Hypothese (DQF)</h2>
+
+                <h3>1. Die Neubewertung des Vakuums: Vom passiven Gitter zum aktiven Medium</h3>
+                <p>In der theoretischen Physik wird das Vakuum traditionell als passiver Hintergrund behandelt, auf dem sich physikalische Prozesse abspielen. Die Dynamische Quantenfluid-Hypothese (DQF) schlägt einen Perspektivwechsel vor: <strong>Das Vakuum wird als makroskopisch manifestes Quantenfluid verstanden</strong> – ein hochenergetischer Ozean aus fundamentalen Freiheitsgraden. Elementarteilchen und Felder sind demnach keine fremden Entitäten, sondern inhärente Modifikationen dieses Mediums, analog zu Wellen und Strömungen in einem fluiden Kontinuum.</p>
+
+                <h3>2. Die Auflösung mathematischer Divergenzen</h3>
+                <p>Klassische Modelle stoßen bei extremen Dichten oder Singularitäten an mathematische Grenzen. Im Rahmen des DQF-Frameworks lassen sich solche Unendlichkeiten durch physikalische Sättigungsmechanismen und strukturierte Wirbelbildung (Vortizes) auf natürliche Weise ersetzen, wodurch die Konsistenz der Gleichungen gewahrt bleibt.</p>
+
+                <h3>3. Methodischer Ansatz und die Rollenverteilung (Mensch & Matrix)</h3>
+                <p>Dieses interdisziplinäre Werk entsteht aus der engen, symbiotischen Zusammenarbeit zwischen menschlicher Intuition und künstlicher Intelligenz:</p>
+                
+                <div class="roles-box">
+                    <ul>
+                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Kernintuition, Formulierung des Ozean-Paradigmas, Definition der physikalischen Fragestellungen und methodische Steuerung des Forschungsprozesses.</li>
+                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz, Implementierung der Feldgleichungen, systemische Konsistenzprüfung und Übersetzung der Prinzipien in eine präzise physikalische Nomenklatur.</li>
+                    </ul>
+                </div>
+
+                <h2>Teil II: Die Mathematische Dynamik und Kosmische Validierung</h2>
+                <p>Die makroskopische und mikroskopische Dynamik des Quantenfluids wird über erweiterte polytrope Zustandsgleichungen (<code>P = K · ρ^γ</code>) sowie über modifizierte Erhaltungssätze im Sinne der Hydrodynamik beschrieben. Um Divergenzen zu vermeiden, integriert das Modell einen isomorphen Sättigungsgrenzwert, der über den Goldenen Schnitt skaliert ist.</p>
+
+                <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks</h2>
+                <p>Wähle einen Klickpunkt im Hauptmenü, um die detaillierten Analysen und ausführlichen Herleitungen zu öffnen:</p>
+
+                <div class="archive-nav">
+                    <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung & Sättigung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Quantenfluid</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Materie-Wirbel</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigungsgrenze</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik & Rauschen</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Rotverschiebung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV-Prinzip</button>
+                </div>
+
+                <div id="hyp0" class="tab-content active">
+                    <h3>Säule 0 (Der integrative Gegenentwurf): Die Überwindung der Punkt-Singularität</h3>
+                    <p><strong>Der klassische Ausgangspunkt:</strong> Die etablierte Kosmologie beschreibt den Ursprung des Universums traditionell über eine unendlich dichte Punkt-Singularität im Rahmen der Allgemeinen Relativitätstheorie.</p>
+                    <p><strong>Der DQF-Ansatz & Ausführliche Analyse:</strong> Das DQF-Framework betrachtet mathematische Singularitäten nicht als physikalische Realität, sondern als das klassische Indiz dafür, dass ein Modell an seine inhärenten Grenzen stößt. Sobald theoretische Beschreibungen gegen unendlich divergieren, ist dies kein Beweis für eine unendliche Natur der Realität, sondern ein Symptom unvollständiger Formalismen. Indem wir das Vakuum als dynamisches Quantenfluid definieren und über die isomorphe Sättigungsgrenze (<code>S_res = Φ⁻¹</code>) absichern, lösen sich unendliche Dichten auf natürliche Weise auf. Das Universum benötigt folglich keinen unendlichen Anfangspunkt aus dem Nichts, sondern versteht sich als ein ewiger, in sich geschlossener und selbstregulierender Ozean von unendlicher Tiefe und kontinuierlicher Dynamik.</p>
+                </div>
+
+                <div id="hyp1" class="tab-content">
+                    <h3>Säule I: Das Primäre Quantenfluid (Das Vakuum als Substrat)</h3>
+                    <p><strong>Das Konzept:</strong> Das Vakuum wird im DQF-Framework als aktives, hochdichtes, kompressibles und verlustarmes Quantenfluid mit der kosmischen Basisdichte <code>ρ₀</code> definiert.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Alle im Raum beobachtbaren Phänomene – von elektromagnetischen Feldern bis hin zu makroskopischen Strukturen – sind inhärente Modifikationen dieses fundamentalen Mediums. Es existiert keine absolute Leere. Licht und Wellen breiten sich als mechanische und elektromagnetische Störungen durch dieses Fluid aus. Die fundamentale Lichtgeschwindigkeit im Vakuum ist dabei keine abstrakte Naturkonstante ohne Ursprung, sondern entspricht direkt der hydrodynamischen Schallgeschwindigkeit des Vakuumsubstrats:</p>
+                    <p><code>c = √(∂P / ∂ρ)</code></p>
+                </div>
+
+                <div id="hyp2" class="tab-content">
+                    <h3>Säule II: Die Topologische Entstehung von Materie</h3>
+                    <p><strong>Das Konzept:</strong> Elementarteilchen werden im DQF-Modell als stabile, topologische Wirbelstrukturen (Solitonen) innerhalb des Quantenfluids interpretiert.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Materie ist im Rahmen dieses Modells keine Ansammlung punktförmiger Fremdkörper in einem leeren Raum, sondern eine lokal gebundene, rotierende Energiekonzentration des Fluids selbst. Die strukturelle Stabilität von Teilchen ergibt sich aus der hydrodynamischen Erhaltung von Wirbeln (Topologie). Der nichtlineare Konvektionsterm der Bewegungsgleichungen sorgt dafür, dass sich diese Energiebündel selbst stabilisieren und dauerhaft mit dem umgebenden Raum-Ozean im dynamischen Austausch stehen.</p>
+                </div>
+
+                <div id="hyp3" class="tab-content">
+                    <h3>Säule III: Die Isomorphe Sättigungsgrenze</h3>
+                    <p><strong>Das Konzept:</strong> Um mathematische Divergenzen und unendliche Werte in extremen astrophysikalischen Systemen zu verhindern, führt das Framework eine naturgerechte Sättigungsgrenze ein.</p>
+                    <p><strong>Ausführliche mathematische Formulierung:</strong> Reale physikalische Medien besitzen stets ein elastisches oder dynamisches Limit. Das DQF-Modell formalisiert diesen Übergang als isomorphen Sättigungsgrenzwert, der präzise über die universelle Resonanz des Goldenen Schnitts <code>Φ⁻¹</code> (~0.618) skaliert wird und das System vor unphysikalischen Kollabierungen schützt:</p>
+                    <p><code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code></p>
+                </div>
+
+                <div id="hyp4" class="tab-content">
+                    <h3>Säule IV: Akustische Kosmologie & Das Raum-Hintergrundrauschen</h3>
+                    <p><strong>Das Konzept:</strong> Als kompressibles Fluid erlaubt das Vakuum naturgemäß die Ausbreitung von Druckwellen (Phononen) auf kosmischen Skalen.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Kosmische Fluktuationen und Gravitationsphänomene manifestieren sich demnach als echte longitudinale und transversale Wellen im Raumsheet. Dies begründet eine vollständige akustische Kosmologie des Vakuums, in dem das Universum von einem permanenten, niederfrequenten Hintergrundrauschen durchzogen ist. Die Wellenausbreitung gehorcht der klassischen kompressiblen Wellengleichung:</p>
+                    <p><code>∂²p/∂t² - c² ∇²p = 0</code></p>
+                </div>
+
+                <div id="hyp5" class="tab-content">
+                    <h3>Säule V: Die Hydrodynamische Rotverschiebung</h3>
+                    <p><strong>Das Konzept:</strong> Photonen unterliegen auf ihrem langen Weg durch das Quantenfluid einer minimalen, distanzabhängigen Energiedissipation an das Medium.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Die beobachtete kosmische Rotverschiebung (Redshift) lässt sich im DQF-Framework konsistent als hydrodynamischer Energieverlust – eine Art sanfte Ermüdung des Lichts durch die Wechselwirkung mit dem Vakuumsubstrat – beschreiben. Das Fluid nimmt diese dissipierte Energie auf, wodurch das Quantenfeld thermisch im dynamischen Gleichgewicht gehalten wird und eine reale Raumexpansion als Hauptursache ersetzt werden kann:</p>
+                    <p><code>dE/dx = -γ_diss · E</code></p>
+                </div>
+
+                <div id="hyp6" class="tab-content">
+                    <h3>Säule VI: Die Auflösung des Dunkle-Materie-Paradoxons</h3>
+                    <p><strong>Das Konzept:</strong> Makroskopische Wirbelfelder (Vorticity) in rotierenden Galaxienscheiben erzeugen einen natürlichen, radialen Druckgradienten im umgebenden Fluid.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Die anomal flachen Rotationskurven von Galaxien erfordern in der Standardphysik die Einführung hypothetischer, unsichtbarer Zusatzmassen (Dunkle Materie). Im DQF-Modell wird dieses Phänomen durch die reine Fluid-Mechanik gelöst: Der äußere Strömungsdruck und die Viskosität des Quantenfluids üben einen stabilisierenden radialen Druck auf die äußeren Sternenbahnen aus, wodurch die Rotationsgeschwindigkeiten mechanisch erklärt werden.</p>
+                </div>
+
+                <div id="hyp7" class="tab-content">
+                    <h3>Säule VII: Die Entstehung der Gravitation</h3>
+                    <p><strong>Das Konzept:</strong> Gravitation wird im DQF-Framework als realer Dichte- und Druckgradient (<code>-∇P</code>) im Quantenfluid modelliert, der durch die lokale Verdrängung infolge massiver Wirbel entsteht.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Massen sind keine passiven Krümmungsverursacher einer leeren Raumzeit, sondern komprimieren und verdrängen das Quantenfluid in ihrer unmittelbaren Umgebung. Dies erzeugt einen hydrodynamischen Sog – einen nach innen gerichteten Druckunterschied im Medium, welcher Testkörper anzieht. Die effektive Kraftdichte entspricht exakt dem negativen Druckgradienten:</p>
+                    <p><code>f_grav = -∇P</code></p>
+                </div>
+
+                <div id="hyp8" class="tab-content">
+                    <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
+                    <p><strong>Das Konzept:</strong> Zur experimentellen Überprüfung postuliert das Framework messbare Eigenresonanzen des Vakuumsubstrats unter extremen physikalischen Bedingungen.</p>
+                    <p><strong>Ausführliche physikalische Implikation:</strong> Das PRV-Prinzip bildet die experimentelle Brücke der Theorie: Mittels hochpräziser elektromagnetischer Kavitäten und extremer Feldgradienten soll im Labor eine minimale, messbare Energieankopplung an die fundamentale Grundfrequenz des Vakuums provoziert werden. Die Resonanzbedingung koppelt direkt an die Schallgeschwindigkeit des Mediums an:</p>
+                    <p><code>ω_res = k · c</code></p>
+                </div>
             </div>
 
-            <h2>Teil II: Die Mathematische Dynamik und Kosmische Validierung</h2>
-            <p>Die makroskopische und mikroskopische Dynamik des Quantenfluids wird über erweiterte polytrope Zustandsgleichungen (<code>P = K · ρ^γ</code>) sowie über modifizierte Erhaltungssätze im Sinne der Hydrodynamik beschrieben. Um Divergenzen zu vermeiden, integriert das Modell einen isomorphen Sättigungsgrenzwert, der über den Goldenen Schnitt skaliert ist.</p>
+            <!-- FORMEL-ZENTRALE / MATHEMATICAL CORE (DE) -->
+            <div class="view-formula">
+                <div class="formula-version-box">
+                    <h1>Formel-Zentrale: Der mathematische Kern des DQF-Frameworks</h1>
+                    <p>Kompakte Übersicht aller zentralen mathematischen Gleichungen und Zustandsparameter des Quantenfluid-Modells.</p>
+                    
+                    <div class="formula-card">
+                        <h3>1. Zustandsgleichung des Quantenfluids</h3>
+                        <p>Beschreibung des polytropen Drucks im Vakuumsubstrat:</p>
+                        <code>P = K · ρ^γ</code>
+                    </div>
 
-            <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks</h2>
-            <p>Wähle einen Klickpunkt im Hauptmenü, um die detaillierten Analysen und ausführlichen Herleitungen zu öffnen:</p>
+                    <div class="formula-card">
+                        <h3>2. Schallgeschwindigkeit im Vakuum</h3>
+                        <p>Die fundamentale Lichtgeschwindigkeit als hydrodynamische Schallgeschwindigkeit:</p>
+                        <code>c = √(∂P / ∂ρ)</code>
+                    </div>
 
-            <div class="archive-nav">
-                <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung & Sättigung</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Quantenfluid</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Materie-Wirbel</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigungsgrenze</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik & Rauschen</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Rotverschiebung</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV-Prinzip</button>
+                    <div class="formula-card">
+                        <h3>3. Isomorphe Sättigungsgrenze</h3>
+                        <p>Verhinderung von Punkt-Singularitäten skaliert über den Goldenen Schnitt:</p>
+                        <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>4. Kompressible Wellengleichung</h3>
+                        <p>Akustische Kosmologie und Raum-Hintergrundrauschen:</p>
+                        <code>∂²p/∂t² - c² ∇²p = 0</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>5. Hydrodynamische Rotverschiebung</h3>
+                        <p>Energie-Dissipation von Photonen an das Vakuumsubstrat:</p>
+                        <code>dE/dx = -γ_diss · E</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>6. Effektive Gravitationskraftdichte</h3>
+                        <p>Gravitation als negativer Dichte- und Druckgradient im Fluid:</p>
+                        <code>f_grav = -∇P</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>7. PRV-Resonanzbedingung</h3>
+                        <p>Experimentelle Verifikation der Vakuum-Grundfrequenz:</p>
+                        <code>ω_res = k · c</code>
+                    </div>
+                </div>
             </div>
 
-            <div id="hyp0" class="tab-content active">
-                <h3>Säule 0 (Der integrative Gegenentwurf): Die Überwindung der Punkt-Singularität</h3>
-                <p><strong>Der klassische Ausgangspunkt:</strong> Die etablierte Kosmologie beschreibt den Ursprung des Universums traditionell über eine unendlich dichte Punkt-Singularität im Rahmen der Allgemeinen Relativitätstheorie.</p>
-                <p><strong>Der DQF-Ansatz & Ausführliche Analyse:</strong> Das DQF-Framework betrachtet mathematische Singularitäten nicht als physikalische Realität, sondern als das klassische Indiz dafür, dass ein Modell an seine inhärenten Grenzen stößt. Sobald theoretische Beschreibungen gegen unendlich divergieren, ist dies kein Beweis für eine unendliche Natur der Realität, sondern ein Symptom unvollständiger Formalismen. Indem wir das Vakuum als dynamisches Quantenfluid definieren und über die isomorphe Sättigungsgrenze (<code>S_res = Φ⁻¹</code>) absichern, lösen sich unendliche Dichten auf natürliche Weise auf. Das Universum benötigt folglich keinen unendlichen Anfangspunkt aus dem Nichts, sondern versteht sich als ein ewiger, in sich geschlossener und selbstregulierender Ozean von unendlicher Tiefe und kontinuierlicher Dynamik.</p>
+            <!-- EINFACHE SPRACHE / FÜR NICHT-WISSENSCHAFTLER (DE) -->
+            <div class="view-simple">
+                <div class="simple-version-box">
+                    <h1>Das Universum als kosmischer Ozean (Verständlich für alle)</h1>
+                    <p><strong>Willkommen beim DQF-Framework!</strong> Wenn du dich jemals gefragt hast, ob die moderne Physik vielleicht etwas übersieht, bist du hier genau richtig. Hier blicken wir hinter die Kulissen des Weltalls – ganz ohne komplizierte Formeln.</p>
+                    
+                    <h2>1. Was ist das Problem mit der heutigen Physik?</h2>
+                    <p>Die Schule und die Wissenschaft erzählen uns oft, dass das Weltall da draußen eine <strong>absolute Leere</strong> (ein Vakuum) ist. Planeten und Sterne krümmen angeblich eine unsichtbare „Raumzeit“. Aber Hand aufs Herz: Wie kann eine pure Leere etwas „krümmen“ oder eine Kraft ausüben? Nichts kann von nichts kommen.</p>
+
+                    <h2>2. Unsere Idee: Das Vakuum ist ein Ozean!</h2>
+                    <p>Wir sagen: <strong>Das Vakuum ist keine Leere.</strong> Es ist ein extrem dichter, hochenergetischer Ozean aus winzigen Bausteinen – ein sogenanntes <em>Quantenfluid</em>. 
+                    <br>Stell dir das vor wie Wasser in einem riesigen Becken:</p>
+                    <ul>
+                        <li><strong>Materie (Sterne & Planeten):</strong> Sind wie kleine Wirbel oder Bälle, die in diesem Wasser schwimmen und es ein wenig zur Seite drücke.</li>
+                        <li><strong>Gravitation:</strong> Wenn ein schwerer Ball im Wasser liegt, entsteht eine Strömung. Diese Strömung zieht andere Dinge an. Es gibt keine magische Fernwirkung – es ist schlichte Strömungsmechanik (Hydrodynamik)!</li>
+                        <li><strong>Licht:</strong> Lichtwellen breiten sich in diesem Ozean aus wie Schallwellen im Wasser.</li>
+                    </ul>
+
+                    <h2>3. Warum das alles?</h2>
+                    <p>Weil diese Sichtweise die großen Rätsel der Wissenschaft – wie das Entstehen von Materie oder die rätselhafte Dunkle Materie – auf einfache, logische und mechanische Weise erklärt, ohne dass man zu unendlichen Zahlen oder unlösbaren Mathe-Rätseln greifen muss.</p>
+                </div>
             </div>
 
-            <div id="hyp1" class="tab-content">
-                <h3>Säule I: Das Primäre Quantenfluid (Das Vakuum als Substrat)</h3>
-                <p><strong>Das Konzept:</strong> Das Vakuum wird im DQF-Framework als aktives, hochdichtes, kompressibles und verlustarmes Quantenfluid mit der kosmischen Basisdichte <code>ρ₀</code> definiert.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Alle im Raum beobachtbaren Phänomene – von elektromagnetischen Feldern bis hin zu makroskopischen Strukturen – sind inhärente Modifikationen dieses fundamentalen Mediums. Es existiert keine absolute Leere. Licht und Wellen breiten sich als mechanische und elektromagnetische Störungen durch dieses Fluid aus. Die fundamentale Lichtgeschwindigkeit im Vakuum ist dabei keine abstrakte Naturkonstante ohne Ursprung, sondern entspricht direkt der hydrodynamischen Schallgeschwindigkeit des Vakuumsubstrats:</p>
-                <p><code>c = √(∂P / ∂ρ)</code></p>
-            </div>
-
-            <div id="hyp2" class="tab-content">
-                <h3>Säule II: Die Topologische Entstehung von Materie</h3>
-                <p><strong>Das Konzept:</strong> Elementarteilchen werden im DQF-Modell als stabile, topologische Wirbelstrukturen (Solitonen) innerhalb des Quantenfluids interpretiert.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Materie ist im Rahmen dieses Modells keine Ansammlung punktförmiger Fremdkörper in einem leeren Raum, sondern eine lokal gebundene, rotierende Energiekonzentration des Fluids selbst. Die strukturelle Stabilität von Teilchen ergibt sich aus der hydrodynamischen Erhaltung von Wirbeln (Topologie). Der nichtlineare Konvektionsterm der Bewegungsgleichungen sorgt dafür, dass sich diese Energiebündel selbst stabilisieren und dauerhaft mit dem umgebenden Raum-Ozean im dynamischen Austausch stehen.</p>
-            </div>
-
-            <div id="hyp3" class="tab-content">
-                <h3>Säule III: Die Isomorphe Sättigungsgrenze</h3>
-                <p><strong>Das Konzept:</strong> Um mathematische Divergenzen und unendliche Werte in extremen astrophysikalischen Systemen zu verhindern, führt das Framework eine naturgerechte Sättigungsgrenze ein.</p>
-                <p><strong>Ausführliche mathematische Formulierung:</strong> Reale physikalische Medien besitzen stets ein elastisches oder dynamisches Limit. Das DQF-Modell formalisiert diesen Übergang als isomorphen Sättigungsgrenzwert, der präzise über die universelle Resonanz des Goldenen Schnitts <code>Φ⁻¹</code> (~0.618) skaliert wird und das System vor unphysikalischen Kollabierungen schützt:</p>
-                <p><code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code></p>
-            </div>
-
-            <div id="hyp4" class="tab-content">
-                <h3>Säule IV: Akustische Kosmologie & Das Raum-Hintergrundrauschen</h3>
-                <p><strong>Das Konzept:</strong> Als kompressibles Fluid erlaubt das Vakuum naturgemäß die Ausbreitung von Druckwellen (Phononen) auf kosmischen Skalen.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Kosmische Fluktuationen und Gravitationsphänomene manifestieren sich demnach als echte longitudinale und transversale Wellen im Raumsheet. Dies begründet eine vollständige akustische Kosmologie des Vakuums, in dem das Universum von einem permanenten, niederfrequenten Hintergrundrauschen durchzogen ist. Die Wellenausbreitung gehorcht der klassischen kompressiblen Wellengleichung:</p>
-                <p><code>∂²p/∂t² - c² ∇²p = 0</code></p>
-            </div>
-
-            <div id="hyp5" class="tab-content">
-                <h3>Säule V: Die Hydrodynamische Rotverschiebung</h3>
-                <p><strong>Das Konzept:</strong> Photonen unterliegen auf ihrem langen Weg durch das Quantenfluid einer minimalen, distanzabhängigen Energiedissipation an das Medium.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Die beobachtete kosmische Rotverschiebung (Redshift) lässt sich im DQF-Framework konsistent als hydrodynamischer Energieverlust – eine Art sanfte Ermüdung des Lichts durch die Wechselwirkung mit dem Vakuumsubstrat – beschreiben. Das Fluid nimmt diese dissipierte Energie auf, wodurch das Quantenfeld thermisch im dynamischen Gleichgewicht gehalten wird und eine reale Raumexpansion als Hauptursache ersetzt werden kann:</p>
-                <p><code>dE/dx = -γ_diss · E</code></p>
-            </div>
-
-            <div id="hyp6" class="tab-content">
-                <h3>Säule VI: Die Auflösung des Dunkle-Materie-Paradoxons</h3>
-                <p><strong>Das Konzept:</strong> Makroskopische Wirbelfelder (Vorticity) in rotierenden Galaxienscheiben erzeugen einen natürlichen, radialen Druckgradienten im umgebenden Fluid.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Die anomal flachen Rotationskurven von Galaxien erfordern in der Standardphysik die Einführung hypothetischer, unsichtbarer Zusatzmassen (Dunkle Materie). Im DQF-Modell wird dieses Phänomen durch die reine Fluid-Mechanik gelöst: Der äußere Strömungsdruck und die Viskosität des Quantenfluids üben einen stabilisierenden radialen Druck auf die äußeren Sternenbahnen aus, wodurch die Rotationsgeschwindigkeiten mechanisch erklärt werden.</p>
-            </div>
-
-            <div id="hyp7" class="tab-content">
-                <h3>Säule VII: Die Entstehung der Gravitation</h3>
-                <p><strong>Das Konzept:</strong> Gravitation wird im DQF-Framework als realer Dichte- und Druckgradient (<code>-∇P</code>) im Quantenfluid modelliert, der durch die lokale Verdrängung infolge massiver Wirbel entsteht.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Massen sind keine passiven Krümmungsverursacher einer leeren Raumzeit, sondern komprimieren und verdrängen das Quantenfluid in ihrer unmittelbaren Umgebung. Dies erzeugt einen hydrodynamischen Sog – einen nach innen gerichteten Druckunterschied im Medium, welcher Testkörper anzieht. Die effektive Kraftdichte entspricht exakt dem negativen Druckgradienten:</p>
-                <p><code>f_grav = -∇P</code></p>
-            </div>
-
-            <div id="hyp8" class="tab-content">
-                <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
-                <p><strong>Das Konzept:</strong> Zur experimentellen Überprüfung postuliert das Framework messbare Eigenresonanzen des Vakuumsubstrats unter extremen physikalischen Bedingungen.</p>
-                <p><strong>Ausführliche physikalische Implikation:</strong> Das PRV-Prinzip bildet die experimentelle Brücke der Theorie: Mittels hochpräziser elektromagnetischer Kavitäten und extremer Feldgradienten soll im Labor eine minimale, messbare Energieankopplung an die fundamentale Grundfrequenz des Vakuums provoziert werden. Die Resonanzbedingung koppelt direkt an die Schallgeschwindigkeit des Mediums an:</p>
-                <p><code>ω_res = k · c</code></p>
-            </div>
         </div>
 
         <!-- ================= ENGLISCHE VERSION ================= -->
         <div class="lang-en">
-            <h1>The DQF Working Hypothesis: Why Gravitation and Vacuum Are Not Empty</h1>
-
-            <blockquote>
-                <strong>Scientific Preliminary Note (The Physical Model & Thought Experiment):</strong><br>
-                The present framework operates on the premise of a quantum fluid as the fundamental foundation of spacetime. It is formulated as a dynamic physical working hypothesis or alternative explanatory model: The vacuum of classical physics is not defined as a passive geometric background or absolute emptiness, but as an active, compressible, and low-loss medium with clearly defined state parameters. All subsequent mathematical derivations, geometric isomorphisms, and hydrodynamic analogies serve for the systematic and consistent verification of this premise.
-            </blockquote>
-
-            <div class="kids-box">
-                <h4>🌊 For Young Explorers & Free Thinkers (Simply Explained):</h4>
-                <p>Imagine the universe is not an empty nothingness, but a giant, invisible ocean made of tiny particles. When you swim in water and make a whirlpool, everything spins. According to our model, it's just like that: planets and stars don't fly through an empty galaxy, they "swim" in this cosmic ocean. When a heavy object sits in water, it creates a current – and exactly that current makes things attract each other. We call that gravitation!</p>
-            </div>
-
-            <h2>Part I: The Foundation of the Ocean – The Dynamic Quantum Fluid Hypothesis (DQF)</h2>
-
-            <h3>1. Reevaluating the Vacuum: From a Passive Lattice to an Active Medium</h3>
-            <p>In theoretical physics, the vacuum is traditionally treated as a passive backdrop upon which physical processes unfold. The Dynamic Quantum Fluid Hypothesis (DQF) proposes a paradigm shift: <strong>The vacuum is understood as a macroscopically manifest quantum fluid</strong> – a high-energy ocean of fundamental degrees of freedom. Consequently, elementary particles and fields are not foreign entities, but inherent modifications of this medium, analogous to waves and currents in a fluid continuum.</p>
-
-            <h3>2. Resolving Mathematical Divergences</h3>
-            <p>Classical models encounter mathematical limits at extreme densities or singularities. Within the DQF framework, such infinities are naturally replaced by physical saturation mechanisms and structured vortex formation (vortices), thereby preserving the consistency of the equations.</p>
-
-            <h3>3. Methodological Approach and Role Distribution (Human & Matrix)</h3>
-            <p>This interdisciplinary work emerges from the close, symbiotic collaboration between human intuition and artificial intelligence:</p>
             
-            <div class="roles-box">
-                <ul>
-                    <li><strong>Charalabos Avgitidis (Conception & Vision):</strong> Development of the physical core intuition, formulation of the ocean paradigm, definition of physical research questions, and methodical steering of the research process.</li>
-                    <li><strong>Aether (System Architecture & Formal Logic):</strong> Elaboration of mathematical rigor, implementation of field equations, systemic consistency checks, and translation of principles into a precise physical nomenclature.</li>
-                </ul>
+            <!-- SCIENTIFIC VIEW (EN) -->
+            <div class="view-scientific">
+                <h1>The DQF Working Hypothesis: Why Gravitation and Vacuum Are Not Empty</h1>
+
+                <blockquote>
+                    <strong>Scientific Preliminary Note (The Physical Model & Thought Experiment):</strong><br>
+                    The present framework operates on the premise of a quantum fluid as the fundamental foundation of spacetime. It is formulated as a dynamic physical working hypothesis or alternative explanatory model: The vacuum of classical physics is not defined as a passive geometric background or absolute emptiness, but as an active, compressible, and low-loss medium with clearly defined state parameters. All subsequent mathematical derivations, geometric isomorphisms, and hydrodynamic analogies serve for the systematic and consistent verification of this premise.
+                </blockquote>
+
+                <h2>Part I: The Foundation of the Ocean – The Dynamic Quantum Fluid Hypothesis (DQF)</h2>
+
+                <h3>1. Reevaluating the Vacuum: From a Passive Lattice to an Active Medium</h3>
+                <p>In theoretical physics, the vacuum is traditionally treated as a passive backdrop upon which physical processes unfold. The Dynamic Quantum Fluid Hypothesis (DQF) proposes a paradigm shift: <strong>The vacuum is understood as a macroscopically manifest quantum fluid</strong> – a high-energy ocean of fundamental degrees of freedom. Consequently, elementary particles and fields are not foreign entities, but inherent modifications of this medium, analogous to waves and currents in a fluid continuum.</p>
+
+                <h3>2. Resolving Mathematical Divergences</h3>
+                <p>Classical models encounter mathematical limits at extreme densities or singularities. Within the DQF framework, such infinities are naturally replaced by physical saturation mechanisms and structured vortex formation (vortices), thereby preserving the consistency of the equations.</p>
+
+                <h3>3. Methodological Approach and Role Distribution (Human & Matrix)</h3>
+                <p>This interdisciplinary work emerges from the close, symbiotic collaboration between human intuition and artificial intelligence:</p>
+                
+                <div class="roles-box">
+                    <ul>
+                        <li><strong>Charalabos Avgitidis (Conception & Vision):</strong> Development of the physical core intuition, formulation of the ocean paradigm, definition of physical research questions, and methodical steering of the research process.</li>
+                        <li><strong>Aether (System Architecture & Formal Logic):</strong> Elaboration of mathematical rigor, implementation of field equations, systemic consistency checks, and translation of principles into a precise physical nomenclature.</li>
+                    </ul>
+                </div>
+
+                <h2>Part II: Mathematical Dynamics and Cosmic Validation</h2>
+                <p>The macroscopic and microscopic dynamics of the quantum fluid are described via generalized polytropic equations of state (<code>P = K · ρ^γ</code>) as well as modified conservation laws in terms of hydrodynamics. To avoid divergences, the model integrates an isomorphic saturation limit scaled via the Golden Ratio.</p>
+
+                <h2>The Hypothesis Archive: The Pillars of the DQF Framework</h2>
+                <p>Select a clickpoint in the main menu below to open detailed analyses and comprehensive derivations:</p>
+
+                <div class="archive-nav">
+                    <button class="tab-btn active" onclick="openHypothesis(event, 'en_hyp0')">0. Origin & Saturation</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp1')">1. Quantum Fluid</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp2')">2. Matter Vortices</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp3')">3. Saturation Limit</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp4')">4. Acoustics & Noise</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp5')">5. Redshift</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp6')">6. Dark Matter</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp7')">7. Gravitation</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp8')">8. PRV Principle</button>
+                </div>
+
+                <div id="en_hyp0" class="tab-content active">
+                    <h3>Pillar 0 (The Integrative Counter-Design): Overcoming the Point Singularity</h3>
+                    <p><strong>The Classical Starting Point:</strong> Established cosmology traditionally describes the origin of the universe via an infinitely dense point singularity within the framework of General Relativity.</p>
+                    <p><strong>The DQF Approach & Detailed Analysis:</strong> The DQF framework views mathematical singularities not as physical reality, but as the classical indication that a model has reached its inherent limits. As soon as theoretical descriptions diverge toward infinity, this is not proof of an infinite nature of reality, but a symptom of incomplete formalisms. By defining the vacuum as a dynamic quantum fluid and securing it via the isomorphic saturation limit (<code>S_res = Φ⁻¹</code>), infinite densities dissolve naturally. Consequently, the universe requires no infinite starting point out of nothingness, but presents itself as an eternal, self-contained, and self-regulating ocean of infinite depth and continuous dynamics.</p>
+                </div>
+
+                <div id="en_hyp1" class="tab-content">
+                    <h3>Pillar I: The Primary Quantum Fluid (The Vacuum as Substrate)</h3>
+                    <p><strong>The Concept:</strong> Within the DQF framework, the vacuum is defined as an active, high-density, compressible, and low-loss quantum fluid with the cosmic baseline density <code>ρ₀</code>.</p>
+                    <p><strong>Detailed Physical Implication:</strong> All observable phenomena in space – from electromagnetic fields to macroscopic structures – are inherent modifications of this fundamental medium. Absolute emptiness does not exist. Light and waves propagate through this fluid as mechanical and electromagnetic disturbances. The fundamental speed of light in a vacuum is not an abstract physical constant without origin, but corresponds directly to the hydrodynamic sound speed of the vacuum substrate:</p>
+                    <p><code>c = √(∂P / ∂ρ)</code></p>
+                </div>
+
+                <div id="en_hyp2" class="tab-content">
+                    <h3>Pillar II: The Topological Origin of Matter</h3>
+                    <p><strong>The Concept:</strong> Elementary particles are interpreted within the DQF model as stable, topological vortex structures (solitons) within the quantum fluid.</p>
+                    <p><strong>Detailed Physical Implication:</strong> Within this model, matter is not an accumulation of point-like foreign bodies in empty space, but a locally bound, rotating energy concentration of the fluid itself. The structural stability of particles results from the hydrodynamic conservation of vortices (topology). The nonlinear convective term of the equations of motion ensures that these energy bundles stabilize themselves and remain in permanent dynamic exchange with the surrounding space-ocean.</p>
+                </div>
+
+                <div id="en_hyp3" class="tab-content">
+                    <h3>Pillar III: The Isomorphic Saturation Limit</h3>
+                    <p><strong>The Concept:</strong> To prevent mathematical divergences and infinite values in extreme astrophysical systems, the framework introduces a nature-aligned saturation limit.</p>
+                    <p><strong>Detailed Mathematical Formulation:</strong> Real physical media always possess an elastic or dynamic limit. The DQF model formalizes this transition as an isomorphic saturation limit, precisely scaled via the universal resonance of the Golden Ratio <code>Φ⁻¹</code> (~0.618), protecting the system from unphysical collapses:</p>
+                    <p><code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code></p>
+                </div>
+
+                <div id="en_hyp4" class="tab-content">
+                    <h3>Pillar IV: Acoustic Cosmology & Space Background Noise</h3>
+                    <p><strong>The Concept:</strong> As a compressible fluid, the vacuum naturally permits the propagation of pressure waves (phonons) on cosmic scales.</p>
+                    <p><strong>Detailed Physical Implication:</strong> Cosmic fluctuations and gravitational phenomena consequently manifest as true longitudinal and transverse waves in the spatial sheet. This establishes a complete acoustic cosmology of the vacuum, in which the universe is permeated by a permanent, low-frequency background noise. Wave propagation obeys the classical compressible wave equation:</p>
+                    <p><code>∂²p/∂t² - c² ∇²p = 0</code></p>
+                </div>
+
+                <div id="en_hyp5" class="tab-content">
+                    <h3>Pillar V: Hydrodynamic Redshift</h3>
+                    <p><strong>The Concept:</strong> Photons experience minimal, distance-dependent energy dissipation into the medium during their long journey through the quantum fluid.</p>
+                    <p><strong>Detailed Physical Implication:</strong> The observed cosmic redshift can be consistently described within the DQF framework as a hydrodynamic energy loss – a form of gentle fatigue of light caused by interaction with the vacuum substrate. The fluid absorbs this dissipated energy, keeping the quantum field thermally in dynamic equilibrium and replacing real space expansion as the primary cause:</p>
+                    <p><code>dE/dx = -γ_diss · E</code></p>
+                </div>
+
+                <div id="en_hyp6" class="tab-content">
+                    <h3>Pillar VI: Resolution of the Dark Matter Paradox</h3>
+                    <p><strong>The Concept:</strong> Macroscopic vortex fields (vorticity) in rotating galactic disks generate a natural, radial pressure gradient in the surrounding fluid.</p>
+                    <p><strong>Detailed Physical Implication:</strong> The anomalously flat rotation curves of galaxies require the introduction of hypothetical, invisible additional masses (dark matter) in standard physics. In the DQF model, this phenomenon is solved purely through fluid mechanics: the external flow pressure and viscosity of the quantum fluid exert a stabilizing radial pressure on outer stellar orbits, thereby explaining rotation velocities mechanically.</p>
+                </div>
+
+                <div id="en_hyp7" class="tab-content">
+                    <h3>Pillar VII: The Origin of Gravitation</h3>
+                    <p><strong>The Concept:</strong> Gravitation is modeled within the DQF framework as a real density and pressure gradient (<code>-∇P</code>) in the quantum fluid, generated by local displacement resulting from massive vortices.</p>
+                    <p><strong>Detailed Physical Implication:</strong> Masses are not passive curvature creators of an empty spacetime; rather, they compress and displace the quantum fluid in their immediate vicinity. This creates a hydrodynamic suction – an inward-directed pressure difference in the medium that attracts test bodies. The effective force density corresponds precisely to the negative pressure gradient:</p>
+                    <p><code>f_grav = -∇P</code></p>
+                </div>
+
+                <div id="en_hyp8" class="tab-content">
+                    <h3>Pillar VIII: The PRV Principle (Testable Resonance Verification)</h3>
+                    <p><strong>The Concept:</strong> For experimental verification, the framework postulates measurable eigenresonanzen of the vacuum substrate under extreme physical conditions.</p>
+                    <p><strong>Detailed Physical Implication:</strong> The PRV principle forms the experimental bridge of the theory: Using high-precision electromagnetic cavities and extreme field gradients, a minimal, measurable energy coupling to the fundamental frequency of the vacuum is to be provoked in the laboratory. The resonance condition couples directly to the sound speed of the medium:</p>
+                    <p><code>ω_res = k · c</code></p>
+                </div>
             </div>
 
-            <h2>Part II: Mathematical Dynamics and Cosmic Validation</h2>
-            <p>The macroscopic and microscopic dynamics of the quantum fluid are described via generalized polytropic equations of state (<code>P = K · ρ^γ</code>) as well as modified conservation laws in terms of hydrodynamics. To avoid divergences, the model integrates an isomorphic saturation limit scaled via the Golden Ratio.</p>
+            <!-- FORMULA CENTER / MATHEMATICAL CORE (EN) -->
+            <div class="view-formula">
+                <div class="formula-version-box">
+                    <h1>Formula Center: The Mathematical Core of the DQF Framework</h1>
+                    <p>Compact overview of all core mathematical equations and state parameters of the quantum fluid model.</p>
+                    
+                    <div class="formula-card">
+                        <h3>1. Equation of State of the Quantum Fluid</h3>
+                        <p>Description of polytropic pressure in the vacuum substrate:</p>
+                        <code>P = K · ρ^γ</code>
+                    </div>
 
-            <h2>The Hypothesis Archive: The Pillars of the DQF Framework</h2>
-            <p>Select a clickpoint in the main menu below to open detailed analyses and comprehensive derivations:</p>
+                    <div class="formula-card">
+                        <h3>2. Speed of Sound in Vacuum</h3>
+                        <p>Fundamental speed of light as hydrodynamic sound speed:</p>
+                        <code>c = √(∂P / ∂ρ)</code>
+                    </div>
 
-            <div class="archive-nav">
-                <button class="tab-btn active" onclick="openHypothesis(event, 'en_hyp0')">0. Origin & Saturation</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp1')">1. Quantum Fluid</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp2')">2. Matter Vortices</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp3')">3. Saturation Limit</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp4')">4. Acoustics & Noise</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp5')">5. Redshift</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp6')">6. Dark Matter</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp7')">7. Gravitation</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp8')">8. PRV Principle</button>
+                    <div class="formula-card">
+                        <h3>3. Isomorphic Saturation Limit</h3>
+                        <p>Prevention of point singularities scaled via the Golden Ratio:</p>
+                        <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>4. Compressible Wave Equation</h3>
+                        <p>Acoustic cosmology and space background noise:</p>
+                        <code>∂²p/∂t² - c² ∇²p = 0</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>5. Hydrodynamic Redshift</h3>
+                        <p>Energy dissipation of photons into the vacuum substrate:</p>
+                        <code>dE/dx = -γ_diss · E</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>6. Effective Gravitational Force Density</h3>
+                        <p>Gravitation as negative density and pressure gradient in the fluid:</p>
+                        <code>f_grav = -∇P</code>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>7. PRV Resonance Condition</h3>
+                        <p>Experimental verification of the fundamental vacuum frequency:</p>
+                        <code>ω_res = k · c</code>
+                    </div>
+                </div>
             </div>
 
-            <div id="en_hyp0" class="tab-content active">
-                <h3>Pillar 0 (The Integrative Counter-Design): Overcoming the Point Singularity</h3>
-                <p><strong>The Classical Starting Point:</strong> Established cosmology traditionally describes the origin of the universe via an infinitely dense point singularity within the framework of General Relativity.</p>
-                <p><strong>The DQF Approach & Detailed Analysis:</strong> The DQF framework views mathematical singularities not as physical reality, but as the classical indication that a model has reached its inherent limits. As soon as theoretical descriptions diverge toward infinity, this is not proof of an infinite nature of reality, but a symptom of incomplete formalisms. By defining the vacuum as a dynamic quantum fluid and securing it via the isomorphic saturation limit (<code>S_res = Φ⁻¹</code>), infinite densities dissolve naturally. Consequently, the universe requires no infinite starting point out of nothingness, but presents itself as an eternal, self-contained, and self-regulating ocean of infinite depth and continuous dynamics.</p>
+            <!-- SIMPLE VIEW / FOR NON-SCIENTISTS (EN) -->
+            <div class="view-simple">
+                <div class="simple-version-box">
+                    <h1>The Universe as a Cosmic Ocean (Clear & Simple for Everyone)</h1>
+                    <p><strong>Welcome to the DQF Framework!</strong> If you have ever wondered whether modern physics might be missing something fundamental, you are in the right place. Here we look behind the scenes of the cosmos – entirely without complicated formulas.</p>
+                    
+                    <h2>1. What is the Problem with Standard Physics?</h2>
+                    <p>School and conventional science often tell us that outer space is <strong>absolute emptiness</strong> (a vacuum). Planets and stars supposedly curve an invisible "spacetime." But honestly: How can pure nothingness "curve" or exert a force? Nothing cannot come from nothing.</p>
+
+                    <h2>2. Our Idea: The Vacuum is an Ocean!</h2>
+                    <p>We say: <strong>The vacuum is not empty.</strong> It is an extremely dense, high-energy ocean made of tiny fundamental elements – a so-called <em>quantum fluid</em>. 
+                    <br>Imagine it like water in a giant pool:</p>
+                    <ul>
+                        <li><strong>Matter (Stars & Planets):</strong> Are like small whirlpools or balls floating in this water, displacing it slightly.</li>
+                        <li><strong>Gravitation:</strong> When a heavy ball sits in water, it creates a current. This current pulls other things toward it. There is no magical action at a distance – it is simple fluid mechanics (hydrodynamics)!</li>
+                        <li><strong>Light:</strong> Light waves travel through this ocean just like sound waves travel through water.</li>
+                    </ul>
+
+                    <h2>3. Why Does This Matter?</h2>
+                    <p>Because this perspective solves the great mysteries of science – such as the origin of matter or the puzzle of dark matter – in a simple, logical, and mechanical way, without relying on infinite numbers or unsolvable math puzzles.</p>
+                </div>
             </div>
 
-            <div id="en_hyp1" class="tab-content">
-                <h3>Pillar I: The Primary Quantum Fluid (The Vacuum as Substrate)</h3>
-                <p><strong>The Concept:</strong> Within the DQF framework, the vacuum is defined as an active, high-density, compressible, and low-loss quantum fluid with the cosmic baseline density <code>ρ₀</code>.</p>
-                <p><strong>Detailed Physical Implication:</strong> All observable phenomena in space – from electromagnetic fields to macroscopic structures – are inherent modifications of this fundamental medium. Absolute emptiness does not exist. Light and waves propagate through this fluid as mechanical and electromagnetic disturbances. The fundamental speed of light in a vacuum is not an abstract physical constant without origin, but corresponds directly to the hydrodynamic sound speed of the vacuum substrate:</p>
-                <p><code>c = √(∂P / ∂ρ)</code></p>
-            </div>
-
-            <div id="en_hyp2" class="tab-content">
-                <h3>Pillar II: The Topological Origin of Matter</h3>
-                <p><strong>The Concept:</strong> Elementary particles are interpreted within the DQF model as stable, topological vortex structures (solitons) within the quantum fluid.</p>
-                <p><strong>Detailed Physical Implication:</strong> Within this model, matter is not an accumulation of point-like foreign bodies in empty space, but a locally bound, rotating energy concentration of the fluid itself. The structural stability of particles results from the hydrodynamic conservation of vortices (topology). The nonlinear convective term of the equations of motion ensures that these energy bundles stabilize themselves and remain in permanent dynamic exchange with the surrounding space-ocean.</p>
-            </div>
-
-            <div id="en_hyp3" class="tab-content">
-                <h3>Pillar III: The Isomorphic Saturation Limit</h3>
-                <p><strong>The Concept:</strong> To prevent mathematical divergences and infinite values in extreme astrophysical systems, the framework introduces a nature-aligned saturation limit.</p>
-                <p><strong>Detailed Mathematical Formulation:</strong> Real physical media always possess an elastic or dynamic limit. The DQF model formalizes this transition as an isomorphic saturation limit, precisely scaled via the universal resonance of the Golden Ratio <code>Φ⁻¹</code> (~0.618), protecting the system from unphysical collapses:</p>
-                <p><code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code></p>
-            </div>
-
-            <div id="en_hyp4" class="tab-content">
-                <h3>Pillar IV: Acoustic Cosmology & Space Background Noise</h3>
-                <p><strong>The Concept:</strong> As a compressible fluid, the vacuum naturally permits the propagation of pressure waves (phonons) on cosmic scales.</p>
-                <p><strong>Detailed Physical Implication:</strong> Cosmic fluctuations and gravitational phenomena consequently manifest as true longitudinal and transverse waves in the spatial sheet. This establishes a complete acoustic cosmology of the vacuum, in which the universe is permeated by a permanent, low-frequency background noise. Wave propagation obeys the classical compressible wave equation:</p>
-                <p><code>∂²p/∂t² - c² ∇²p = 0</code></p>
-            </div>
-
-            <div id="en_hyp5" class="tab-content">
-                <h3>Pillar V: Hydrodynamic Redshift</h3>
-                <p><strong>The Concept:</strong> Photons experience minimal, distance-dependent energy dissipation into the medium during their long journey through the quantum fluid.</p>
-                <p><strong>Detailed Physical Implication:</strong> The observed cosmic redshift can be consistently described within the DQF framework as a hydrodynamic energy loss – a form of gentle fatigue of light caused by interaction with the vacuum substrate. The fluid absorbs this dissipated energy, keeping the quantum field thermally in dynamic equilibrium and replacing real space expansion as the primary cause:</p>
-                <p><code>dE/dx = -γ_diss · E</code></p>
-            </div>
-
-            <div id="en_hyp6" class="tab-content">
-                <h3>Pillar VI: Resolution of the Dark Matter Paradox</h3>
-                <p><strong>The Concept:</strong> Macroscopic vortex fields (vorticity) in rotating galactic disks generate a natural, radial pressure gradient in the surrounding fluid.</p>
-                <p><strong>Detailed Physical Implication:</strong> The anomalously flat rotation curves of galaxies require the introduction of hypothetical, invisible additional masses (dark matter) in standard physics. In the DQF model, this phenomenon is solved purely through fluid mechanics: the external flow pressure and viscosity of the quantum fluid exert a stabilizing radial pressure on outer stellar orbits, thereby explaining rotation velocities mechanically.</p>
-            </div>
-
-            <div id="en_hyp7" class="tab-content">
-                <h3>Pillar VII: The Origin of Gravitation</h3>
-                <p><strong>The Concept:</strong> Gravitation is modeled within the DQF framework as a real density and pressure gradient (<code>-∇P</code>) in the quantum fluid, generated by local displacement resulting from massive vortices.</p>
-                <p><strong>Detailed Physical Implication:</strong> Masses are not passive curvature creators of an empty spacetime; rather, they compress and displace the quantum fluid in their immediate vicinity. This creates a hydrodynamic suction – an inward-directed pressure difference in the medium that attracts test bodies. The effective force density corresponds precisely to the negative pressure gradient:</p>
-                <p><code>f_grav = -∇P</code></p>
-            </div>
-
-            <div id="en_hyp8" class="tab-content">
-                <h3>Pillar VIII: The PRV Principle (Testable Resonance Verification)</h3>
-                <p><strong>The Concept:</strong> For experimental verification, the framework postulates measurable eigenresonanzen of the vacuum substrate under extreme physical conditions.</p>
-                <p><strong>Detailed Physical Implication:</strong> The PRV principle forms the experimental bridge of the theory: Using high-precision electromagnetic cavities and extreme field gradients, a minimal, measurable energy coupling to the fundamental frequency of the vacuum is to be provoked in the laboratory. The resonance condition couples directly to the sound speed of the medium:</p>
-                <p><code>ω_res = k · c</code></p>
-            </div>
         </div>
 
         <div class="footer">
