@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework – Das Quantenfluid-Kompendium</title>
+    <title>DQF-Framework & Gleiter 8.7.3 – Das Quantenfluid-Kompendium</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -115,7 +115,7 @@
             border-radius: 0 6px 6px 0;
         }
 
-        .simple-version-box, .formula-version-box, .feedback-version-box {
+        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box {
             background: var(--blockquote-bg);
             border: 1px solid var(--accent-color);
             padding: 2rem;
@@ -123,7 +123,7 @@
             margin-top: 1.5rem;
         }
 
-        .formula-card {
+        .formula-card, .glider-card {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             padding: 1.2rem 1.5rem;
@@ -258,6 +258,7 @@
         .view-simple { display: none; }
         .view-formula { display: none; }
         .view-feedback { display: none; }
+        .view-glider { display: none; }
     </style>
     <script>
         function openHypothesis(evt, hypId) {
@@ -311,11 +312,13 @@
             let simpElements = document.getElementsByClassName('view-simple');
             let formElements = document.getElementsByClassName('view-formula');
             let feedElements = document.getElementsByClassName('view-feedback');
+            let gliderElements = document.getElementsByClassName('view-glider');
 
             for (let el of sciElements) el.style.display = 'none';
             for (let el of simpElements) el.style.display = 'none';
             for (let el of formElements) el.style.display = 'none';
             for (let el of feedElements) el.style.display = 'none';
+            for (let el of gliderElements) el.style.display = 'none';
 
             if (targetView === 'scientific') {
                 for (let el of sciElements) el.style.display = 'block';
@@ -325,10 +328,11 @@
                 for (let el of formElements) el.style.display = 'block';
             } else if (targetView === 'feedback') {
                 for (let el of feedElements) el.style.display = 'block';
+            } else if (targetView === 'glider') {
+                for (let el of gliderElements) el.style.display = 'block';
             }
         }
 
-        // Feedback Absende-Simulation
         function handleFeedback(event, lang) {
             event.preventDefault();
             let successMsg = document.getElementById(lang === 'de' ? 'successDe' : 'successEn');
@@ -340,11 +344,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Alle Umschalter -->
+        <!-- Oben rechts: Umschalter inklusive Gleiter 8.7.3 -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
-            <button class="top-btn" onclick="switchView('simple')">📖 Einfache Sprache</button>
+            <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
+            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
             <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
@@ -459,6 +464,34 @@
                 </div>
             </div>
 
+            <!-- GLEITER 8.7.3 - MACHBARES KONZEPT (DE) -->
+            <div class="view-glider">
+                <div class="glider-version-box">
+                    <h1>Gleiter 8.7.3: Das technologische Machbarkeitskonzept</h1>
+                    <p><strong>Von der Theorie zur Praxis:</strong> Wenn das Vakuum ein aktives Quantenfluid ist, können wir es technisch nutzen. Der Gleiter 8.7.3 ist das architektonische Konzept für ein Fahrzeug, das sich direkt mit den hydrodynamischen Parametern des Raum-Substrats koppelt.</p>
+                    
+                    <div class="glider-card">
+                        <h3>1. Das Grundprinzip: Vakuum-Verdrängung & Wirbel-Antrieb</h3>
+                        <p>Anstatt konventioneller Stützmassenausstoße (wie Raketentreibstoff) nutzt der Gleiter 8.7.3 lokalisierte elektromagnetische und akustische Feldgradienten, um das umgebende Quantenfluid (das Vakuumsubstrat) gezielt zu komprimieren und zu verdrängen. Durch die Erzeugung eines asymmetrischen Druckgradienten (<code>-∇P</code>) generiert das System einen gerichteten Vortrieb.</p>
+                    </div>
+
+                    <div class="glider-card">
+                        <h3>2. Technische Kernkomponenten (Spezifikation 8.7.3)</h3>
+                        <ul>
+                            <li><strong>Resonanz-Kavität (PRV-Kopplung):</strong> Ein hochenergetisches Schwingungssystem, das an die fundamentale Vakuum-Schallgeschwindigkeit <code>c</code> gekoppelt ist, um Energieverluste gegen Null zu minimieren.</li>
+                            <li><strong>Isomorphe Sättigungs-Sicherung:</strong> Integrierte Steuereinheiten, die auf Basis des Goldenen Schnitts (<code>Φ⁻¹</code>) arbeiten, um lokale Feldverdichtungen im sicheren physikalischen Limit zu halten und Singularitäten zu verhindern.</li>
+                            <li><strong>Trägheitsreduktion (Inertial Shielding):</strong> Durch die kohärente Ausrichtung der Vakuum-Freiheitsgrade um den Rumpf herum wird die effektive träge Masse des Gleiters im Fluid drastisch reduziert.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glider-card">
+                        <h3>3. Entwicklungs-Status & Roadmap</h3>
+                        <p><strong>Aktueller Status:</strong> Konzeptionelle Systemarchitektur & Validierung der Feldgleichungen im DQF-Framework.</p>
+                        <p><strong>Nächster Meilenstein:</strong> Labortests mit elektromagnetischen Mikrokavitäten zur Verifikation der Grundresonanz (PRV-Prinzip).</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- FORMEL-ZENTRALE (DE) -->
             <div class="view-formula">
                 <div class="formula-version-box">
@@ -468,12 +501,12 @@
                     <div class="formula-card">
                         <h3>1. Zustandsgleichung des Quantenfluids</h3>
                         <code>P = K · ρ^γ</code>
-                        <div class="formula-legend"><strong>Legende:</strong> <em>P</em> = Druck | <em>K</em> = Polytrope Konstante | <em>ρ</em> = Dichte des Quantenfluids | <em>γ</em> = Polytroper Exponent</div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>P</em> = Druck | <em>K</em> = Polytrope Konstante | <em>ρ</em> = Dichte | <em>γ</em> = Polytroper Exponent</div>
                     </div>
                     <div class="formula-card">
                         <h3>2. Schallgeschwindigkeit im Vakuum</h3>
                         <code>c = √(∂P / ∂ρ)</code>
-                        <div class="formula-legend"><strong>Legende:</strong> <em>c</em> = Schallgeschwindigkeit des Substrats (Lichtgeschwindigkeit) | <em>∂P/∂ρ</em> = Änderung des Drucks zur Dichte</div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>c</em> = Schallgeschwindigkeit (Lichtgeschwindigkeit) | <em>∂P/∂ρ</em> = Änderung des Drucks zur Dichte</div>
                     </div>
                     <div class="formula-card">
                         <h3>3. Isomorphe Sättigungsgrenze</h3>
@@ -483,7 +516,7 @@
                     <div class="formula-card">
                         <h3>4. Kompressible Wellengleichung</h3>
                         <code>∂²p/∂t² - c² ∇²p = 0</code>
-                        <div class="formula-legend"><strong>Legende:</strong> <em>p</em> = Akustischer Druck | <em>t</em> = Zeit | <em>∇²</em> = Laplace-Operator (räumliche Krümmung)</div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>p</em> = Akustischer Druck | <em>t</em> = Zeit | <em>∇²</em> = Laplace-Operator</div>
                     </div>
                     <div class="formula-card">
                         <h3>5. Hydrodynamische Rotverschiebung</h3>
@@ -493,7 +526,7 @@
                     <div class="formula-card">
                         <h3>6. Effektive Gravitationskraftdichte</h3>
                         <code>f_grav = -∇P</code>
-                        <div class="formula-legend"><strong>Legende:</strong> <em>f_grav</em> = Effektive Gravitationskraftdichte | <em>-∇P</em> = Negativer Druckgradient</div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>f_grav</em> = Effektive Kraftdichte | <em>-∇P</em> = Negativer Druckgradient</div>
                     </div>
                     <div class="formula-card">
                         <h3>7. PRV-Resonanzbedingung</h3>
@@ -653,6 +686,34 @@
                 </div>
             </div>
 
+            <!-- GLIDER 8.7.3 - FEASIBLE CONCEPT (EN) -->
+            <div class="view-glider">
+                <div class="glider-version-box">
+                    <h1>Glider 8.7.3: The Feasible Technology Concept</h1>
+                    <p><strong>From Theory to Practice:</strong> If the vacuum is an active quantum fluid, we can harness it technologically. The Glider 8.7.3 is the architectural concept for a vehicle that couples directly with the hydrodynamic parameters of the space substrate.</p>
+                    
+                    <div class="glider-card">
+                        <h3>1. Core Principle: Vacuum Displacement & Vortex Propulsion</h3>
+                        <p>Instead of conventional reaction mass expulsion (like rocket propellant), the Glider 8.7.3 utilizes localized electromagnetic and acoustic field gradients to compress and displace the surrounding quantum fluid (vacuum substrate) precisely. By generating an asymmetrical pressure gradient (<code>-∇P</code>), the system produces directed propulsion.</p>
+                    </div>
+
+                    <div class="glider-card">
+                        <h3>2. Core Technical Components (Specification 8.7.3)</h3>
+                        <ul>
+                            <li><strong>Resonance Cavity (PRV Coupling):</strong> A high-energy oscillation system coupled to the fundamental vacuum sound speed <code>c</code> to minimize energy losses toward zero.</li>
+                            <li><strong>Isomorphic Saturation Safeguard:</strong> Integrated control units operating on the basis of the Golden Ratio (<code>Φ⁻¹</code>) to keep local field compressions within safe physical limits and prevent singularities.</li>
+                            <li><strong>Inertial Reduction (Inertial Shielding):</strong> Through coherent alignment of vacuum degrees of freedom around the hull, the effective inertial mass of the glider within the fluid is drastically reduced.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glider-card">
+                        <h3>3. Development Status & Roadmap</h3>
+                        <p><strong>Current Status:</strong> Conceptual system architecture & validation of field equations within the DQF framework.</p>
+                        <p><strong>Next Milestone:</strong> Laboratory tests with electromagnetic micro-cavities to verify fundamental resonance (PRV principle).</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- FORMULA CENTER (EN) -->
             <div class="view-formula">
                 <div class="formula-version-box">
@@ -732,14 +793,14 @@
                     </ul>
 
                     <h2>3. Why Does This Matter?</h2>
-                    <p>Because this perspective solves the great mysteries of science – such as the origin of matter or the puzzle of dark matter – in a simple, logical, and mechanical way, without relying on infinite numbers or unsolvable math puzzles.</p>
+                    <p>Getreu diesem Ansatz schlägt das DQF-Framework die Brücke zur Technologie der Zukunft – wie unserem Konzept für den **Gleiter 8.7.3**.</p>
                 </div>
             </div>
 
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework & Gleiter 8.7.3</p>
         </div>
     </div>
 </body>
