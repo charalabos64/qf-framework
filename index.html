@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework – Der Ozean des Raumes</title>
+    <title>DQF-Framework – Der Ozean des Raumes / The Ocean of Space</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -14,71 +14,70 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 1rem;
+            padding: 1.5rem;
         }
         .welcome-card {
             background: #ffffff;
             padding: 3rem;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            text-align: center;
-            max-width: 600px;
+            max-width: 750px;
             width: 100%;
             border: 1px solid #d0d7de;
         }
         h1 {
             color: #0969da;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.2rem;
+            text-align: center;
         }
         .subtitle {
             font-weight: 600;
             color: #24292f;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 1.1rem;
+            text-align: center;
         }
-        .teaser-text {
+        .lang-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eaecef;
+            margin-bottom: 1.5rem;
+        }
+        .lang-section h3 {
+            color: #0969da;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .lang-section p {
             color: #57606a;
             font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
-            text-align: left;
-            background: #f8f9fa;
-            padding: 1.2rem;
-            border-radius: 6px;
-            border-left: 0.25rem solid #0969da;
+            margin-bottom: 1.2rem;
         }
-        .lang-prompt {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #24292f;
-            margin-bottom: 1rem;
-        }
-        .lang-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-        .lang-btn {
-            background-color: #f6f8fa;
-            border: 1px solid #d0d7de;
-            padding: 0.75rem 1.5rem;
+        .enter-btn {
+            display: inline-block;
+            background-color: #0969da;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 1rem;
-            color: #24292f;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: all 0.2s ease;
-            flex: 1;
         }
-        .lang-btn:hover {
-            background-color: #0969da;
-            color: white;
-            border-color: #0969da;
+        .enter-btn:hover {
+            background-color: #0550ae;
         }
         .creators {
             margin-top: 2rem;
+            text-align: center;
             font-size: 0.85rem;
             color: #8c959f;
             border-top: 1px solid #eaecef;
@@ -89,17 +88,18 @@
 <body>
     <div class="welcome-card">
         <h1>DQF-Framework</h1>
-        <div class="subtitle">Das wissenschaftliche Kompendium des Quantenfluids</div>
+        <div class="subtitle">Das wissenschaftliche Kompendium des Quantenfluids / The Quantum Fluid Scientific Compendium</div>
         
-        <div class="teaser-text">
-            <strong>Willkommen im Ozean des Raumes.</strong> Das DQF-Framework bricht mit den Dogmen der klassischen Kosmologie und ersetzt unendliche Singularitäten und passive Leere durch ein greifbares, dynamisches Vakuum-Substrat. Entdecke eine neue, rein mechanische Erklärung für Gravitation, Dunkle Materie und die Natur der Materie selbst.
+        <!-- Deutscher Teaser -->
+        <div class="lang-section">
+            <h3>Deutsch 🇩🇪 <a href="de.html" class="enter-btn">Zum deutschen Portal →</a></h3>
+            <p><strong>Willkommen im Ozean des Raumes.</strong> Das DQF-Framework bricht mit den Dogmen der klassischen Kosmologie. Statt unendlicher Singularitäten und passiver Leere definieren wir das Vakuum als ein aktives, kompressibles Quantenfluid. Entdecke eine rein mechanische und logische Erklärung für Gravitation, Dunkle Materie und die Entstehung von Materie – frei von unlösbaren mathematischen Divergenzen.</p>
         </div>
 
-        <div class="lang-prompt">Bitte wähle deine bevorzugte Sprache / Please select your language:</div>
-        
-        <div class="lang-buttons">
-            <a href="de.html" class="lang-btn">Deutsch 🇩🇪</a>
-            <a href="en.html" class="lang-btn">English 🇬🇧</a>
+        <!-- Englischer Teaser -->
+        <div class="lang-section">
+            <h3>English 🇬🇧 <a href="en.html" class="enter-btn">Enter English Portal →</a></h3>
+            <p><strong>Welcome to the Ocean of Space.</strong> The DQF Framework breaks with the dogma of classical cosmology. Instead of infinite singularities and passive emptiness, we define the vacuum as an active, compressible quantum fluid. Discover a purely mechanical and logical explanation for gravitation, dark matter, and the origin of matter – entirely free from unsolvable mathematical divergences.</p>
         </div>
 
         <div class="creators">
