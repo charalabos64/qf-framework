@@ -115,7 +115,7 @@
             border-radius: 0 6px 6px 0;
         }
 
-        .simple-version-box, .formula-version-box {
+        .simple-version-box, .formula-version-box, .feedback-version-box {
             background: var(--blockquote-bg);
             border: 1px solid var(--accent-color);
             padding: 2rem;
@@ -146,6 +146,47 @@
             margin-top: 0.5rem;
             border-top: 1px dashed var(--border-color);
             padding-top: 0.5rem;
+        }
+
+        /* Feedback Formular Styles */
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .feedback-input, .feedback-textarea {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .feedback-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .feedback-submit {
+            background-color: var(--lang-btn-bg);
+            color: var(--lang-btn-text);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+        .feedback-submit:hover {
+            background-color: var(--lang-btn-hover);
+        }
+        .form-success {
+            display: none;
+            color: #238636;
+            font-weight: 600;
+            margin-top: 1rem;
         }
 
         code, pre {
@@ -216,6 +257,7 @@
         .view-scientific { display: block; }
         .view-simple { display: none; }
         .view-formula { display: none; }
+        .view-feedback { display: none; }
     </style>
     <script>
         function openHypothesis(evt, hypId) {
@@ -268,10 +310,12 @@
             let sciElements = document.getElementsByClassName('view-scientific');
             let simpElements = document.getElementsByClassName('view-simple');
             let formElements = document.getElementsByClassName('view-formula');
+            let feedElements = document.getElementsByClassName('view-feedback');
 
             for (let el of sciElements) el.style.display = 'none';
             for (let el of simpElements) el.style.display = 'none';
             for (let el of formElements) el.style.display = 'none';
+            for (let el of feedElements) el.style.display = 'none';
 
             if (targetView === 'scientific') {
                 for (let el of sciElements) el.style.display = 'block';
@@ -279,16 +323,29 @@
                 for (let el of simpElements) el.style.display = 'block';
             } else if (targetView === 'formula') {
                 for (let el of formElements) el.style.display = 'block';
+            } else if (targetView === 'feedback') {
+                for (let el of feedElements) el.style.display = 'block';
             }
+        }
+
+        // Feedback Absende-Simulation
+        function handleFeedback(event, lang) {
+            event.preventDefault();
+            let successMsg = document.getElementById(lang === 'de' ? 'successDe' : 'successEn');
+            successMsg.style.display = 'block';
+            event.target.reset();
+            setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
         }
     </script>
 </head>
 <body>
     <div class="container">
+        <!-- Oben rechts: Alle Umschalter -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfache Sprache</button>
-            <button class="top-btn" onclick="switchView('formula')">📐 Formel-Zentrale</button>
+            <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
+            <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
             <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
         </div>
@@ -402,7 +459,7 @@
                 </div>
             </div>
 
-            <!-- FORMEL-ZENTRALE / MATHEMATICAL CORE (DE MIT LEGENDE) -->
+            <!-- FORMEL-ZENTRALE (DE) -->
             <div class="view-formula">
                 <div class="formula-version-box">
                     <h1>Formel-Zentrale: Der mathematische Kern des DQF-Frameworks</h1>
@@ -411,62 +468,58 @@
                     <div class="formula-card">
                         <h3>1. Zustandsgleichung des Quantenfluids</h3>
                         <code>P = K · ρ^γ</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>P</em> = Druck | <em>K</em> = Polytrope Konstante | <em>ρ</em> = Dichte des Quantenfluids | <em>γ</em> = Polytroper Exponent
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>P</em> = Druck | <em>K</em> = Polytrope Konstante | <em>ρ</em> = Dichte des Quantenfluids | <em>γ</em> = Polytroper Exponent</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>2. Schallgeschwindigkeit im Vakuum</h3>
                         <code>c = √(∂P / ∂ρ)</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>c</em> = Schallgeschwindigkeit des Substrats (entspricht der Lichtgeschwindigkeit) | <em>∂P/∂ρ</em> = Änderung des Drucks zur Dichte
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>c</em> = Schallgeschwindigkeit des Substrats (Lichtgeschwindigkeit) | <em>∂P/∂ρ</em> = Änderung des Drucks zur Dichte</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>3. Isomorphe Sättigungsgrenze</h3>
                         <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>S_res</em> = Sättigungsgrenzwert | <em>v</em> = Geschwindigkeitsfeld | <em>ρ_0</em> = Basisdichte | <em>Φ⁻¹</em> = Goldener Schnitt (~0.618)
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>S_res</em> = Sättigungsgrenzwert | <em>v</em> = Geschwindigkeitsfeld | <em>ρ_0</em> = Basisdichte | <em>Φ⁻¹</em> = Goldener Schnitt (~0.618)</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>4. Kompressible Wellengleichung</h3>
                         <code>∂²p/∂t² - c² ∇²p = 0</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>p</em> = Akustischer Druck (Druckstörung) | <em>t</em> = Zeit | <em>∇²</em> = Laplace-Operator (räumliche Krümmung)
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>p</em> = Akustischer Druck | <em>t</em> = Zeit | <em>∇²</em> = Laplace-Operator (räumliche Krümmung)</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>5. Hydrodynamische Rotverschiebung</h3>
                         <code>dE/dx = -γ_diss · E</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>E</em> = Energie des Photons | <em>x</em> = Zurückgelegte Wegstrecke | <em>γ_diss</em> = Dissipationskoeffizient
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>E</em> = Photonenergie | <em>x</em> = Wegstrecke | <em>γ_diss</em> = Dissipationskoeffizient</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>6. Effektive Gravitationskraftdichte</h3>
                         <code>f_grav = -∇P</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>f_grav</em> = Effektive Gravitationskraftdichte | <em>-∇P</em> = Negativer Druckgradient im Quantenfluid
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>f_grav</em> = Effektive Gravitationskraftdichte | <em>-∇P</em> = Negativer Druckgradient</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>7. PRV-Resonanzbedingung</h3>
                         <code>ω_res = k · c</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>ω_res</em> = Vakuum-Eigenresonanz | <em>k</em> = Wellenzahl
-                        </div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>ω_res</em> = Vakuum-Eigenresonanz | <em>k</em> = Wellenzahl</div>
                     </div>
                 </div>
             </div>
 
-            <!-- EINFACHE SPRACHE / FÜR NICHT-WISSENSCHAFTLER (DE) -->
+            <!-- DISKUSSIONS- & FEEDBACK-BEREICH (DE) -->
+            <div class="view-feedback">
+                <div class="feedback-version-box">
+                    <h1>Diskussion & Feedback zum DQF-Framework</h1>
+                    <p>Haben Sie Fragen zur Theorie, Anregungen oder möchten Sie als Physiker oder Querdenker mit uns in den Dialog treten? Schreiben Sie uns Ihre Gedanken direkt hier:</p>
+                    
+                    <form class="feedback-form" onsubmit="handleFeedback(event, 'de')">
+                        <input type="text" class="feedback-input" placeholder="Ihr Name oder Pseudonym" required>
+                        <input type="email" class="feedback-input" placeholder="Ihre E-Mail-Adresse (optional für Rückantwort)" >
+                        <textarea class="feedback-textarea" placeholder="Ihre Gedanken, Fragen oder Korrekturvorschläge zum DQF-Framework..." required></textarea>
+                        <button type="submit" class="feedback-submit">Absenden 🚀</button>
+                        <div id="successDe" class="form-success">Vielen Dank! Ihre Nachricht wurde erfolgreich an den Maschinenraum übermittelt.</div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- EINFACHE SPRACHE (DE) -->
             <div class="view-simple">
                 <div class="simple-version-box">
                     <h1>Das Universum als kosmischer Ozean (Verständlich für alle)</h1>
@@ -600,7 +653,7 @@
                 </div>
             </div>
 
-            <!-- FORMULA CENTER / MATHEMATICAL CORE (EN WITH LEGEND) -->
+            <!-- FORMULA CENTER (EN) -->
             <div class="view-formula">
                 <div class="formula-version-box">
                     <h1>Formula Center: The Mathematical Core of the DQF Framework</h1>
@@ -609,62 +662,58 @@
                     <div class="formula-card">
                         <h3>1. Equation of State of the Quantum Fluid</h3>
                         <code>P = K · ρ^γ</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>P</em> = Pressure | <em>K</em> = Polytropic constant | <em>ρ</em> = Density of the quantum fluid | <em>γ</em> = Polytropic exponent
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>P</em> = Pressure | <em>K</em> = Polytropic constant | <em>ρ</em> = Density | <em>γ</em> = Polytropic exponent</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>2. Speed of Sound in Vacuum</h3>
                         <code>c = √(∂P / ∂ρ)</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>c</em> = Sound speed of the substrate (corresponds to speed of light) | <em>∂P/∂ρ</em> = Change of pressure relative to density
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>c</em> = Sound speed (speed of light) | <em>∂P/∂ρ</em> = Change of pressure relative to density</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>3. Isomorphic Saturation Limit</h3>
                         <code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>S_res</em> = Saturation limit | <em>v</em> = Velocity field | <em>ρ_0</em> = Baseline density | <em>Φ⁻¹</em> = Golden Ratio (~0.618)
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>S_res</em> = Saturation limit | <em>v</em> = Velocity field | <em>ρ_0</em> = Baseline density | <em>Φ⁻¹</em> = Golden Ratio (~0.618)</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>4. Compressible Wave Equation</h3>
                         <code>∂²p/∂t² - c² ∇²p = 0</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>p</em> = Acoustic pressure (pressure disturbance) | <em>t</em> = Time | <em>∇²</em> = Laplace operator (spatial curvature)
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>p</em> = Acoustic pressure | <em>t</em> = Time | <em>∇²</em> = Laplace operator</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>5. Hydrodynamic Redshift</h3>
                         <code>dE/dx = -γ_diss · E</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>E</em> = Photon energy | <i>x</i> = Traveled distance | <em>γ_diss</em> = Dissipation coefficient
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>E</em> = Photon energy | <em>x</em> = Distance | <em>γ_diss</em> = Dissipation coefficient</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>6. Effective Gravitational Force Density</h3>
                         <code>f_grav = -∇P</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>f_grav</em> = Effective gravitational force density | <em>-∇P</em> = Negative pressure gradient in the quantum fluid
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>f_grav</em> = Effective force density | <em>-∇P</em> = Negative pressure gradient</div>
                     </div>
-
                     <div class="formula-card">
                         <h3>7. PRV Resonance Condition</h3>
                         <code>ω_res = k · c</code>
-                        <div class="formula-legend">
-                            <strong>Legend:</strong> <em>ω_res</em> = Vacuum eigenresonance | <em>k</em> = Wavenumber
-                        </div>
+                        <div class="formula-legend"><strong>Legend:</strong> <em>ω_res</em> = Vacuum eigenresonance | <em>k</em> = Wavenumber</div>
                     </div>
                 </div>
             </div>
 
-            <!-- SIMPLE VIEW / FOR NON-SCIENTISTS (EN) -->
+            <!-- DISCUSSION & FEEDBACK (EN) -->
+            <div class="view-feedback">
+                <div class="feedback-version-box">
+                    <h1>Discussion & Feedback on the DQF Framework</h1>
+                    <p>Do you have questions about the theory, suggestions, or would you like to enter into a dialogue with us as a physicist or free thinker? Send us your thoughts right here:</p>
+                    
+                    <form class="feedback-form" onsubmit="handleFeedback(event, 'en')">
+                        <input type="text" class="feedback-input" placeholder="Your name or pseudonym" required>
+                        <input type="email" class="feedback-input" placeholder="Your email address (optional for reply)">
+                        <textarea class="feedback-textarea" placeholder="Your thoughts, questions, or correction suggestions regarding the DQF framework..." required></textarea>
+                        <button type="submit" class="feedback-submit">Submit 🚀</button>
+                        <div id="successEn" class="form-success">Thank you! Your message has been successfully transmitted to the engine room.</div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SIMPLE VIEW (EN) -->
             <div class="view-simple">
                 <div class="simple-version-box">
                     <h1>The Universe as a Cosmic Ocean (Clear & Simple for Everyone)</h1>
