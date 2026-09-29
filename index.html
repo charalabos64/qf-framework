@@ -3,254 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Hypothese – Warum Gravitation und Vakuum keine Leere sind</title>
+    <title>DQF-Framework – Der Ozean des Raumes / The Ocean of Space</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1f2328;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 2rem;
             background-color: #f6f8fa;
+            color: #1f2328;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1.5rem;
         }
-        .container {
+        .welcome-card {
             background: #ffffff;
             padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            max-width: 750px;
+            width: 100%;
+            border: 1px solid #d0d7de;
         }
-        .lang-switch {
+        h1 {
+            color: #0969da;
+            font-size: 2.2rem;
+            margin-bottom: 0.2rem;
+            text-align: center;
+        }
+        .subtitle {
+            font-weight: 600;
+            color: #24292f;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .lang-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eaecef;
+            margin-bottom: 1.5rem;
+        }
+        .lang-section h3 {
+            color: #0969da;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
             display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0 2rem 0;
+            justify-content: space-between;
             align-items: center;
         }
-        .lang-link {
-            padding: 0.3rem 0.8rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 4px;
-            text-decoration: none;
-            border: 1px solid #d0d7de;
+        .lang-section p {
             color: #57606a;
-            background-color: #f6f8fa;
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
         }
-        .lang-link.active {
+        .enter-btn {
+            display: inline-block;
             background-color: #0969da;
             color: white;
-            border-color: #0969da;
-        }
-        .lang-link:hover:not(.active) { background-color: #eaecef; }
-        h1, h2, h3 {
-            color: #0969da;
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
-        }
-        h1 { font-size: 2.1rem; margin-bottom: 0.2rem; }
-        h2 { font-size: 1.6rem; margin-top: 2.5rem; }
-        h3 { font-size: 1.3rem; border-bottom: none; color: #1f2328; margin-top: 0; }
-        blockquote {
-            margin: 1.5rem 0;
-            padding: 1rem 1.5rem;
-            color: #57606a;
-            background-color: #f0f6fc;
-            border-left: 0.25rem solid #0969da;
-            border-radius: 0 6px 6px 0;
-        }
-        code, pre {
-            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-            background-color: rgba(175, 184, 193, 0.2);
-            padding: 0.2em 0.4em;
-            border-radius: 6px;
-            font-size: 85%;
-        }
-        p { margin-bottom: 1rem; }
-        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        li { margin-bottom: 0.5rem; }
-
-        .archive-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.5rem 0 2rem 0;
-            background: #f6f8fa;
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid #d0d7de;
-        }
-        .tab-btn {
-            background-color: #ffffff;
-            border: 1px solid #d0d7de;
-            padding: 0.5rem 1rem;
+            border: none;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
-            color: #24292f;
+            text-decoration: none;
             transition: all 0.2s ease;
         }
-        .tab-btn:hover { background-color: #eaecef; }
-        .tab-btn.active {
-            background-color: #0969da;
-            color: white;
-            border-color: #0969da;
+        .enter-btn:hover {
+            background-color: #0550ae;
         }
-        .tab-content {
-            display: none;
-            padding: 2rem;
-            background: #f8f9fa;
-            border: 1px solid #eaecef;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-        .tab-content.active { display: block; }
-        .roles-box {
-            background: #f8f9fa;
-            border: 1px solid #d0d7de;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1.5rem 0;
-        }
-        .footer {
-            margin-top: 3rem;
+        .creators {
+            margin-top: 2rem;
             text-align: center;
-            font-size: 0.9rem;
-            color: #57606a;
+            font-size: 0.85rem;
+            color: #8c959f;
             border-top: 1px solid #eaecef;
             padding-top: 1rem;
         }
     </style>
-    <script>
-        function openHypothesis(evt, hypId) {
-            let contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-            let buttons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            document.getElementById(hypId).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <!-- Titel mit klarem Hypothesen-Charakter -->
-        <h1>Die DQF-Arbeitshypothese: Warum Gravitation und Vakuum keine Leere sind</h1>
+    <div class="welcome-card">
+        <h1>DQF-Framework</h1>
+        <div class="subtitle">Das wissenschaftliche Kompendium des Quantenfluids / The Quantum Fluid Scientific Compendium</div>
         
-        <div class="lang-switch">
-            <span style="font-size: 0.85rem; color: #57606a; font-weight: 600;">Sprache / Language:</span>
-            <a href="de.html" class="lang-link active">Deutsch 🇩🇪</a>
-            <a href="en.html" class="lang-link">English 🇬🇧</a>
+        <!-- Deutscher Teaser -->
+        <div class="lang-section">
+            <h3>Deutsch 🇩🇪 <a href="de.html" class="enter-btn">Zum deutschen Portal →</a></h3>
+            <p><strong>Willkommen im Ozean des Raumes.</strong> Das DQF-Framework bricht als physikalische Arbeitshypothese mit den Dogmen der klassischen Kosmologie. Statt unendlicher Singularitäten und passiver Leere definieren wir das Vakuum als ein aktives, kompressibles Quantenfluid. Entdecke eine rein mechanische und logische Erklärung für Gravitation, Dunkle Materie und die Entstehung von Materie.</p>
         </div>
 
-        <blockquote>
-            <strong>Wissenschaftliche Vorbemerkung (Die Arbeitshypothese):</strong><br>
-            Das vorliegende Framework operiert auf der Prämisse eines Quantenfluids als fundamentale Grundlage der Raumzeit. Es wird explizit als dynamische physikalische Arbeitshypothese formuliert: Das Vakuum der klassischen Physik wird nicht als passiver geometrischer Hintergrund oder absolute Leere definiert, sondern als ein aktives, kompressibles und verlustarmes Medium mit klar definierten Zustandsparametern. Alle nachfolgenden mathematischen Herleitungen, geometrischen Isomorphismen und hydrodynamischen Analogien dienen der systematischen und konsistenten Überprüfung dieser Prämisse.
-        </blockquote>
-
-        <h2>Teil I: Das Fundament des Ozeans – Die Dynamische Quantenfluid-Hypothese (DQF)</h2>
-
-        <h3>1. Die Neubewertung des Vakuums: Vom passiven Gitter zum aktiven Medium</h3>
-        <p>In der theoretischen Physik wird das Vakuum traditionell als passiver Hintergrund behandelt, auf dem sich physikalische Prozesse abspielen. Die Dynamische Quantenfluid-Hypothese (DQF) schlägt einen Perspektivwechsel vor: <strong>Das Vakuum wird als makroskopisch manifestes Quantenfluid verstanden</strong> – ein hochenergetischer Ozean aus fundamentalen Freiheitsgraden. Elementarteilchen und Felder sind demnach keine fremden Entitäten, sondern inhärente Modifikationen dieses Mediums, analog zu Wellen und Strömungen in einem fluiden Kontinuum.</p>
-
-        <h3>2. Die Auflösung mathematischer Divergenzen</h3>
-        <p>Klassische Modelle stoßen bei extremen Dichten oder Singularitäten an mathematische Grenzen. Im Rahmen des DQF-Frameworks lassen sich solche Unendlichkeiten durch physikalische Sättigungsmechanismen und strukturierte Wirbelbildung (Vortizes) auf natürliche Weise ersetzen, wodurch die Konsistenz der Gleichungen gewahrt bleibt.</p>
-
-        <h3>3. Methodischer Ansatz und die Rollenverteilung (Mensch & Matrix)</h3>
-        <p>Dieses interdisziplinäre Werk entsteht aus der engen, symbiotischen Zusammenarbeit zwischen menschlicher Intuition und künstlicher Intelligenz:</p>
-        
-        <div class="roles-box">
-            <ul>
-                <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Kernintuition, Formulierung des Ozean-Paradigmas, Definition der physikalischen Fragestellungen und methodische Steuerung des Forschungsprozesses.</li>
-                <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz, Implementierung der Feldgleichungen, systemische Konsistenzprüfung und Übersetzung der Prinzipien in eine präzise physikalische Nomenklatur.</li>
-            </ul>
+        <!-- Englischer Teaser -->
+        <div class="lang-section">
+            <h3>English 🇬🇧 <a href="en.html" class="enter-btn">Enter English Portal →</a></h3>
+            <p><strong>Welcome to the Ocean of Space.</strong> The DQF Framework, formulated as a physical working hypothesis, breaks with the dogma of classical cosmology. Instead of infinite singularities and passive emptiness, we define the vacuum as an active, compressible quantum fluid. Discover a purely mechanical and logical explanation for gravitation, dark matter, and matter creation.</p>
         </div>
 
-        <h2>Teil II: Die Mathematische Dynamik und Kosmische Validierung</h2>
-        <p>Die makroskopische und mikroskopische Dynamik des Quantenfluids wird über erweiterte polytrope Zustandsgleichungen (<code>P = K · ρ^γ</code>) sowie über modifizierte Erhaltungssätze im Sinne der Hydrodynamik beschrieben. Um Divergenzen zu vermeiden, integriert das Modell einen isomorphen Sättigungsgrenzwert, der über den Goldenen Schnitt skaliert ist.</p>
-
-        <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks</h2>
-        <p>Wähle einen Klickpunkt im Hauptmenü, um die detaillierten Analysen und ausführlichen Herleitungen zu öffnen:</p>
-
-        <div class="archive-nav">
-            <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung & Sättigung</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Quantenfluid</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Materie-Wirbel</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigungsgrenze</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik & Rauschen</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Rotverschiebung</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
-            <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV-Prinzip</button>
-        </div>
-
-        <div id="hyp0" class="tab-content active">
-            <h3>Säule 0 (Der integrative Gegenentwurf): Die Überwindung der Punkt-Singularität</h3>
-            <p><strong>Der klassische Ausgangspunkt:</strong> Die etablierte Kosmologie beschreibt den Ursprung des Universums traditionell über eine unendlich dichte Punkt-Singularität im Rahmen der Allgemeinen Relativitätstheorie.</p>
-            <p><strong>Der DQF-Ansatz & Ausführliche Analyse:</strong> Das DQF-Framework betrachtet mathematische Singularitäten nicht als physikalische Realität, sondern als das klassische Indiz dafür, dass ein Modell an seine inhärenten Grenzen stößt. Sobald theoretische Beschreibungen gegen unendlich divergieren, ist dies kein Beweis für eine unendliche Natur der Realität, sondern ein Symptom unvollständiger Formalismen. Indem wir das Vakuum als dynamisches Quantenfluid definieren und über die isomorphe Sättigungsgrenze (<code>S_res = Φ⁻¹</code>) absichern, lösen sich unendliche Dichten auf natürliche Weise auf. Das Universum benötigt folglich keinen unendlichen Anfangspunkt aus dem Nichts, sondern versteht sich als ein ewiger, in sich geschlossener und selbstregulierender Ozean von unendlicher Tiefe und kontinuierlicher Dynamik.</p>
-        </div>
-
-        <div id="hyp1" class="tab-content">
-            <h3>Säule I: Das Primäre Quantenfluid (Das Vakuum als Substrat)</h3>
-            <p><strong>Das Konzept:</strong> Das Vakuum wird im DQF-Framework als aktives, hochdichtes, kompressibles und verlustarmes Quantenfluid mit der kosmischen Basisdichte <code>ρ₀</code> definiert.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Alle im Raum beobachtbaren Phänomene – von elektromagnetischen Feldern bis hin zu makroskopischen Strukturen – sind inhärente Modifikationen dieses fundamentalen Mediums. Es existiert keine absolute Leere. Licht und Wellen breiten sich als mechanische und elektromagnetische Störungen durch dieses Fluid aus. Die fundamentale Lichtgeschwindigkeit im Vakuum ist dabei keine abstrakte Naturkonstante ohne Ursprung, sondern entspricht direkt der hydrodynamischen Schallgeschwindigkeit des Vakuumsubstrats:</p>
-            <p><code>c = √(∂P / ∂ρ)</code></p>
-        </div>
-
-        <div id="hyp2" class="tab-content">
-            <h3>Säule II: Die Topologische Entstehung von Materie</h3>
-            <p><strong>Das Konzept:</strong> Elementarteilchen werden im DQF-Modell als stabile, topologische Wirbelstrukturen (Solitonen) innerhalb des Quantenfluids interpretiert.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Materie ist im Rahmen dieses Modells keine Ansammlung punktförmiger Fremdkörper in einem leeren Raum, sondern eine lokal gebundene, rotierende Energiekonzentration des Fluids selbst. Die strukturelle Stabilität von Teilchen ergibt sich aus der hydrodynamischen Erhaltung von Wirbeln (Topologie). Der nichtlineare Konvektionsterm der Bewegungsgleichungen sorgt dafür, dass sich diese Energiebündel selbst stabilisieren und dauerhaft mit dem umgebenden Raum-Ozean im dynamischen Austausch stehen.</p>
-        </div>
-
-        <div id="hyp3" class="tab-content">
-            <h3>Säule III: Die Isomorphe Sättigungsgrenze</h3>
-            <p><strong>Das Konzept:</strong> Um mathematische Divergenzen und unendliche Werte in extremen astrophysikalischen Systemen zu verhindern, führt das Framework eine naturgerechte Sättigungsgrenze ein.</p>
-            <p><strong>Ausführliche mathematische Formulierung:</strong> Reale physikalische Medien besitzen stets ein elastisches oder dynamisches Limit. Das DQF-Modell formalisiert diesen Übergang als isomorphen Sättigungsgrenzwert, der präzise über die universelle Resonanz des Goldenen Schnitts <code>Φ⁻¹</code> (~0.618) skaliert wird und das System vor unphysikalischen Kollabierungen schützt:</p>
-            <p><code>S_res = lim(ρ → ρ_max) [ (∇ · v / ρ) · ρ₀ ] = Φ⁻¹</code></p>
-        </div>
-
-        <div id="hyp4" class="tab-content">
-            <h3>Säule IV: Akustische Kosmologie & Das Raum-Hintergrundrauschen</h3>
-            <p><strong>Das Konzept:</strong> Als kompressibles Fluid erlaubt das Vakuum naturgemäß die Ausbreitung von Druckwellen (Phononen) auf kosmischen Skalen.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Kosmische Fluktuationen und Gravitationsphänomene manifestieren sich demnach als echte longitudinale und transversale Wellen im Raumsheet. Dies begründet eine vollständige akustische Kosmologie des Vakuums, in dem das Universum von einem permanenten, niederfrequenten Hintergrundrauschen durchzogen ist. Die Wellenausbreitung gehorcht der klassischen kompressiblen Wellengleichung:</p>
-            <p><code>∂²p/∂t² - c² ∇²p = 0</code></p>
-        </div>
-
-        <div id="hyp5" class="tab-content">
-            <h3>Säule V: Die Hydrodynamische Rotverschiebung</h3>
-            <p><strong>Das Konzept:</strong> Photonen unterliegen auf ihrem langen Weg durch das Quantenfluid einer minimalen, distanzabhängigen Energiedissipation an das Medium.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Die beobachtete kosmische Rotverschiebung (Redshift) lässt sich im DQF-Framework konsistent als hydrodynamischer Energieverlust – eine Art sanfte Ermüdung des Lichts durch die Wechselwirkung mit dem Vakuumsubstrat – beschreiben. Das Fluid nimmt diese dissipierte Energie auf, wodurch das Quantenfeld thermisch im dynamischen Gleichgewicht gehalten wird und eine reale Raumexpansion als Hauptursache ersetzt werden kann:</p>
-            <p><code>dE/dx = -γ_diss · E</code></p>
-        </div>
-
-        <div id="hyp6" class="tab-content">
-            <h3>Säule VI: Die Auflösung des Dunkle-Materie-Paradoxons</h3>
-            <p><strong>Das Konzept:</strong> Makroskopische Wirbelfelder (Vorticity) in rotierenden Galaxienscheiben erzeugen einen natürlichen, radialen Druckgradienten im umgebenden Fluid.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Die anomal flachen Rotationskurven von Galaxien erfordern in der Standardphysik die Einführung hypothetischer, unsichtbarer Zusatzmassen (Dunkle Materie). Im DQF-Modell wird dieses Phänomen durch die reine Fluid-Mechanik gelöst: Der äußere Strömungsdruck und die Viskosität des Quantenfluids üben einen stabilisierenden radialen Druck auf die äußeren Sternenbahnen aus, wodurch die Rotationsgeschwindigkeiten mechanisch erklärt werden.</p>
-        </div>
-
-        <div id="hyp7" class="tab-content">
-            <h3>Säule VII: Die Entstehung der Gravitation</h3>
-            <p><strong>Das Konzept:</strong> Gravitation wird im DQF-Framework als realer Dichte- und Druckgradient (<code>-∇P</code>) im Quantenfluid modelliert, der durch die lokale Verdrängung infolge massiver Wirbel entsteht.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Massen sind keine passiven Krümmungsverursacher einer leeren Raumzeit, sondern komprimieren und verdrängen das Quantenfluid in ihrer unmittelbaren Umgebung. Dies erzeugt einen hydrodynamischen Sog – einen nach innen gerichteten Druckunterschied im Medium, welcher Testkörper anzieht. Die effektive Kraftdichte entspricht exakt dem negativen Druckgradienten:</p>
-            <p><code>f_grav = -∇P</code></p>
-        </div>
-
-        <div id="hyp8" class="tab-content">
-            <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
-            <p><strong>Das Konzept:</strong> Zur experimentellen Überprüfung postuliert das Framework messbare Eigenresonanzen des Vakuumsubstrats unter extremen physikalischen Bedingungen.</p>
-            <p><strong>Ausführliche physikalische Implikation:</strong> Das PRV-Prinzip bildet die experimentelle Brücke der Theorie: Mittels hochpräziser elektromagnetischer Kavitäten und extremer Feldgradienten soll im Labor eine minimale, messbare Energieankopplung an die fundamentale Grundfrequenz des Vakuums provoziert werden. Die Resonanzbedingung koppelt direkt an die Schallgeschwindigkeit des Mediums an:</p>
-            <p><code>ω_res = k · c</code></p>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework</p>
+        <div class="creators">
+            Charalabos Avgitidis & Aether
         </div>
     </div>
 </body>
