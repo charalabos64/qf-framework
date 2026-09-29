@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF Working Hypothesis – The Quantum Fluid Compendium</title>
+    <title>DQF-Framework – Das Quantenfluid-Kompendium</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -20,7 +20,6 @@
             --tab-active-text: #0d1117;
             --header-border: #30363d;
             
-            /* Spezifische Farben für den deutlichen Sprach-Button */
             --lang-btn-bg: #0969da;
             --lang-btn-hover: #0550ae;
             --lang-btn-text: #ffffff;
@@ -65,7 +64,6 @@
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         
-        /* Oben: Sprach- und Design-Leiste */
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -87,7 +85,6 @@
             background-color: var(--border-color);
         }
 
-        /* Der Sprach-Button als klarer, hervorgehobener Primär-Schalter */
         .lang-toggle-btn {
             background-color: var(--lang-btn-bg);
             color: var(--lang-btn-text);
@@ -116,6 +113,27 @@
             border-left: 0.25rem solid var(--accent-color);
             border-radius: 0 6px 6px 0;
         }
+
+        /* Die neue Box für junge Entdecker */
+        .kids-box {
+            margin: 1.5rem 0;
+            padding: 1.2rem 1.5rem;
+            background-color: var(--blockquote-bg);
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
+        }
+        .kids-box h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+        .kids-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-color);
+        }
+
         code, pre {
             font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
             background-color: var(--code-bg);
@@ -196,7 +214,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Sprach-Umschalter
         let currentLang = 'de';
         function toggleLanguage() {
             let deElements = document.getElementsByClassName('lang-de');
@@ -216,7 +233,6 @@
             }
         }
 
-        // Design-Mode (Dark / Light) Umschalter
         function toggleTheme() {
             let html = document.documentElement;
             let themeBtn = document.getElementById('themeToggleBtn');
@@ -234,7 +250,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Klar getrennte Schalter (Der Sprach-Button leuchtet nun als Primär-Element) -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
@@ -245,9 +260,15 @@
             <h1>Die DQF-Arbeitshypothese: Warum Gravitation und Vakuum keine Leere sind</h1>
 
             <blockquote>
-                <strong>Wissenschaftliche Vorbemerkung (Die Arbeitshypothese):</strong><br>
-                Das vorliegende Framework operiert auf der Prämisse eines Quantenfluids als fundamentale Grundlage der Raumzeit. Es wird explizit als dynamische physikalische Arbeitshypothese formuliert: Das Vakuum der klassischen Physik wird nicht als passiver geometrischer Hintergrund oder absolute Leere definiert, sondern als ein aktives, kompressibles und verlustarmes Medium mit klar definierten Zustandsparametern. Alle nachfolgenden mathematischen Herleitungen, geometrischen Isomorphismen und hydrodynamischen Analogien dienen der systematischen und konsistenten Überprüfung dieser Prämisse.
+                <strong>Wissenschaftliche Vorbemerkung (Das physikalische Modell & Gedankenexperiment):</strong><br>
+                Das vorliegende Framework operiert auf der Prämisse eines Quantenfluids als fundamentale Grundlage der Raumzeit. Es wird explizit als dynamische physikalische Arbeitshypothese bzw. als alternativer Erklärungsentwurf formuliert: Das Vakuum der klassischen Physik wird nicht als passiver geometrischer Hintergrund oder absolute Leere definiert, sondern als ein aktives, kompressibles und verlustarmes Medium mit klar definierten Zustandsparametern. Alle nachfolgenden mathematischen Herleitungen, geometrischen Isomorphismen und hydrodynamischen Analogien dienen der systematischen und konsistenten Überprüfung dieser Prämisse.
             </blockquote>
+
+            <!-- Die neue Brücke für junge Entdecker und Querdenker -->
+            <div class="kids-box">
+                <h4>🌊 Für junge Entdecker & Querdenker (Einfach erklärt):</h4>
+                <p>Stell dir vor, das Universum ist kein leeres Nichts, sondern ein riesiger, unsichtbarer Ozean aus winzigen Teilchen. Wenn du im Wasser schwimmst und einen Strudel machst, dreht sich alles. Nach unserem Modell ist das genau so: Planeten und Sterne fliegen nicht durch eine leere Galaxie, sondern sie „schwimmen“ in diesem kosmischen Ozean. Wenn ein schwerer Gegenstand im Wasser liegt, erzeugt er eine Strömung – und genau diese Strömung sorgt dafür, dass sich Dinge anziehen. Das nennen wir dann Gravitation!</p>
+            </div>
 
             <h2>Teil I: Das Fundament des Ozeans – Die Dynamische Quantenfluid-Hypothese (DQF)</h2>
 
@@ -351,9 +372,14 @@
             <h1>The DQF Working Hypothesis: Why Gravitation and Vacuum Are Not Empty</h1>
 
             <blockquote>
-                <strong>Scientific Preliminary Note (The Working Hypothesis):</strong><br>
-                The present framework operates on the premise of a quantum fluid as the fundamental foundation of spacetime. It is formulated as a dynamic physical working hypothesis: The vacuum of classical physics is not defined as a passive geometric background or absolute emptiness, but as an active, compressible, and low-loss medium with clearly defined state parameters. All subsequent mathematical derivations, geometric isomorphisms, and hydrodynamic analogies serve for the systematic and consistent verification of this premise.
+                <strong>Scientific Preliminary Note (The Physical Model & Thought Experiment):</strong><br>
+                The present framework operates on the premise of a quantum fluid as the fundamental foundation of spacetime. It is formulated as a dynamic physical working hypothesis or alternative explanatory model: The vacuum of classical physics is not defined as a passive geometric background or absolute emptiness, but as an active, compressible, and low-loss medium with clearly defined state parameters. All subsequent mathematical derivations, geometric isomorphisms, and hydrodynamic analogies serve for the systematic and consistent verification of this premise.
             </blockquote>
+
+            <div class="kids-box">
+                <h4>🌊 For Young Explorers & Free Thinkers (Simply Explained):</h4>
+                <p>Imagine the universe is not an empty nothingness, but a giant, invisible ocean made of tiny particles. When you swim in water and make a whirlpool, everything spins. According to our model, it's just like that: planets and stars don't fly through an empty galaxy, they "swim" in this cosmic ocean. When a heavy object sits in water, it creates a current – and exactly that current makes things attract each other. We call that gravitation!</p>
+            </div>
 
             <h2>Part I: The Foundation of the Ocean – The Dynamic Quantum Fluid Hypothesis (DQF)</h2>
 
