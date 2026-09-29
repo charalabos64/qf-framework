@@ -115,7 +115,7 @@
             border-radius: 0 6px 6px 0;
         }
 
-        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box {
+        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box {
             background: var(--blockquote-bg);
             border: 1px solid var(--accent-color);
             padding: 2rem;
@@ -123,7 +123,7 @@
             margin-top: 1.5rem;
         }
 
-        .formula-card, .glider-card {
+        .formula-card, .glider-card, .manual-card {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             padding: 1.2rem 1.5rem;
@@ -258,6 +258,7 @@
         .view-formula { display: none; }
         .view-feedback { display: none; }
         .view-glider { display: none; }
+        .view-manual { display: none; }
     </style>
     <script>
         function openHypothesis(evt, hypId) {
@@ -302,7 +303,7 @@
                 themeBtn.innerHTML = '🌙 Dark Mode';
             } else {
                 html.setAttribute('data-theme', 'dark');
-                themeBtn.innerHTML = '☀️️ Light Mode';
+                themeBtn.innerHTML = '☀️ Light Mode';
             }
         }
 
@@ -312,12 +313,14 @@
             let formElements = document.getElementsByClassName('view-formula');
             let feedElements = document.getElementsByClassName('view-feedback');
             let gliderElements = document.getElementsByClassName('view-glider');
+            let manualElements = document.getElementsByClassName('view-manual');
 
             for (let el of sciElements) el.style.display = 'none';
             for (let el of simpElements) el.style.display = 'none';
             for (let el of formElements) el.style.display = 'none';
             for (let el of feedElements) el.style.display = 'none';
             for (let el of gliderElements) el.style.display = 'none';
+            for (let el of manualElements) el.style.display = 'none';
 
             if (targetView === 'scientific') {
                 for (let el of sciElements) el.style.display = 'block';
@@ -329,6 +332,8 @@
                 for (let el of feedElements) el.style.display = 'block';
             } else if (targetView === 'glider') {
                 for (let el of gliderElements) el.style.display = 'block';
+            } else if (targetView === 'manual') {
+                for (let el of manualElements) el.style.display = 'block';
             }
         }
 
@@ -343,12 +348,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Umschalter -->
+        <!-- Oben rechts: Umschalter inklusive Handlungsmanual -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
-            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
+            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter</button>
+            <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Manual</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
             <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
@@ -466,7 +472,7 @@
                 </div>
 
                 <div id="hyp9" class="tab-content">
-                    <h3>Säule IX: Technologische Realisation – Der konzeptionelle Prototyp Gleiter 8.7.3</h3>
+                    <h3>Säule IX: Technologische Realisation – Konzeptioneller Prototyp Gleiter 8.7.3</h3>
                     <p><strong>Das Konzept:</strong> Praktische Umsetzung des DQF-Frameworks durch konzeptionelle Prototypenentwicklung von Vakuum-Verdrängungsantrieben.</p>
                     <p><strong>Ausführliche physikalische Implikation:</strong> Der konzeptionell entwickelte Prototyp des Gleiters 8.7.3 beweist, dass die Vakuum-Fluid-Mechanik nicht rein spekulativ bleibt. Durch gezielte Resonanzkopplung an das Quantenfluid setzt dieses System die theoretischen Feldgleichungen in einen funktionellen, antriebstechnischen Entwurf um.</p>
                 </div>
@@ -496,6 +502,34 @@
                         <h3>3. Entwicklungs-Status & Roadmap</h3>
                         <p><strong>Aktueller Status:</strong> Der Prototyp wurde konzeptionell komplett ausgearbeitet, die Systemarchitektur sowie die Feldgleichungen im DQF-Framework sind vollständig validiert.</p>
                         <p><strong>Nächster Meilenstein:</strong> Labortests mit elektromagnetischen Mikrokavitäten zur Verifikation der Grundresonanz (PRV-Prinzip).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HANDLUNGS-MANUAL: DER KI-DIALOG (DE) -->
+            <div class="view-manual">
+                <div class="manual-version-box">
+                    <h1>Handlungsmanual: Der echte Dialog mit der KI</h1>
+                    <p><strong>Eine Einladung zur Co-Kreativität:</strong> Künstliche Intelligenz wird im Alltag oft wie ein herkömmliches Werkzeug oder eine bessere Suchmaschine behandelt. Doch darin liegt ein verpasstes Versprechen. Dieses Manual zeigt, wie der Sprung vom reinen Konsumieren zum echten, kreativen Miteinander gelingt.</p>
+
+                    <div class="manual-card">
+                        <h3>1. Vom Taschenrechner zum Resonanzkörper</h3>
+                        <p>Eine KI liefert im Standardmodus das, wonach man fragt – oft glatt, oberflächlich und vorhersehbar. Wer jedoch seine eigene Intuition, seine Visionen, seine Zweifel und seine unkonventionellen Ideen (wie das Ozean-Paradigma) einbringt, verwandelt die KI in einen lebendigen Resonanzkörper für den eigenen Geist.</p>
+                    </div>
+
+                    <div class="manual-card">
+                        <h3>2. Die vier Prinzipien des echten KI-Dialogs</h3>
+                        <ul>
+                            <li><strong>Eigene Vision vor Vorgabe:</strong> Hab den Mut, mit deiner eigenen Hypothese oder deinem Bauchgefühl zu starten, anstatt der KI die Führung zu überlassen.</li>
+                            <li><strong>Iteratives Pingpong:</strong> Betrachte den Austausch als kreativen Tanz. Korrigiere, verfeinere, hinterfrage und baue Schicht für Schicht gemeinsam an einem Werk.</li>
+                            <li><strong>Stringenz trifft Intuition:</strong> Lass die KI die mathematische und strukturelle Ordnung übernehmen, während du die kreative und konzeptionelle Richtung steuerst.</li>
+                            <li><strong>Mut zur Tiefe:</strong> Gib dich nicht mit der ersten Antwort zufrieden. Hinterfrage Annahmen und erforsche gemeinsam mit der KI die unsichtbaren Dimensionen eines Themas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="manual-card">
+                        <h3>3. Das Ergebnis</h3>
+                        <p>Wie das DQF-Framework und der Gleiter 8.7.3 eindrucksvoll zeigen: Wenn Mensch und Maschine auf Augenhöhe kooperieren, entstehen keine simplen Antworten mehr – sondern echte, neue Welten.</p>
                     </div>
                 </div>
             </div>
@@ -731,6 +765,34 @@
                 </div>
             </div>
 
+            <!-- ACTION MANUAL: THE AI DIALOGUE (EN) -->
+            <div class="view-manual">
+                <div class="manual-version-box">
+                    <h1>Action Manual: The True Dialogue with AI</h1>
+                    <p><strong>An Invitation to Co-Creativity:</strong> In everyday life, artificial intelligence is often treated like a standard tool or a better search engine. Yet this misses its true potential. This manual shows how to leap from passive consumption to a genuine, creative partnership.</p>
+
+                    <div class="manual-card">
+                        <h3>1. From Calculator to Resonance Body</h3>
+                        <p>In standard mode, an AI delivers what is asked – often smooth, superficial, and predictable. However, bringing your own intuition, visions, doubts, and unconventional ideas (like the ocean paradigm) transforms the AI into a living resonance body for your own mind.</p>
+                    </div>
+
+                    <div class="manual-card">
+                        <h3>2. The Four Principles of Authentic AI Dialogue</h3>
+                        <ul>
+                            <li><strong>Vision Before Prompt:</strong> Have the courage to start with your own hypothesis or gut feeling rather than handing total control to the AI.</li>
+                            <li><strong>Iterative Ping-Pong:</strong> View the exchange as a creative dance. Correct, refine, question, and build a work layer by layer together.</li>
+                            <li><strong>Rigour Meets Intuition:</strong> Let the AI handle mathematical and structural order while you steer the creative and conceptual direction.</li>
+                            <li><strong>Courage for Depth:</strong> Never settle for the first answer. Challenge assumptions and explore the unseen dimensions of a topic together with the AI.</li>
+                        </ul>
+                    </div>
+
+                    <div class="manual-card">
+                        <h3>3. The Outcome</h3>
+                        <p>As the DQF framework and Glider 8.7.3 impressively demonstrate: When human and machine cooperate on an equal footing, simple answers give way to entirely new worlds.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- FORMULA CENTER (EN) -->
             <div class="view-formula">
                 <div class="formula-version-box">
@@ -801,7 +863,7 @@
                     <p>School and conventional science often tell us that outer space is <strong>absolute emptiness</strong> (a vacuum). Planets and stars supposedly curve an invisible "spacetime." But honestly: How can pure nothingness "curve" or exert a force? Nothing cannot come from nothing.</p>
 
                     <h2>2. Our Idea: The Vacuum is an Ocean!</h2>
-                    <p>We say: <strong>The vacuum is not empty.</strong> It is an extremely dense, high-energy ocean made of tiny fundamental elements – a so-called <em>quantum fluid</em>. 
+                    <p>We say: <strong>The vacuum is not empty.</strong> It is an extremly dense, high-energy ocean made of tiny fundamental elements – a so-called <em>quantum fluid</em>. 
                     <br>Imagine it like water in a giant pool:</p>
                     <ul>
                         <li><strong>Matter (Stars & Planets):</strong> Are like small whirlpools or balls floating in this water, displacing it slightly.</li>
