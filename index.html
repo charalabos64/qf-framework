@@ -19,6 +19,11 @@
             --tab-active-bg: #38bdf8;
             --tab-active-text: #0d1117;
             --header-border: #30363d;
+            
+            /* Spezifische Farben für den deutlichen Sprach-Button */
+            --lang-btn-bg: #0969da;
+            --lang-btn-hover: #0550ae;
+            --lang-btn-text: #ffffff;
         }
 
         [data-theme="light"] {
@@ -35,6 +40,10 @@
             --tab-active-bg: #0969da;
             --tab-active-text: #ffffff;
             --header-border: #eaecef;
+            
+            --lang-btn-bg: #0969da;
+            --lang-btn-hover: #0550ae;
+            --lang-btn-text: #ffffff;
         }
 
         body {
@@ -66,16 +75,28 @@
         .top-btn {
             background-color: var(--container-bg);
             border: 1px solid var(--border-color);
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.1rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--accent-color);
+            font-size: 0.9rem;
+            color: var(--text-color);
             transition: all 0.2s ease;
         }
         .top-btn:hover {
             background-color: var(--border-color);
+        }
+
+        /* Der Sprach-Button als klarer, hervorgehobener Primär-Schalter */
+        .lang-toggle-btn {
+            background-color: var(--lang-btn-bg);
+            color: var(--lang-btn-text);
+            border: 1px solid var(--lang-btn-bg);
+            box-shadow: 0 2px 6px rgba(9, 105, 218, 0.3);
+        }
+        .lang-toggle-btn:hover {
+            background-color: var(--lang-btn-hover);
+            border-color: var(--lang-btn-hover);
         }
 
         h1, h2, h3 {
@@ -213,10 +234,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Schalter für Design und Sprache -->
+        <!-- Oben rechts: Klar getrennte Schalter (Der Sprach-Button leuchtet nun als Primär-Element) -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
-            <button id="langToggleBtn" class="top-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
+            <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
         </div>
 
         <!-- ================= DEUTSCHE VERSION ================= -->
@@ -425,7 +446,7 @@
 
             <div id="en_hyp8" class="tab-content">
                 <h3>Pillar VIII: The PRV Principle (Testable Resonance Verification)</h3>
-                <p><strong>The Concept:</strong> For experimental verification, the framework postulates measurable eigenresonances of the vacuum substrate under extreme physical conditions.</p>
+                <p><strong>The Concept:</strong> For experimental verification, the framework postulates measurable eigenresonanzen of the vacuum substrate under extreme physical conditions.</p>
                 <p><strong>Detailed Physical Implication:</strong> The PRV principle forms the experimental bridge of the theory: Using high-precision electromagnetic cavities and extreme field gradients, a minimal, measurable energy coupling to the fundamental frequency of the vacuum is to be provoked in the laboratory. The resonance condition couples directly to the sound speed of the medium:</p>
                 <p><code>ω_res = k · c</code></p>
             </div>
