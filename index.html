@@ -143,12 +143,12 @@
             border-radius: 6px;
             margin-bottom: 1.2rem;
         }
-        .formula-card code {
+        .formula-card code, .tab-content code {
             display: inline-block;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--accent-color);
             font-weight: bold;
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
             padding: 0.3em 0.6em;
             background: var(--code-bg);
             border-radius: 4px;
@@ -435,73 +435,97 @@
                 <div id="hyp0" class="tab-content active">
                     <h3>Säule 0: Überwindung der Punkt-Singularität durch Kontinuums-Mechanik</h3>
                     <p><strong>Systemische Prämisse:</strong> Die klassische Kosmologie postuliert unendliche Dichten an Anfangspunkten (Urknall-Singularität). Im DQF-Framework werden mathematische Divergenzen als Indikator für unvollständige Kontinuumsmodelle gewertet.</p>
-                    <p><strong>Modellansatz:</strong> Durch die Einführung einer fundamentalen Sättigungsgrenze (skaliert über $\Phi^{-1}$) und eines aktiven Vakuum-Substrats existieren keine physikalischen Unendlichkeiten. Der Kosmos wird als ewiger, selbstregulierender Fluid-Ozean ohne singuläre Anfangspunkte formuliert.</p>
+                    <p><strong>Formale Axiomatik:</strong> Durch die isomorphe Begrenzung wird der Zustand mathematisch abgesichert via:</p>
+                    <code>S_res = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                    <p>Unendliche Dichten ($lim_{r \to 0} \rho = \infty$) sind im fluiden Raum-Kontinuum physikalisch ausgeschlossen, wodurch der Kosmos als ewiger, selbstregulierender Ozean formuliert wird.</p>
                 </div>
 
                 <div id="hyp1" class="tab-content">
                     <h3>Säule I: Das Primäre Quantenfluid (Vakuum als aktives Medium)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Das Vakuum ist kein passiver geometrischer Raum, sondern ein kompressibles, verlustarmes Quantenfluid mit der Basisdichte $\rho_0$.</p>
-                    <p><strong>Modellansatz:</strong> Alle elektromagnetischen und mechanischen Wellen breiten sich als Kontinuumsstörungen aus. Die fundamentale Lichtgeschwindigkeit $c$ ist keine abstrakte Konstante, sondern direkt durch die hydrodynamische Schallgeschwindigkeit des Mediums definiert: $c = \sqrt{\partial P / \partial \rho}$.</p>
+                    <p><strong>Systemische Prämisse:</strong> Das Vakuum ist kein passiver geometrischer Raum, sondern ein kompressibles, verlustarmes Quantenfluid mit der Basisdichte $\rho_0$ und einem polytropen Verhalten.</p>
+                    <p><strong>Formale Axiomatik:</strong> Das Medium gehorcht der Zustandsgleichung:</p>
+                    <code>P = K \cdot \rho^\gamma</code>
+                    <p>Daraus leitet sich die fundamentale Lichtgeschwindigkeit $c$ direkt als hydrodynamische Schallgeschwindigkeit ab: <code>c = \sqrt{\frac{\partial P}{\partial \rho}}</code>. Elektromagnetische Wellen breiten sich demnach als reine Kontinuumsstörungen aus.</p>
                 </div>
 
                 <div id="hyp2" class="tab-content">
                     <h3>Säule II: Topologische Solitonen als Materieäquivalente</h3>
                     <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind keine punktförmigen Fremdkörper, sondern stabile, lokal begrenzte Wirbelstrukturen (Solitonen) im fluiden Kontinuum.</p>
-                    <p><strong>Modellansatz:</strong> Die Stabilität von Materie beruht auf topologischer Wirbelerhaltung in den nichtlinearen Bewegungsgleichungen. Energie und Masse sind lokal gebundene Rotationszustände des Raum-Ozeans.</p>
+                    <p><strong>Formale Axiomatik:</strong> Die Stabilität von Materie beruht auf der topologischen Wirbelerhaltung in den nichtlinearen Bewegungsgleichungen:</p>
+                    <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                    <p>Energie und Masse stellen folglich lokal gebundene, quantisierte Rotationszustände des Raum-Ozeans dar, wodurch der Bedarf an künstlichen Elementarteilchen-Dogmen entfällt.</p>
                 </div>
 
                 <div id="hyp3" class="tab-content">
                     <h3>Säule III: Die Isomorphe Sättigungsgrenze ($S_{\text{res}}$)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Jedes physikalische Medium besitzt ein elastisches Belastungslimit, welches unendliche Kompressionen verhindert.</p>
-                    <p><strong>Modellansatz:</strong> Das Framework formalisiert die maximale Fluid-Verdichtung über die universelle Resonanz des Goldenen Schnitts: $S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} [(\nabla \cdot \mathbf{v} / \rho) \cdot \rho_0] = \Phi^{-1}$. Dies schützt das System vor unphysikalischen Kollabierungen.</p>
+                    <p><strong>Systemische Prämisse:</strong> Jedes reale physikalische Medium besitzt ein elastisches Belastungslimit, welches unendliche Kompressionen verhindert und die Systemintegrität schützt.</p>
+                    <p><strong>Formale Axiomatik:</strong> Das Framework formalisiert die maximale Fluid-Verdichtung über die universelle Resonanz des Goldenen Schnitts:</p>
+                    <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                    <p>Diese Obergrenze greift bei extremen Gravitationsfeldern und verhindert jeglichen unphysikalischen Kollaps der Raumstruktur.</p>
                 </div>
 
                 <div id="hyp4" class="tab-content">
                     <h3>Säule IV: Akustische Kosmologie & Hintergrund-Phononik</h3>
                     <p><strong>Systemische Prämisse:</strong> Als kompressibles Medium unterstützt das Quantenfluid die kontinuierliche Ausbreitung von Druck- und Dichtewellen auf kosmischen Skalen.</p>
-                    <p><strong>Modellansatz:</strong> Fluktuationen manifestieren sich als echte akustische Moden im Raumkontinuum. Die Wellendynamik gehorcht der kompressiblen Wellengleichung: $\partial^2 p / \partial t^2 - c^2 \nabla^2 p = 0$.</p>
+                    <p><strong>Formale Axiomatik:</strong> Die Wellendynamik im Vakuumsubstrat gehorcht der klassischen kompressiblen Wellengleichung:</p>
+                    <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
+                    <p>Kosmische Fluktuationen manifestieren sich somit als echte akustische Moden im Raumkontinuum.</p>
                 </div>
 
                 <div id="hyp5" class="tab-content">
                     <h3>Säule V: Hydrodynamische Rotverschiebung (Mediums-Dissipation)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Kosmische Photonen unterliegen auf distanzierten Pfaden einer minimalen, kontinuierlichen Energieabgabe an das Vakuumsubstrat.</p>
-                    <p><strong>Modellansatz:</strong> Die beobachtete Rotverschiebung wird als dissipativer Energieverlust ($dE/dx = -\gamma_{\text{diss}} \cdot E$) durch Wechselwirkung mit dem Fluid erklärt, wodurch reale Raumexpansion als Hauptursache ersetzt wird.</p>
+                    <p><strong>Systemische Prämisse:</strong> Kosmische Photonen unterliegen auf distanzierten intergalaktischen Pfaden einer minimalen, kontinuierlichen Energieabgabe an das umgebende Vakuumsubstrat.</p>
+                    <p><strong>Formale Axiomatik:</strong> Der dissipative Energieverlust wird beschrieben durch:</p>
+                    <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
+                    <p>Diese Reibungs- und Streuwechselwirkung mit dem Fluid erklärt die beobachtete Rotverschiebung physikalisch, wodurch die Annahme einer realen Raumexpansion (Inflation) obsolet wird.</p>
                 </div>
 
                 <div id="hyp6" class="tab-content">
                     <h3>Säule VI: Mechanische Lösung des Dunkle-Materie-Paradoxons</h3>
-                    <p><strong>Systemische Prämisse:</strong> Anomal flache galaktische Rotationskurven erfordern keine hypothetischen Geisterteilchen.</p>
-                    <p><strong>Modellansatz:</strong> Makroskopische Wirbelfelder erzeugen in Kombination mit der elastischen Scherung des umgebenden Substrats einen stabilisierenden radialen Druck, der äußere Sternenbahnen mechanisch im Gleichgewicht hält.</p>
+                    <p><strong>Systemische Prämisse:</strong> Anomal flache galaktische Rotationskurven erfordern keine hypothetischen Geisterteilchen oder unsichtbaren Halos.</p>
+                    <p><strong>Formale Axiomatik:</strong> Makroskopische Wirbelfelder erzeugen in Kombination mit der elastischen Scherung des Substrats eine radiale Kraftdichte:</p>
+                    <code>F_{\text{rot}}(r) = \frac{v^2}{r} = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                    <p>Dieser mechanische Druck hält äußere Sternenbahnen im galaktischen Randbereich perfekt im dynamischen Gleichgewicht.</p>
                 </div>
 
                 <div id="hyp7" class="tab-content">
                     <h3>Säule VII: Hydrodynamische Gravitation ($\mathbf{f}_{\text{grav}} = -\nabla P$)</h3>
                     <p><strong>Systemische Prämisse:</strong> Gravitation ist keine geometrische Raumkrümmung des Nichts, sondern ein realer Druck- und Dichtegradient im Fluid.</p>
-                    <p><strong>Modellansatz:</strong> Massive Wirbel verdrängen das Quantenfluid in ihrer Umgebung und erzeugen einen nach innen gerichteten Strömungssog, der Testkörper antreibt: $\mathbf{f}_{\text{grav}} = -\nabla P$.</p>
+                    <p><strong>Formale Axiomatik:</strong> Massive Wirbel verdrängen das Quantenfluid in ihrer Umgebung und erzeugen einen nach innen gerichteten Strömungssog:</p>
+                    <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                    <p>Testkörper werden folglich durch den realen Druckunterschied des Mediums angetrieben und beschleunigt.</p>
                 </div>
 
                 <div id="hyp8" class="tab-content">
                     <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Das Vakuumsubstrat besitzt messbare Eigenresonanzen unter extremen Feldgradienten.</p>
-                    <p><strong>Modellansatz:</strong> Das PRV-Prinzip ermöglicht die experimentelle Laborüberprüfung durch hochpräzise elektromagnetische Kavitäten, die an die lokale Schallgeschwindigkeit gekoppelt sind: $\omega_{\text{res}} = k \cdot c$.</p>
+                    <p><strong>Systemische Prämisse:</strong> Das Vakuumsubstrat besitzt messbare Eigenresonanzen unter extremen elektromagnetischen und akustischen Feldgradienten.</p>
+                    <p><strong>Formale Axiomatik:</strong> Die experimentelle Überprüfung im Labor erfolgt über Kavitäten, die an die lokale Schallgeschwindigkeit gekoppelt sind:</p>
+                    <code>\omega_{\text{res}} = k \cdot c</code>
+                    <p>Dies ermöglicht eine direkte messtechnische Validierung des Quantenfluid-Modells.</p>
                 </div>
 
                 <div id="hyp9" class="tab-content">
                     <h3>Säule IX: Schwarze Löcher als Drain-Vortizes & Überschwappender Horizont</h3>
                     <p><strong>Systemische Prämisse:</strong> Gravitative Singularitäten sind in der Realität supermassive hydrodynamische Sinkkästen.</p>
-                    <p><strong>Modellansatz:</strong> Bei Einströmgeschwindigkeiten oberhalb der Schallgeschwindigkeit ($v_{\text{fluid}} \ge c$, Mach-Zahl $M_{\text{ac}} \ge 1$) entsteht ein akustischer Horizont, der bei massivem Fluid-Nachschub dynamisch aufstaut und überläuft (Korrespondenz zu Ringdown-Signalen).</p>
+                    <p><strong>Formale Axiomatik:</strong> Bei Einströmgeschwindigkeiten oberhalb der Schallschwelle entsteht ein akustischer Horizont, definiert durch die Mach-Zahl:</p>
+                    <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                    <p>Bei massivem Fluid-Nachschub staut sich das Medium auf und läuft dynamisch über, was exakt den beobachteten Ringdown-Signalen astronomischer Kollisionen entspricht.</p>
                 </div>
 
                 <div id="hyp10" class="tab-content">
                     <h3>Säule X: Die Große Synthese – Sub-Planck-Phasengitter und Wirbel-Anker</h3>
                     <p><strong>Systemische Prämisse:</strong> Der Kosmos basiert auf einem symbiotischen Zwei-Phasen-System aus metrischer Basis und dynamischen Aktivposten.</p>
-                    <p><strong>Modellansatz:</strong> Das dissipationsfreie Sub-Planck-Phasengitter spannt den reibungsfreien Raum auf und garantiert globale Stabilität, während chirale Wirbel-Anker als Solitonen die lokale Materie- und Gravitationsdynamik erzeugen.</p>
+                    <p><strong>Formale Axiomatik:</strong> Die vollständige Makro-Feldgleichung vereint Druckgradient und Gitter-Scherung:</p>
+                    <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
+                    <p>Das Sub-Planck-Phasengitter garantiert globale Stabilität, während chirale Wirbel-Anker die lokale Materie- und Gravitationsdynamik steuern.</p>
                 </div>
 
                 <div id="hyp11" class="tab-content">
                     <h3>Säule XI: Technologische Realisation – Konzeptioneller Prototyp Gleiter 8.7.3</h3>
                     <p><strong>Systemische Prämisse:</strong> Praktische Anwendung der Vakuum-Fluid-Mechanik zur reaktionsmassenlosen Fortbewegung.</p>
-                    <p><strong>Modellansatz:</strong> Der Gleiter 8.7.3 nutzt gezielte Resonanzkopplung und asymmetrische Feldgradienten zur Verdrängung des Vakuumsubstrats.</p>
+                    <p><strong>Formale Axiomatik:</strong> Asymmetrische Vakuum-Verdrängung über integrierte Feldgradienten:</p>
+                    <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
+                    <p>Ermöglicht direkten Vortrieb im Raum-Ozean ohne konventionellen Stützmassenausstoß.</p>
                 </div>
             </div>
 
@@ -509,7 +533,7 @@
             <div class="view-glider">
                 <div class="glider-version-box">
                     <h1>Gleiter 8.7.3: Das konzeptionell entwickelte Prototypen-Konzept</h1>
-                    <p><strong>Von der Theorie zur Praxis:</strong> Wenn das Vakuum ein aktives Quantenfluid ist, können wir es technisch nutzen. Der Gleiter 8.7.3 ist als konzeptioneller Prototyp bereits vollständig ausgearbeitet – ein architektonisches Konzept für ein Fahrzeug, das sich direkt mit den hydrodynamischen Parametern des Raum-Substrats koppelt.</p>
+                    <p><strong>Von der Theorie zur Praxis:</strong> Wenn das Vakuum ein aktives Quantenfluid ist, können wir es technisch nutzen. Der Gleiter 8.7.3 ist als konzeptioneller Prototyp bereits vollständig ausgearbeitet – ein architektonisches Konzept für ein Fahrzeug, das sich direkt mit den hydrodynamischen Parameters des Raum-Substrats koppelt.</p>
                     
                     <div class="glider-card">
                         <h3>1. Das Grundprinzip: Vakuum-Verdrängung & Wirbel-Antrieb</h3>
@@ -738,73 +762,97 @@
                 <div id="en_hyp0" class="tab-content active">
                     <h3>Pillar 0: Overcoming Point Singularities via Continuum Mechanics</h3>
                     <p><strong>Systemic Premise:</strong> Classical cosmology postulates infinite densities at origins (Big Bang singularity). In the DQF framework, mathematical divergences indicate incomplete continuum models.</p>
-                    <p><strong>Model Approach:</strong> By introducing a fundamental saturation limit (scaled via $\Phi^{-1}$) and an active vacuum substrate, physical infinities are avoided. The cosmos is formulated as an eternal, self-regulating fluid ocean without singular starting points.</p>
+                    <p><strong>Formal Axiomatics:</strong> Bounded via the isomorphic saturation limit:</p>
+                    <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                    <p>Infinite densities ($lim_{r \to 0} \rho = \infty$) are physically excluded, formulating the cosmos as an eternal, self-regulating fluid ocean without singular origins.</p>
                 </div>
 
                 <div id="en_hyp1" class="tab-content">
                     <h3>Pillar I: The Primary Quantum Fluid (Vacuum as Active Medium)</h3>
-                    <p><strong>Systemic Premise:</strong> The vacuum is not a passive geometric space, but a compressible, low-loss quantum fluid with baseline density $\rho_0$.</p>
-                    <p><strong>Model Approach:</strong> All electromagnetic and mechanical waves propagate as continuum disturbances. Fundamental light speed $c$ is defined directly by medium sound speed: $c = \sqrt{\partial P / \partial \rho}$.</p>
+                    <p><strong>Systemic Premise:</strong> The vacuum is not a passive geometric space, but a compressible, low-loss quantum fluid with baseline density $\rho_0$ and polytropic behavior.</p>
+                    <p><strong>Formal Axiomatics:</strong> The medium obeys the equation of state:</p>
+                    <code>P = K \cdot \rho^\gamma</code>
+                    <p>Fundamental light speed $c$ is defined directly by medium sound speed: <code>c = \sqrt{\frac{\partial P}{\partial \rho}}</code>, meaning electromagnetic waves propagate as pure continuum disturbances.</p>
                 </div>
 
                 <div id="en_hyp2" class="tab-content">
                     <h3>Pillar II: Topological Solitons as Matter Equivalents</h3>
                     <p><strong>Systemic Premise:</strong> Elementary particles are localized, stable vortex structures (solitons) within the fluid continuum rather than point foreign bodies.</p>
-                    <p><strong>Model Approach:</strong> Matter stability relies on topological vortex conservation within nonlinear equations of motion. Energy and mass represent locally bound rotational states of the space-ocean.</p>
+                    <p><strong>Formal Axiomatics:</strong> Matter stability relies on topological vortex conservation within nonlinear equations of motion:</p>
+                    <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                    <p>Energy and mass represent locally bound, quantized rotational states of the space-ocean, eliminating the need for arbitrary particle dogmas.</p>
                 </div>
 
                 <div id="en_hyp3" class="tab-content">
                     <h3>Pillar III: The Isomorphic Saturation Limit ($S_{\text{res}}$)</h3>
-                    <p><strong>Systemic Premise:</strong> Real physical media possess elastic load limits preventing infinite compression.</p>
-                    <p><strong>Model Approach:</strong> Maximum fluid compaction is formalized via the universal resonance of the Golden Ratio: $S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} [(\nabla \cdot \mathbf{v} / \rho) \cdot \rho_0] = \Phi^{-1}$, protecting the system from unphysical collapses.</p>
+                    <p><strong>Systemic Premise:</strong> Real physical media possess elastic load limits preventing infinite compression and preserving system integrity.</p>
+                    <p><strong>Formal Axiomatics:</strong> Maximum fluid compaction is formalized via the universal resonance of the Golden Ratio:</p>
+                    <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                    <p>This upper bound prevents unphysical collapses under extreme gravitational field conditions.</p>
                 </div>
 
                 <div id="en_hyp4" class="tab-content">
                     <h3>Pillar IV: Acoustic Cosmology & Background Phononics</h3>
                     <p><strong>Systemic Premise:</strong> As a compressible medium, the quantum fluid supports continuous propagation of pressure and density waves on cosmic scales.</p>
-                    <p><strong>Model Approach:</strong> Fluctuations manifest as true acoustic modes in the spatial continuum obeying the compressible wave equation: $\partial^2 p / \partial t^2 - c^2 \nabla^2 p = 0$.</p>
+                    <p><strong>Formal Axiomatics:</strong> Wave dynamics obey the classical compressible wave equation:</p>
+                    <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
+                    <p>Cosmic fluctuations manifest as true acoustic modes within the spatial continuum.</p>
                 </div>
 
                 <div id="en_hyp5" class="tab-content">
                     <h3>Pillar V: Hydrodynamic Redshift (Medium Dissipation)</h3>
                     <p><strong>Systemic Premise:</strong> Cosmic photons experience minimal, continuous energy loss to the vacuum substrate over interstellar distances.</p>
-                    <p><strong>Model Approach:</strong> Observed redshift is formulated as dissipative energy loss ($dE/dx = -\gamma_{\text{diss}} \cdot E$) via fluid interaction, replacing real space expansion as primary driver.</p>
+                    <p><strong>Formal Axiomatics:</strong> Dissipative energy loss is formulated as:</p>
+                    <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
+                    <p>This frictional fluid interaction explains observed redshift physically, replacing the assumption of real space expansion.</p>
                 </div>
 
                 <div id="en_hyp6" class="tab-content">
                     <h3>Pillar VI: Mechanical Resolution of the Dark Matter Paradox</h3>
-                    <p><strong>Systemic Premise:</strong> Anomalously flat galactic rotation curves require no hypothetical phantom particles.</p>
-                    <p><strong>Model Approach:</strong> Macroscopic vortex fields combined with underlying substrate shear generate stabilizing radial pressure, keeping outer stellar orbits mechanically balanced.</p>
+                    <p><strong>Systemic Premise:</strong> Anomalously flat galactic rotation curves require no hypothetical phantom particles or invisible halos.</p>
+                    <p><strong>Formal Axiomatics:</strong> Macroscopic vortex fields combined with substrate shear generate radial force density:</p>
+                    <code>F_{\text{rot}}(r) = \frac{v^2}{r} = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                    <p>This mechanical pressure keeps outer stellar orbits in perfect dynamic equilibrium.</p>
                 </div>
 
                 <div id="en_hyp7" class="tab-content">
                     <h3>Pillar VII: Hydrodynamic Gravitation ($\mathbf{f}_{\text{grav}} = -\nabla P$)</h3>
                     <p><strong>Systemic Premise:</strong> Gravitation is not geometric spacetime curvature of nothingness, but a real pressure and density gradient in the fluid.</p>
-                    <p><strong>Model Approach:</strong> Massive vortices displace surrounding quantum fluid, generating an inward-directed flow suction that drives test bodies: $\mathbf{f}_{\text{grav}} = -\nabla P$.</p>
+                    <p><strong>Formal Axiomatics:</strong> Massive vortices displace surrounding quantum fluid, generating an inward-directed flow suction:</p>
+                    <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                    <p>Test bodies are driven and accelerated by the real pressure differentials of the medium.</p>
                 </div>
 
                 <div id="en_hyp8" class="tab-content">
                     <h3>Pillar VIII: The PRV Principle (Testable Resonance Verification)</h3>
                     <p><strong>Systemic Premise:</strong> The vacuum substrate possesses measurable eigenresonances under extreme field gradients.</p>
-                    <p><strong>Model Approach:</strong> Laboratory verification via high-precision electromagnetic cavities coupled to local sound speed: $\omega_{\text{res}} = k \cdot c$.</p>
+                    <p><strong>Formal Axiomatics:</strong> Laboratory verification via high-precision electromagnetic cavities coupled to local sound speed:</p>
+                    <code>\omega_{\text{res}} = k \cdot c</code>
+                    <p>This allows direct metrological validation of the quantum fluid model.</p>
                 </div>
 
                 <div id="en_hyp9" class="tab-content">
-                    <h3>Pillar IX: Black Holes as Drain Vortices & Overflowing Horizons</h3>
+                    <h3>Pillar IX: Black Holes as Drain Vortizes & Overflowing Horizons</h3>
                     <p><strong>Systemic Premise:</strong> Gravitational singularities are actually supermassive hydrodynamic sink drains.</p>
-                    <p><strong>Model Approach:</strong> Inflow velocities exceeding sound speed ($v_{\text{fluid}} \ge c$, Mach number $M_{\text{ac}} \ge 1$) establish an acoustic horizon that dynamically swells and overflows under massive fluid influx (corresponding to ringdown signals).</p>
+                    <p><strong>Formal Axiomatics:</strong> Inflow velocities exceeding sound speed establish an acoustic horizon governed by the Mach number:</p>
+                    <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                    <p>Massive fluid influx causes dynamic backpressure and overflow, corresponding to astronomical ringdown signals.</p>
                 </div>
 
                 <div id="en_hyp10" class="tab-content">
                     <h3>Pillar X: The Great Synthesis – Sub-Planck Phase Lattice and Vortex Anchors</h3>
                     <p><strong>Systemic Premise:</strong> The cosmos relies on a symbiotic two-phase system of metric basis and dynamic active assets.</p>
-                    <p><strong>Model Approach:</strong> The dissipation-free sub-Planck phase lattice establishes frictionless spatial metrics and global stability, while chiral vortex anchors act as solitons driving local matter and gravitational dynamics.</p>
+                    <p><strong>Formal Axiomatics:</strong> The complete macro field equation unifying pressure gradient and lattice shear:</p>
+                    <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
+                    <p>The phase lattice ensures global stability while chiral vortex anchors drive local dynamics.</p>
                 </div>
 
                 <div id="en_hyp11" class="tab-content">
                     <h3>Pillar XI: Technological Realisation – Conceptual Prototype Glider 8.7.3</h3>
                     <p><strong>Systemic Premise:</strong> Practical application of vacuum fluid mechanics for reactionless propulsion.</p>
-                    <p><strong>Model Approach:</strong> Glider 8.7.3 utilizes targeted resonance coupling and asymmetric field gradients to displace the vacuum substrate.</p>
+                    <p><strong>Formal Axiomatics:</strong> Asymmetric vacuum displacement via integrated field gradients:</p>
+                    <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
+                    <p>Enables direct propulsion within the space ocean without conventional mass expulsion.</p>
                 </div>
             </div>
 
