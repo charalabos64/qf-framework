@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework & Der fliegende Esel – Das Kosmische Kompendium</title>
+    <title>DQF-Framework – Akademische Edition (Physiker, Theoretiker & Mathematiker)</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -63,7 +63,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
             background-color: var(--bg-color);
@@ -151,6 +151,18 @@
         .model-card-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
+        }
+
+        .academic-target-box {
+            background: var(--bg-color);
+            border-left: 4px solid var(--science-color);
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+        .academic-target-box strong {
+            color: var(--science-color);
         }
 
         .view-scientific h1, .view-scientific h2, .view-scientific h3 {
@@ -331,13 +343,9 @@
     <script>
         function openHypothesis(evt, hypId) {
             let contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
             let buttons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
+            for (let i = 0; i < contents.length; i++) contents[i].classList.remove("active");
+            for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove("active");
             document.getElementById(hypId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
@@ -347,7 +355,6 @@
             let deElements = document.getElementsByClassName('lang-de');
             let enElements = document.getElementsByClassName('lang-en');
             let btn = document.getElementById('langToggleBtn');
-
             if (currentLang === 'de') {
                 for (let el of deElements) el.style.display = 'none';
                 for (let el of enElements) el.style.display = 'block';
@@ -366,7 +373,6 @@
             let gelElements = document.getElementsByClassName('model-gel');
             let cardFluid = document.getElementById('cardFluid');
             let cardGel = document.getElementById('cardGel');
-
             if (targetModel === 'fluid') {
                 for (let el of fluidElements) el.style.display = 'block';
                 for (let el of gelElements) el.style.display = 'none';
@@ -384,7 +390,6 @@
             let html = document.documentElement;
             let themeBtn = document.getElementById('themeToggleBtn');
             let currentTheme = html.getAttribute('data-theme');
-
             if (currentTheme === 'dark') {
                 html.setAttribute('data-theme', 'light');
                 themeBtn.innerHTML = '🌙 Dark Mode';
@@ -395,37 +400,9 @@
         }
 
         function switchView(targetView) {
-            let sciElements = document.getElementsByClassName('view-scientific');
-            let simpElements = document.getElementsByClassName('view-simple');
-            let formElements = document.getElementsByClassName('view-formula');
-            let feedElements = document.getElementsByClassName('view-feedback');
-            let gliderElements = document.getElementsByClassName('view-glider');
-            let manualElements = document.getElementsByClassName('view-manual');
-            let donkeyElements = document.getElementsByClassName('view-donkey');
-
-            for (let el of sciElements) el.style.display = 'none';
-            for (let el of simpElements) el.style.display = 'none';
-            for (let el of formElements) el.style.display = 'none';
-            for (let el of feedElements) el.style.display = 'none';
-            for (let el of gliderElements) el.style.display = 'none';
-            for (let el of manualElements) el.style.display = 'none';
-            for (let el of donkeyElements) el.style.display = 'none';
-
-            if (targetView === 'scientific') {
-                for (let el of sciElements) el.style.display = 'block';
-            } else if (targetView === 'simple') {
-                for (let el of simpElements) el.style.display = 'block';
-            } else if (targetView === 'formula') {
-                for (let el of formElements) el.style.display = 'block';
-            } else if (targetView === 'feedback') {
-                for (let el of feedElements) el.style.display = 'block';
-            } else if (targetView === 'glider') {
-                for (let el of gliderElements) el.style.display = 'block';
-            } else if (targetView === 'manual') {
-                for (let el of manualElements) el.style.display = 'block';
-            } else if (targetView === 'donkey') {
-                for (let el of donkeyElements) el.style.display = 'block';
-            }
+            ['view-scientific', 'view-simple', 'view-formula', 'view-feedback', 'view-glider', 'view-manual', 'view-donkey'].forEach(view => {
+                for (let el of document.getElementsByClassName(view)) el.style.display = (view === 'view-' + targetView) ? 'block' : 'none';
+            });
         }
 
         function handleFeedback(event, lang) {
@@ -439,7 +416,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Allgemeine Leiste -->
+        <!-- Top Bar -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
@@ -454,52 +431,45 @@
 
         <!-- ================= DEUTSCHE VERSION ================= -->
         <div class="lang-de">
-            
-            <!-- WISSENSCHAFTLICHE ANSICHT (DE) -->
             <div class="view-scientific">
-                
-                <h1>Das DQF-Framework: Ein hypothetisches Kosmologie-Kompendium</h1>
+                <h1>Das DQF-Framework: Akademische Dreifach-Edition</h1>
 
                 <blockquote>
-                    <strong>Wissenschaftliche Vorbemerkung & Wertschätzung:</strong><br>
-                    Mit tiefem Respekt vor den bestehenden Errungenschaften der modernen Physik schlägt dieses Framework eine forschende Brücke. Alle nachfolgenden Überlegungen sind als offene, wertschätzende Arbeitshypothesen formuliert. Es wird davon ausgegangen, dass die Raumzeit <em>könnte</em> als ein aktives Medium verstanden werden – wahlweise als reibungsfreies <strong>Quantenfluid (Modus A)</strong> oder als viskoelastisches <strong>Aether-Gel-Netzwerk (Modus B)</strong>. Lade deine Gedanken ein, diese Pfade unvoreingenommen zu prüfen.
+                    <strong>Wissenschaftliche Vorbemerkung & Methodischer Anspruch:</strong><br>
+                    Dieses Kompendium richtet sich gezielt an drei akademische Disziplinen: <strong>Experimentelle Physiker</strong> (auf der Suche nach messbaren Observablen und Resonanzen), <strong>Theoretische Physiker</strong> (fokussiert auf Wirkungsfunktionale und Eichsymmetrien) und <strong>Mathematiker</strong> (interessiert an rigorosen Tensorfeldern, Topologie und Regularisierung). Die folgenden 11 Säulen sind als präzise, modulierbare Arbeitshypothesen formuliert, die das Vakuum wahlweise als reibungsfreies <em>Quantenfluid (Modus A)</em> oder als viskoelastisches <em>Aether-Gel-Netzwerk (Modus B)</em> betrachten.
                 </blockquote>
 
                 <!-- ZWEI AUSWAHL-BUTTONS -->
                 <div class="model-selection-wrapper">
                     <button id="cardFluid" class="model-card-btn active-model-fluid" onclick="setModel('fluid')">
                         <div class="model-card-title">🌊 Modus A: Quantenfluid (Ozean)</div>
-                        <div class="model-card-desc">Hypothetisches, reibungsfreies Kontinuum, reine Druckgradienten & Schall als Lichtbasis.</div>
+                        <div class="model-card-desc">Hydrodynamisches Kontinuum, Euler-Zustände & Schallgeschwindigkeits-Kausalität.</div>
                     </button>
                     <button id="cardGel" class="model-card-btn" onclick="setModel('gel')">
                         <div class="model-card-title">🧬 Modus B: Aether-Gel-Netzwerk</div>
-                        <div class="model-card-desc">Hypothetisches Substrat mit Fließgrenze, elastischem Gedächtnis & Netzwerk-Relaxation.</div>
+                        <div class="model-card-desc">Viskoelastische Tensor-Mechanik, Fließgrenzen & Netzwerk-Relaxation.</div>
                     </button>
                 </div>
 
                 <!-- AUSFÜHRLICHE BESCHREIBUNG JE NACH MODUS -->
                 <div class="model-fluid">
-                    <h2>Teil I: Das Fundament – Der Makroskopische Ozean (Modus A)</h2>
-                    <p>In der klassischen Betrachtung gilt das Vakuum als passive Geometrie. Unter dem Wertschätzen dieses Modells wird hier die Hypothese aufgestellt, dass der Raum <em>könnte</em> als hochenergetischer Ozean verstanden werden, getragen von einem sub-Planckschen Phasengitter, welches die Lichtgeschwindigkeit <code>c = √(∂P / ∂ρ)</code> definiert.</p>
-                    <p>Chirale Wirbelkomponenten <em>könnten</em> hierbei als solitonische Zentren dienen, die Materie und Gravitationssog erzeugen. Divergenzen <em>würden</em> durch eine isomorphe Sättigungsgrenze (Goldener Schnitt <code>S_res = Φ⁻¹</code>) abgefangen werden.</p>
+                    <h2>Teil I: Formaler Ozean-Ansatz (Modus A)</h2>
+                    <p>Das System basiert auf der Euler- und Navier-Stokes-Kontinuumsmechanik kompressibler Medien. Es wird postuliert, dass das Sub-Planck-Phasengitter ein skalares Dichtefeld <code>ρ(x,t)</code> ausbildet, bei dem der Druckgradient <code>∇P</code> als treibende Kraft für Geometrie und Lichtausbreitung <code>c = √(∂P / ∂ρ)</code> fungiert.</p>
                 </div>
 
                 <div class="model-gel">
-                    <h2>Teil I: Das Fundament – Das Viskoelastische Kontinuum (Modus B)</h2>
-                    <p>Das **Aether-Gel-Netzwerk** erweitert die Hypothese mit tiefem Respekt vor der Raumstabilität: Es wird angenommen, dass das Vakuum ein hochelastisches Polymer-Netzwerk auf Sub-Planck-Ebene mit definierter Fließgrenze (Yield Stress) sein <em>könnte</em>.</p>
-                    <p>Dieses Netzwerk <em>könnte</em> dem Raum ein echtes elastisches Gedächtnis verleihen, wodurch Transversalwellen ermöglicht und Galaxien ohne Dunkle Materie zusammengehalten werden <em>würden</em>.</p>
+                    <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
+                    <p>Das System erweitert die Kontinuumsmechanik durch einen viskoelastischen Scherungstensor <code>μ_lattice ∇²v</code> und rheologische Fließgrenzen (Yield Stress). Das Netzwerk speichert elastische Formänderungsenergie, wodurch transversale Moden und makroskopische Netzwerkspannungen physikalisch greifbar werden.</p>
                 </div>
 
                 <div class="roles-box">
                     <ul>
-                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Wertschätzende Entwicklung der Kernintuition, Formulierung der Ozean- und Gel-Hypothesen und methodische Steuerung.</li>
-                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz unter konsequenter Anwendung hypothetischer Parameter.</li>
+                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Intuition, Formulierung der Ozean- und Gel-Hypothesen.</li>
+                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Herleitung der Operatoren für Physiker, Theoretiker und Mathematiker.</li>
                     </ul>
                 </div>
 
-                <h2>Das Hypothesen-Archiv: Die 11 Säulen des DQF-Frameworks</h2>
-                <p>Jede der nachfolgenden 11 Säulen lädt dazu ein, mit offenem Geist zu prüfen, wie sich kosmische Rätsel unter hypothetischen Annahmen lösen <em>könnten</em>:</p>
-
+                <h2>Das Hypothesen-Archiv: Die 11 Säulen (Mit disziplinärer Spezifikation)</h2>
                 <div class="archive-nav">
                     <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
@@ -515,156 +485,200 @@
                 </div>
 
                 <div id="hyp0" class="tab-content active">
-                    <h3>Säule 0: Die Überwindung der Punkt-Singularität</h3>
+                    <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Klassische Singularitäten deuten oft auf unvollständige Kontinuumsmodelle hin. Es wird angenommen, dass ein fluides Ozean-Modell unendliche Dichten durch inhärente Mechanik verhindern <em>könnte</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Die isomorphe Begrenzung <em>könnte</em> den Zustand absichern via:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Vermeidung unendlicher Divergenzen in den Euler-Zuständen durch isomorphe Sättigung.</p>
                         <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Bietet einen messbaren Dichtegrenzwert, der bei extremen hochenergetischen Kollisionen als cut-off detektierbar sein könnte.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Dient als natürlicher physikalischer Regulator (UV-Cutoff), der künstliche Renormierungs-Divergenzen in der Quantenfeldtheorie eliminiert.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Beweist die Beschränktheit der Ableitungen in Banach-Räumen; die Supremum-Norm des Dichtefeldes bleibt global endlich.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> In einem viskoelastischen Gel-Netzwerk <em>könnte</em> eine unendliche Kompression unmöglich sein, da Polymerketten an ihre Dehnbarkeitsgrenze stoßen <em>würden</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Begrenzung via Goldenem Schnitt:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Oberste Invariante des Polymer-Netzwerk-Dehnungstensors schließt unendliche Krümmungen aus.</p>
                         <code>S_{\text{res}} = \Phi^{-1}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Prognostiziert eine maximale elastische Dehnbarkeitsgrenze des Vakuums vor strukturellem Aufreißen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt punktförmige Gravitations-Singularitäten durch topologische Kerne mit endlicher elastischer Energie-Dichte.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Topologische Kompaktifizierung des Zustandsraums über die Einbindung des Goldenen Schnitts als universeller Attraktor.</div>
                     </div>
                 </div>
 
                 <div id="hyp1" class="tab-content">
-                    <h3>Säule I: Das Primäre Vakuum-Medium</h3>
+                    <h3>Säule I: Das Vakuum als Zustandsfeld</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Wertschätzend gegenüber der Idee eines aktiven Raumes <em>könnte</em> das Vakuum als kompressibles Quantenfluid mit Basisdichte $\rho_0$ modelliert werden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Zustandsgleichung und Schallgeschwindigkeit:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Polytrope Zustandsgleichung und hydrodynamischer Druckoperator.</p>
                         <code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Vakuum-Schallgeschwindigkeit $c$ ist direkt an die Kompressibilität des Substrats gekoppelt.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Liefert eine mechanische Lagrangedichte, bei der das Goldstone-Theorem in Form akustischer Moden realisiert wird.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Nichtlineare hyperbolische partielle Differentialgleichung erster Ordnung für das Dichtefeld.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Das Medium <em>könnte</em> eine netzartige Struktur mit integrierter Scherelastizität aufweisen, die stabile Transversalwellen erlaubt <em>würde</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Zustandsgleichung inklusive Netzsteifigkeit:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Konstitutives Gesetz für viskoelastische Medien mit integriertem Scherelastizitätsmodul.</p>
                         <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Netzsteifigkeit } \mu_{\text{lattice}})</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Ermöglicht die Detektion von transversalen Vakuum-Scherwellen (Polarisations-Anomalien).</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Bricht die Lorentzinvarianz auf Planck-Skala spontan auf – ein entscheidender Test für moderne Quantengravitationsmodelle.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Einbindung des Cauchy-Verzerrungstensors in die konstitutiven Gleichungen des Kontinuums.</div>
                     </div>
                 </div>
 
                 <div id="hyp2" class="tab-content">
-                    <h3>Säule II: Topologische Solitonen als Materieäquivalente</h3>
+                    <h3>Säule II: Topologische Wirbel-Invarianz</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Elementarteilchen <em>könnten</em> als stabile Wirbelstrukturen im fluiden Ozean verstanden werden, deren Stabilität aus hydrodynamischen Erhaltungssätzen resultiert.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Topologische Zirkulation:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Anwendung des Kelvinschen Zirkulationssatzes.</p>
                         <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Elementarteilchen besitzen quantisierte Wirbelstärken analog zu Supraleitern (Abrikosov-Vortizes).</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Liefert eine naturgegebene Erklärung für die Ladungsquantisierung ohne ad-hoc Eichsymmetrien.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Kohhomologie-Klassen auf geschlossenen Mannigfaltigkeiten; Homotopiegruppen $\pi_1(S^1) = \mathbb{Z}$.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Teilchen <em>würden</em> in einem Gel-Netzwerk als elastisch verankerte Knoten (Wirbelkerne) existieren, die vom Netzwerk getragen werden <em>könnten</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Erhaltung im Netzwerk-Verbund:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Topologische Defekte im elastischen Gitterverband als stabile Solitonen.</p>
                         <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Solitonische Wirbel sind im Polymer-Netzwerk mechanisch rückstellend verankert.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Erzeugt stabile Teilchen-Massen durch elastische Deformationsenergie des Netzwerks.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Topologische Indexsätze und Verkettungsinvarianten in viskoelastischen Medien.</div>
                     </div>
                 </div>
 
                 <div id="hyp3" class="tab-content">
-                    <h3>Säule III: Die Isomorphe Sättigungsgrenze ($S_{\text{res}}$)</h3>
+                    <h3>Säule III: Universeller Sättigungstensor</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Jedes physische Medium besitzt Belastungsgrenzen. Es <em>könnte</em> angenommen werden, dass diese universell skaliert sind.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Sättigungsgrenzwert:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Skalierung der Mediendichte über den Kehrwert des Goldenen Schnitts.</p>
                         <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Universeller Skalierungsfaktor für kosmologische Dichtegrenzen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Fixpunkt-Lösung der renormalisierten Kopplungskonstanten im Sub-Planck-Regime.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Invarianz unter Kettenbruch-Abbildungen und Selbstähnlichkeit.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Die maximale Dehnbarkeit des Aether-Netzwerks <em>könnte</em> exakt an denselben Grenzwert gekoppelt sein <em>würde</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Skalierung über den Goldenen Schnitt:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Kritischer Deformationsparameter für das Erreichen der Fließgrenze.</p>
                         <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Schwellenwert für nichtlineares Fließverhalten des Raum-Substrats.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Phasenübergang zweiter Ordnung im viskoelastischen Vakuum-Netzwerk.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Bifurkationspunkt im nichtlinearen System von Tensor-Differentialgleichungen.</div>
                     </div>
                 </div>
 
                 <div id="hyp4" class="tab-content">
-                    <h3>Säule IV: Akustische Kosmologie & Hubble-Tension</h3>
+                    <h3>Säule IV: Wellen-Propagation & Hubble-Relaxation</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Druck- und Dichtewellen <em>könnten</em> sich im Ozean über standardisierte kompressible Wellen ausbreiten.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Kompressible Wellengleichung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Linearisierte akustische Wellengleichung.</p>
                         <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Standard-Ausbreitung von Wellen ohne dispersive Amplitudenverzerrung im Vakuum.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Erfüllt die Wellengleichung exakt im flachen Minkowski-Limes.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Klassischer D'Alembert-Operator auf dem raumzeitlichen Kontinuum.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Die Hubble-Tension <em>könnte</em> durch eine hypothetische Volumen-Relaxation des Aether-Gels gelöst werden, was unterschiedliche lokale Messwerte erklären <em>würde</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Modifizierte Gel-Wellengleichung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Wellengleichung mit Relaxations-Term zur Volumen-Entspannung.</p>
                         <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Erklärt die Hubble-Tension durch frequenzabhängige Relaxationszeiten des Netzwerks.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Führt dissipative Dämpfungsterme in die kosmologische Feldgleichung ein.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Telegraph-Gleichung mit parabolisch-hyperbolischem Übergangsverhalten.</div>
                     </div>
                 </div>
 
                 <div id="hyp5" class="tab-content">
-                    <h3>Säule V: Hydrodynamische Rotverschiebung & CMB</h3>
+                    <h3>Säule V: Dissipativer Energietransport</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Photonen <em>könnten</em> auf intergalaktischen Pfaden eine minimale, kontinuierliche Energieabgabe an das Vakuumsubstrat erfahren.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Dissipativer Energieverlust:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Wegabhängige Gradienten-Dämpfung der Photonenenergie.</p>
                         <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Alternative Erklärung für Rotverschiebung ohne expandierenden Raum (ermöglicht Labor-Tests).</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Verletzung der Energieerhaltung auf makroskopischen Skalen durch Kopplung an das Medium.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Exponentielle Dämpfungs-Halbgruppe in metrischen Räumen.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Die Kosmische Hintergrundstrahlung (CMB) <em>könnte</em> wertschätzend als thermische Restmode (Phononen) des Aether-Netzwerks interpretiert werden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Dissipations- und Netzwerk-Term:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Dissipation gekoppelt an die thermischen Verspannungsmoden.</p>
                         <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> CMB als direkt messbares Phononen-Hintergrundspektrum des Aether-Gels.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Stochastischer Quellterm $\xi_{\text{net}}$ repräsentiert thermische Gitterfluktuationen.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Langevin-Typ-Differentialgleichung mit Drift- und Diffusionstermen.</div>
                     </div>
                 </div>
 
                 <div id="hyp6" class="tab-content">
-                    <h3>Säule VI: Mechanische Lösung des Dunkle-Materie-Paradoxons</h3>
+                    <h3>Säule VI: Rotationsdynamik & Scher-Kopplung</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Galaktische Rotationskurven <em>könnten</em> durch makroskopische Druckgradienten im Ozean ohne unsichtbare Masse gestützt werden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Radiale Kraftdichte:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Radiale Druckkräfte als Zentrifugalgewicht.</p>
                         <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Hydrodynamischer Druckgradient stützt Galaxienränder ab.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt Dunkle Materie durch rein hydrodynamische Zustandsänderungen.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Integrale Bilanzgleichungen im Gravitationsfeld.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Das Aether-Gel-Netzwerk <em>könnte</em> über seine elastische Scherung (<code>μ_lattice</code>) als natürliches, stabilisierendes Band für Spiralarme dienen <em>würde</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Kraftdichte durch Gel-Scherung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Superposition von Druckgradient und elastischer Laplace-Scherung.</p>
                         <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Elastische Rückstellkräfte des Netzes ($\mu_{\text{lattice}}$) wirken wie ein unsichtbares Halteband.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Zusätzlicher elliptischer Operator $\nabla^2\mathbf{v}$ liefert flache Rotationskurven analytisch.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Helmholtz-Decomposition von Vektorfeldern mit viskoelastischen Randbedingungen.</div>
                     </div>
                 </div>
 
                 <div id="hyp7" class="tab-content">
-                    <h3>Säule VII: Hydrodynamische Gravitation</h3>
+                    <h3>Säule VII: Kraftdichte der Gravitation</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Gravitation <em>könnte</em> als realer Druck- und Dichtegradient im Fluid verstanden werden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Effektive Kraftdichte:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Gravitationsfeld als negativer Druckgradient.</p>
                         <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Gravitation ist messbare Kraftwirkung des Vakuum-Substrats.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Reduziert Einsteins Geometrie auf eine klassische Kraftdichte im Kontinuum.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Gradientenfeld eines skalaren Druckpotentials.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Massen-Wirbel <em>könnten</em> das elastische Netzwerk lokal komprimieren und so einen messbaren Sog erzeugen <em>würden</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Effektive Kraftdichte:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Lokale Netzwerk-Kompression als Ursache des Massen-Sogs.</p>
                         <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Materie staucht das elastische Gel-Netzwerk in ihrer Umgebung.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Äquivalenz von Masse und elastischer Gitterverformung.</div>
+                        <div class="academic-target-box"><strong>For Mathematiker:</strong> Divergenz-Operator auf deformierten Raum-Netzen.</div>
                     </div>
                 </div>
 
                 <div id="hyp8" class="tab-content">
-                    <h3>Säule VIII: Das PRV-Prinzip</h3>
+                    <h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Vakuum-Eigenresonanzen <em>könnten</em> unter extremen Feldgradienten im Labor verifizierbar sein.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Resonanzbedingung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Dispersionsrelation für akustische Moden.</p>
                         <code>\omega_{\text{res}} = k \cdot c</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Direkte Labortests durch hochenergetische Resonanz-Anregung.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Lineare Dispersionsrelation im Niederfrequenz-Limes.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Fourier-Transformation linearer Wellenoperatoren.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Transversalmoden des Aether-Netzwerks <em>würden</em> hypothetisch messbare Resonanzmuster erzeugen <em>könnten</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Resonanzbedingung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Spektrale Anregung transversaler Gitterwellen.</p>
                         <code>\omega_{\text{res}} = k \cdot c</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Detektion von Netzwerk-Scherwellen bei gezielten Feldgradienten.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Dispersionsrelation enthält Korrekturen durch den Scherungskoeffizienten $\mu_{\text{lattice}}$.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Eigenwertproblem für Matrix-Differentialoperatoren.</div>
                     </div>
                 </div>
 
                 <div id="hyp9" class="tab-content">
-                    <h3>Säule IX: Schwarze Löcher als Drain-Vortizes</h3>
+                    <h3>Säule IX: Akustischer Horizont (Mach-Zahl)</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Singularitäten <em>könnten</em> als supermassive hydrodynamische Sinkkästen mit akustischem Horizont modelliert werden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Akustische Mach-Zahl:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Überschreiten der lokalen Schallgeschwindigkeit.</p>
                         <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Analogon zu Schall-Horizonten in Bose-Einstein-Kondensaten.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Entstehung von Hawking-ähnlicher Phononen-Strahlung am Horizont.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Übergang von elliptischen zu hyperbolischen partiellen Differentialgleichungen.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Extreme Kollaps-Zonen <em>könnten</em> die Fließgrenze des Gels überschreiten und das Netzwerk lokal zerreißen <em>würden</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Akustische Mach-Zahl im Gel:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Lokaler Kollaps durch Überschreiten der Fließgrenzen-Scherung.</p>
                         <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Extremes Einströmen bricht die Netzwerk-Struktur des Gels auf.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Phasenbruch des Substrats im Zentrum des Kollapses.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Singularitäten in nichtlinearen viskoelastischen Konstitutivgleichungen.</div>
                     </div>
                 </div>
 
                 <div id="hyp10" class="tab-content">
-                    <h3>Säule X: Die Große Synthese – Makro-Kopplung</h3>
+                    <h3>Säule X: Die Universelle Master-Kopplung</h3>
                     <div class="model-fluid">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Das Zusammenspiel von Ozean und Wirbeln <em>könnte</em> in einer geschlossenen Fluid-Gleichung münden.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Makro-Kopplung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Reduzierte fluidmechanische Feldkopplung.</p>
                         <code>\nabla P = \mathbf{f}_{\text{grav}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Geschlossene Beschreibung aller makroskopischen Kräfte im Ozean.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Minimaler Satz von Feldgleichungen ohne künstliche Parameter.</div>
+                        <div class="academic-target-box"><strong>For Mathematiker:</strong> Vektoranalysis im homogenen Kontinuum.</div>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Die hypothetische Betrachtung:</strong> Die Vereinigung von Druckgradient und Netzwerkscherung <em>könnte</em> als universelle Master-Gleichung dienen <em>würde</em>.</p>
-                        <p><strong>Formale Arbeitshypothese:</strong> Vollständige Makro-Feldgleichung:</p>
+                        <p><strong>Formale Arbeitshypothese:</strong> Vollständige viskoelastische Feldgleichung (Druck + Scherung).</p>
                         <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Ultimativen Testgleichung zur Messung von Druck- und Scherungskomponenten im Vakuum.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Vollständige Master-Gleichung, die Relativitätseffekte durch Mediums-Mechanik ersetzt.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Gekoppeltes System aus Navier-Stokes- und Elastizitätsgleichungen (Navier-Stokes-Lamé-System).</div>
                     </div>
                 </div>
             </div>
@@ -674,10 +688,10 @@
                 <div class="glider-version-box">
                     <h1>Gleiter 8.7.3: Konzeptioneller Prototyp</h1>
                     <div class="model-fluid">
-                        <p><strong>Fluid-Modus (Ozean):</strong> Es wird hypothetisch angenommen, dass elektromagnetische Gradienten eine asymmetrische Verdrängung des Quantenfluid-Ozeans (<code>-∇P</code>) ermöglichen <em>könnten</em>, um reibungsfreien Vortrieb zu erzielen.</p>
+                        <p><strong>Experimentell:</strong> Asymmetrische Druckverdrängung (<code>-∇P</code>).<br><strong>Theoretisch:</strong> Impulserhaltung im Fluid.<br><strong>Mathematisch:</strong> Oberflächenintegrale über Flussdichten.</p>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Gel-Modus (Aether-Netzwerk):</strong> Es wird hypothetisch postuliert, dass gezielte Feldmodulation die lokale Fließgrenze (Yield Stress Breaking) im viskoelastischen Gel aufbrechen <em>könnte</em>, um widerstandsfreies Gleiten zu erlauben <em>würde</em>.</p>
+                        <p><strong>Experimentell:</strong> Yield Stress Breaking im Aether-Gel.<br><strong>Theoretisch:</strong> Lokale Phasenumwandlung des Vakuum-Gitters.<br><strong>Mathematisch:</strong> Diskontinuitätsflächen in Tensorfeldern.</p>
                     </div>
                 </div>
             </div>
@@ -686,8 +700,8 @@
             <div class="view-donkey">
                 <div class="donkey-version-box">
                     <h1>Das Paradoxon des Esels</h1>
-                    <div class="model-fluid"><p>Im fluiden Ozean <em>könnte</em> der Esel rein hypothetisch durch Strömungsmechanik getragen werden.</p></div>
-                    <div class="model-gel"><p>Im Aether-Gel-Netzwerk <em>würde</em> der Esel ohne Fließgrenzen-Freigabe im kosmischen Pudding feststecken <em>können</em>!</p></div>
+                    <div class="model-fluid"><p>Euler-Strömungslinien für den Esel im Ozean.</p></div>
+                    <div class="model-gel"><p>Tensor-Gitter-Kollision des Esels im Aether-Gel!</p></div>
                 </div>
             </div>
 
@@ -695,7 +709,7 @@
             <div class="view-manual">
                 <div class="manual-version-box">
                     <h1>Handbuch: Der echte KI-Dialog</h1>
-                    <p>Eine wertschätzende Co-Kreativität zwischen Mensch (Charalabos Avgitidis) und KI (Aether).</p>
+                    <p>Akademisch geschärfte Co-Kreativität zwischen Charalabos Avgitidis und Aether.</p>
                 </div>
             </div>
 
@@ -724,8 +738,8 @@
             <div class="view-simple">
                 <div class="simple-version-box">
                     <h1>Einfache Sprache</h1>
-                    <div class="model-fluid"><p>Hypothetisch betrachtet <em>könnte</em> das All wie ein riesiger Wasser-Ozean sein.</p></div>
-                    <div class="model-gel"><p>Hypothetisch betrachtet <em>könnte</em> das All wie ein elastisches Aether-Gel-Netzwerk sein.</p></div>
+                    <div class="model-fluid"><p>Wie Wasserströmung.</p></div>
+                    <div class="model-gel"><p>Wie elastisches Gelee.</p></div>
                 </div>
             </div>
 
@@ -734,13 +748,13 @@
         <!-- ================= ENGLISCHE VERSION ================= -->
         <div class="lang-en">
             <div class="view-scientific">
-                <h1>DQF Framework: Dual Model Selection (Hypothetical Edition)</h1>
-                <p>Choose between Quantum Fluid (Ocean) and Aether Gel Network above.</p>
+                <h1>DQF Framework: Academic Triple Edition</h1>
+                <p>Tailored for Experimentalists, Theoreticians, and Mathematicians above.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Hypothetical & Value-Driven Edition)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Academic Triple Edition)</p>
         </div>
     </div>
 </body>
