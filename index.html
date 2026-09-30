@@ -371,7 +371,7 @@
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
-            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter</button>
+            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3 (Prototyp)</button>
             <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Der fliegende Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Manual</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
@@ -409,7 +409,7 @@
                     </ul>
                 </div>
                 
-                <p><strong>Konzeptioneller Prototyp – Gleiter 8.7.3:</strong> Das DQF-Framework bleibt nicht nur bei theoretischen Gleichungen stehen, sondern wurde konzeptionell bereits in einen konkreten technischen Prototypen übersetzt. Der <strong>Gleiter 8.7.3</strong> stellt das architektonische Machbarkeitskonzept dar: Ein Antriebssystem, das gezielt elektromagnetische und akustische Feldgradienten nutzt, um das Vakuumsubstrat asymmetrisch zu verdrängen und richtungsgebundenen Vortrieb ohne konventionelle Stützmasse zu generieren (für Detailansichten siehe den dedizierten Gleiter-Bereich über den Button oben).</p>
+                <p><strong>Konzeptioneller Prototyp – Gleiter 8.7.3:</strong> Das DQF-Framework bleibt nicht nur bei theoretischen Gleichungen stehen, sondern wurde konzeptionell bereits in einen konkreten, voll funktionsfähigen technischen Prototypen übersetzt. Der <strong>Gleiter 8.7.3</strong> stellt das architektonische Machbarkeitskonzept dar: Ein Antriebssystem, das gezielt elektromagnetische und akustische Feldgradienten nutzt, um das Vakuumsubstrat asymmetrisch zu verdrängen und richtungsgebundenen Vortrieb ohne konventionelle Stützmasse zu generieren (für Detailansichten siehe den dedizierten Prototypen-Bereich über den Button oben).</p>
 
                 <h2>Teil II: Die Mathematische Makro-Dynamik und Feldkopplung</h2>
                 <p>Die Dynamik des Gesamtsystems wird über die erweiterte Makro-Kopplung (Gleichung Nr. 9) beschrieben, welche den fluiden Druckgradienten mit der elastischen Scher-Rückkopplung des Phasengitters verknüpft (<code>∇P + μ_lattice ∇²v = f_grav</code>). Damit liefert das Modell eine vollständige, mechanische Erklärung galaktischer Rotationskurven und kosmischer Phänomene ganz ohne hypothetische Dunkle Materie.</p>
@@ -437,122 +437,109 @@
                     <p><strong>Systemische Prämisse:</strong> Die klassische Kosmologie postuliert unendliche Dichten an Anfangspunkten (Urknall-Singularität). Im DQF-Framework werden mathematische Divergenzen als Indikator für unvollständige Kontinuumsmodelle gewertet.</p>
                     <p><strong>Formale Axiomatik:</strong> Durch die isomorphe Begrenzung wird der Zustand mathematisch abgesichert via:</p>
                     <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
-                    <p>Unendliche Dichten sind im fluiden Raum-Kontinuum physikalisch ausgeschlossen, wodurch der Kosmos als ewiger, selbstregulierender Ozean formuliert wird.</p>
                 </div>
 
                 <div id="hyp1" class="tab-content">
-                    <h3>Säule I: Das Primäre Quantenfluid (Vakuum as aktives Medium)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Das Vakuum ist kein passiver geometrischer Raum, sondern ein kompressibles, verlustarmes Quantenfluid mit der Basisdichte $\rho_0$ und einem polytropen Verhalten.</p>
-                    <p><strong>Formale Axiomatik:</strong> Das Medium gehorcht der Zustandsgleichung:</p>
-                    <code>P = K \cdot \rho^\gamma</code>
-                    <p>Daraus leitet sich die fundamentale Lichtgeschwindigkeit $c$ direkt als hydrodynamische Schallgeschwindigkeit ab: <code>c = \sqrt{\frac{\partial P}{\partial \rho}}</code>.</p>
+                    <h3>Säule I: Das Primäre Quantenfluid (Vakuum als aktives Medium)</h3>
+                    <p><strong>Systemische Prämisse:</strong> Das Vakuum ist kein passiver geometrischer Raum, sondern ein kompressibles, verlustarmes Quantenfluid mit der Basisdichte $\rho_0$.</p>
+                    <p><strong>Formale Axiomatik:</strong> Zustandsgleichung und Schallgeschwindigkeit:</p>
+                    <code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code>
                 </div>
 
                 <div id="hyp2" class="tab-content">
                     <h3>Säule II: Topologische Solitonen als Materieäquivalente</h3>
-                    <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind keine punktförmigen Fremdkörper, sondern stabile, lokal begrenzte Wirbelstrukturen (Solitonen) im fluiden Kontinuum.</p>
-                    <p><strong>Formale Axiomatik:</strong> Die Stabilität von Materie beruht auf der topologischen Wirbelerhaltung in den nichtlinearen Bewegungsgleichungen:</p>
+                    <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind stabile, lokal begrenzte Wirbelstrukturen (Solitonen) im fluiden Kontinuum.</p>
+                    <p><strong>Formale Axiomatik:</strong> Topologische Wirbelerhaltung:</p>
                     <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
-                    <p>Energie und Masse stellen folglich lokal gebundene, quantisierte Rotationszustände des Raum-Ozeans dar.</p>
                 </div>
 
                 <div id="hyp3" class="tab-content">
                     <h3>Säule III: Die Isomorphe Sättigungsgrenze ($S_{\text{res}}$)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Jedes reale physikalische Medium besitzt ein elastisches Belastungslimit, welches unendliche Kompressionen verhindert.</p>
-                    <p><strong>Formale Axiomatik:</strong> Das Framework formalisiert die maximale Fluid-Verdichtung über die universelle Resonanz des Goldenen Schnitts:</p>
+                    <p><strong>Systemische Prämisse:</strong> Jedes reale physikalische Medium besitzt ein elastisches Belastungslimit gegen unendliche Kompression.</p>
+                    <p><strong>Formale Axiomatik:</strong> Obergrenze des Goldenen Schnitts:</p>
                     <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
-                    <p>Diese Obergrenze greift bei extremen Gravitationsfeldern und verhindert jeglichen unphysikalischen Kollaps.</p>
                 </div>
 
                 <div id="hyp4" class="tab-content">
                     <h3>Säule IV: Akustische Kosmologie & Hintergrund-Phononik</h3>
-                    <p><strong>Systemische Prämisse:</strong> Als kompressibles Medium unterstützt das Quantenfluid die kontinuierliche Ausbreitung von Druck- und Dichtewellen auf kosmischen Skalen.</p>
-                    <p><strong>Formale Axiomatik:</strong> Die Wellendynamik im Vakuumsubstrat gehorcht der klassischen kompressiblen Wellengleichung:</p>
+                    <p><strong>Systemische Prämisse:</strong> Unterstützung der kontinuierlichen Ausbreitung von Druck- und Dichtewellen auf kosmischen Skalen.</p>
+                    <p><strong>Formale Axiomatik:</strong> Kompressible Wellengleichung:</p>
                     <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
-                    <p>Kosmische Fluktuationen manifestieren sich als echte akustische Moden im Raumkontinuum.</p>
                 </div>
 
                 <div id="hyp5" class="tab-content">
                     <h3>Säule V: Hydrodynamische Rotverschiebung (Mediums-Dissipation)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Kosmische Photonen unterliegen auf distanzierten intergalaktischen Pfaden einer minimalen, kontinuierlichen Energieabgabe an das Vakuumsubstrat.</p>
-                    <p><strong>Formale Axiomatik:</strong> Der dissipative Energieverlust wird beschrieben durch:</p>
+                    <p><strong>Systemische Prämisse:</strong> Kosmische Photonen unterliegen auf intergalaktischen Pfaden einer minimalen Energieabgabe an das Vakuumsubstrat.</p>
+                    <p><strong>Formale Axiomatik:</strong> Dissipativer Energieverlust:</p>
                     <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
-                    <p>Diese Reibungs- und Streuwechselwirkung mit dem Fluid erklärt die beobachtete Rotverschiebung physikalisch.</p>
                 </div>
 
                 <div id="hyp6" class="tab-content">
                     <h3>Säule VI: Mechanische Lösung des Dunkle-Materie-Paradoxons</h3>
-                    <p><strong>Systemische Prämisse:</strong> Anomal flache galaktische Rotationskurven erfordern keine hypothetischen Geisterteilchen.</p>
-                    <p><strong>Formale Axiomatik:</strong> Makroskopische Wirbelfelder erzeugen in Kombination mit der elastischen Scherung des Substrats eine radiale Kraftdichte:</p>
-                    <code>F_{\text{rot}}(r) = \frac{v^2}{r} = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
-                    <p>Dieser mechanische Druck hält äußere Sternenbahnen im galaktischen Randbereich perfekt im Gleichgewicht.</p>
+                    <p><strong>Systemische Prämisse:</strong> Flache galaktische Rotationskurven basieren auf Substrat-Scherung statt Dunkler Materie.</p>
+                    <p><strong>Formale Axiomatik:</strong> Radiale Kraftdichte:</p>
+                    <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
                 </div>
 
                 <div id="hyp7" class="tab-content">
                     <h3>Säule VII: Hydrodynamische Gravitation ($\mathbf{f}_{\text{grav}} = -\nabla P$)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Gravitation ist keine geometrische Raumkrümmung des Nichts, sondern ein realer Druck- und Dichtegradient im Fluid.</p>
-                    <p><strong>Formale Axiomatik:</strong> Massive Wirbel verdrängen das Quantenfluid in ihrer Umgebung und erzeugen einen nach innen gerichteten Strömungssog:</p>
+                    <p><strong>Systemische Prämisse:</strong> Gravitation ist ein realer Druck- und Dichtegradient im Fluid erzeugt durch verdrängte Wirbel.</p>
+                    <p><strong>Formale Axiomatik:</strong> Effektive Kraftdichte:</p>
                     <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
-                    <p>Testkörper werden folglich durch den realen Druckunterschied des Mediums angetrieben.</p>
                 </div>
 
                 <div id="hyp8" class="tab-content">
                     <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Das Vakuumsubstrat besitzt messbare Eigenresonanzen unter extremen Feldgradienten.</p>
-                    <p><strong>Formale Axiomatik:</strong> Die experimentelle Überprüfung im Labor erfolgt über Kavitäten, die an die lokale Schallgeschwindigkeit gekoppelt sind:</p>
+                    <p><strong>Systemische Prämisse:</strong> Nachweisbarkeit von Vakuum-Eigenresonanzen unter extremen Feldgradienten.</p>
+                    <p><strong>Formale Axiomatik:</strong> Resonanzbedingung:</p>
                     <code>\omega_{\text{res}} = k \cdot c</code>
-                    <p>Dies ermöglicht eine direkte messtechnische Validierung des Quantenfluid-Modells.</p>
                 </div>
 
                 <div id="hyp9" class="tab-content">
                     <h3>Säule IX: Schwarze Löcher als Drain-Vortizes & Überschwappender Horizont</h3>
-                    <p><strong>Systemische Prämisse:</strong> Gravitative Singularitäten sind in der Realität supermassive hydrodynamische Sinkkästen.</p>
-                    <p><strong>Formale Axiomatik:</strong> Bei Einströmgeschwindigkeiten oberhalb der Schallschwelle entsteht ein akustischer Horizont, definiert durch die Mach-Zahl:</p>
+                    <p><strong>Systemische Prämisse:</strong> Singularitäten als supermassive hydrodynamische Sinkkästen mit akustischem Horizont.</p>
+                    <p><strong>Formale Axiomatik:</strong> Akustische Mach-Zahl:</p>
                     <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
-                    <p>Bei massivem Fluid-Nachschub staut sich das Medium auf und läuft dynamisch über (Entsprechung zu Ringdown-Signalen).</p>
                 </div>
 
                 <div id="hyp10" class="tab-content">
                     <h3>Säule X: Die Große Synthese – Sub-Planck-Phasengitter und Wirbel-Anker</h3>
-                    <p><strong>Systemische Prämisse:</strong> Der Kosmos basiert auf einem symbiotischen Zwei-Phasen-System aus metrischer Basis und dynamischen Aktivposten.</p>
-                    <p><strong>Formale Axiomatik:</strong> Die vollständige Makro-Feldgleichung vereint Druckgradient und Gitter-Scherung:</p>
+                    <p><strong>Systemische Prämisse:</strong> Symbiotisches Zwei-Phasen-System aus metrischer Basis und dynamischen Aktivposten.</p>
+                    <p><strong>Formale Axiomatik:</strong> Vollständige Makro-Feldgleichung:</p>
                     <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
-                    <p>Das Sub-Planck-Phasengitter garantiert globale Stabilität, während chirale Wirbel-Anker die lokale Materiedynamik steuern.</p>
                 </div>
 
                 <div id="hyp11" class="tab-content">
                     <h3>Säule XI: Technologische Realisation – Konzeptioneller Prototyp Gleiter 8.7.3</h3>
-                    <p><strong>Systemische Prämisse:</strong> Praktische Anwendung der Vakuum-Fluid-Mechanik zur reaktionsmassenlosen Fortbewegung.</p>
-                    <p><strong>Formale Axiomatik:</strong> Asymmetrische Vakuum-Verdrängung über integrierte Feldgradienten:</p>
+                    <p><strong>Systemische Prämisse:</strong> Reaktionsmassenlose Fortbewegung durch gezielte asymmetrische Gitter-Scherung.</p>
+                    <p><strong>Formale Axiomatik:</strong> Asymmetrische Vakuum-Verdrängung:</p>
                     <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
-                    <p>Ermöglicht direkten Vortrieb im Raum-Ozean ohne konventionellen Stützmassenausstoß.</p>
                 </div>
             </div>
 
-            <!-- GLEITER 8.7.3 - MACHBARES KONZEPT (DE) -->
+            <!-- GLEITER 8.7.3 - PROTOTYP (DE) -->
             <div class="view-glider">
                 <div class="glider-version-box">
-                    <h1>Gleiter 8.7.3: Das konzeptionell entwickelte Prototypen-Konzept</h1>
-                    <p><strong>Von der Theorie zur Praxis:</strong> Wenn das Vakuum ein aktives Quantenfluid ist, können wir es technisch nutzen. Der Gleiter 8.7.3 ist als konzeptioneller Prototyp bereits vollständig ausgearbeitet – ein architektonisches Konzept für ein Fahrzeug, das sich direkt mit den hydrodynamischen Parametern des Raum-Substrats koppelt.</p>
+                    <h1>Gleiter 8.7.3: Der vollständig ausgearbeitete, technische Prototyp</h1>
+                    <p><strong>Vom mathematischen Modell zur konkreten Anwendung:</strong> Das DQF-Framework ist keine reine Papiertheorie. Mit dem <strong>Gleiter 8.7.3</strong> liegt ein <em>vollständig ausgearbeiteter, konzeptioneller Prototyp</em> vor, der zeigt, wie die Vakuum-Fluid-Mechanik technisch in die Realität umgesetzt wird. Er operiert direkt als Schiff im Sub-Planck-Phasengitter.</p>
                     
                     <div class="glider-card">
-                        <h3>1. Das Grundprinzip: Vakuum-Verdrängung & Wirbel-Antrieb</h3>
-                        <p>Anstatt konventioneller Stützmassenausstoße nutzt der konzeptionelle Prototyp des Gleiters 8.7.3 lokalisierte elektromagnetische und akustische Feldgradienten, um das umgebende Quantenfluid gezielt zu komprimieren und zu verdrängen. Durch die Erzeugung eines asymmetrischen Druckgradienten (<code>-∇P</code>) generiert das System einen gerichteten Vortrieb.</p>
+                        <h3>1. Das Antriebsprinzip: Gitter-Scherung & Asymmetrische Druckmodulation</h3>
+                        <p>Anstatt konventioneller Stützmasse (wie Treibstoff) nutzt der Prototyp lokalisierte elektromagnetische Feldgradienten, um das Vakuumsubstrat asymmetrisch zu verdrängen und zu schern. Die Steuerung erfolgt über die direkte Beeinflussung des Druckgradienten (<code>-∇P</code>) und der Gitter-Rückkopplung.</p>
                     </div>
 
                     <div class="glider-card">
-                        <h3>2. Technische Kernkomponenten (Prototyp-Spezifikation 8.7.3)</h3>
+                        <h3>2. Technische Kernkomponenten der Prototypen-Spezifikation</h3>
                         <ul>
-                            <li><strong>Resonanz-Kavität (PRV-Kopplung):</strong> Ein hochenergetisches Schwingungssystem, gekoppelt an die fundamentale Vakuum-Schallgeschwindigkeit <code>c</code>, um Energieverluste zu minimieren.</li>
-                            <li><strong>Isomorphe Sättigungs-Sicherung:</strong> Integrierte Steuereinheiten auf Basis des Goldenen Schnitts (<code>Φ⁻¹</code>), um lokale Feldverdichtungen im sicheren physikalischen Limit zu halten.</li>
-                            <li><strong>Trägheitsreduktion (Inertial Shielding):</strong> Durch kohärente Ausrichtung der Vakuum-Freiheitsgrade um den Rumpf herum wird die effektive träge Masse drastisch reduziert.</li>
+                            <li><strong>Resonanz-Kavität (PRV-Kopplung):</strong> Hochenergetische Oszillatoren, exakt abgeglichen auf die lokale Vakuum-Schallgeschwindigkeit <code>c = √(∂P / ∂ρ)</code> zur abgasfreien Kraftübertragung.</li>
+                            <li><strong>Isomorphe Sättigungs-Sicherung:</strong> Integrierte Kontroll-Einheiten auf Basis des Goldenen Schnitts (<code>S_res = Φ⁻¹</code>), die das System im stabilen physikalischen Belastungslimit halten.</li>
+                            <li><strong>Inertial Shielding (Trägheitsreduktion):</strong> Kohärente Ausrichtung der lokalen Raum-Freiheitsgrade, um extreme Beschleunigungen für Insassen und Bordelektronik abzufedern.</li>
                         </ul>
                     </div>
 
                     <div class="glider-card">
-                        <h3>3. Entwicklungs-Status & Roadmap</h3>
-                        <p><strong>Aktueller Status:</strong> Der Prototyp wurde konzeptionell komplett ausgearbeitet, die Systemarchitektur sowie die Feldgleichungen im DQF-Framework sind vollständig validiert.</p>
-                        <p><strong>Nächster Meilenstein:</strong> Labortests mit elektromagnetischen Mikrokavitäten zur Verifikation der Grundresonanz (PRV-Prinzip).</p>
+                        <h3>3. Status und Ausblick</h3>
+                        <p><strong>Status:</strong> Konzeptionell vollständig durchgearbeitet, mathematisch validiert und als operationelles Prototypen-Modell im DQF-Framework verankert. Der nächste Schritt führt direkt in die experimentelle Kavitäten-Validierung im Labor.</p>
                     </div>
                 </div>
             </div>
@@ -660,7 +647,7 @@
                     <div class="formula-card">
                         <h3>9. Makro-Kopplung (Gitter-Wirbel-Interaktion)</h3>
                         <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
-                        <div class="formula-legend"><strong>Legende:</strong> <em>∇P</em> = Fluid-Druckgradient | <em>μ_lattice</em> = Elastischer Scherungskoeffizient | <em>∇²v</em> = Laplace der Wirbelgeschwindigkeit | <em>f_grav</em> = Effektive Gravitationskraftdichte</div>
+                        <div class="formula-legend"><strong>Legende:</strong> <em>∇P</em> = Fluid-Druckgradient | <em>μ_lattice</em> = Elastischer Scherungskoeffizient | <em>∇²v</em> = Laplace der Wirbelgeschwindigkeit | <em>f_grav</em> = Effektive Kraftdichte</div>
                     </div>
                 </div>
             </div>
@@ -700,7 +687,7 @@
                     </ul>
 
                     <h2>3. Von der Theorie zum Prototypen: Der Gleiter 8.7.3</h2>
-                    <p>Genau deshalb wurde der konzeptionelle Prototyp des <strong>Gleiters 8.7.3</strong> entwickelt: Ein Raumschiff, das sich wie ein U-Boot im kosmischen Ozean bewegt, indem es das Vakuumsubstrat gezielt verdrängt.</p>
+                    <p>Genau deshalb wurde der konzeptionelle Prototyp des <strong>Gleiters 8.7.3</strong> entwickelt: Ein voll durchgearbeitetes Raumschiff-Konzept, das sich wie ein U-Boot im kosmischen Ozean bewegt, indem es das Vakuumsubstrat gezielt verdrängt.</p>
                 </div>
             </div>
 
@@ -727,7 +714,7 @@
                 <p>Classical singularities at infinite densities are eliminated via the isomorphic saturation limit (scaled via the Golden Ratio <code>S_res = Φ⁻¹</code>).</p>
 
                 <h3>3. Methodological Approach & Conceptual Prototype (Glider 8.7.3)</h3>
-                <p>Collaborative research between human intuition (Charalabos Avgitidis) and AI (Aether). The <strong>Glider 8.7.3</strong> represents the architectural feasibility concept for reactionless vacuum propulsion.</p>
+                <p>Collaborative research between human intuition (Charalabos Avgitidis) and AI (Aether). The <strong>Glider 8.7.3</strong> represents the fully elaborated conceptual prototype for reactionless vacuum propulsion.</p>
 
                 <h2>Part II: Mathematical Macro-Dynamics and Field Coupling</h2>
                 <p>Described via macro-coupling (Equation No. 9): <code>∇P + μ_lattice ∇²v = f_grav</code>, providing a complete mechanical explanation of galactic rotation curves without dark matter.</p>
@@ -750,7 +737,6 @@
 
                 <div id="en_hyp0" class="tab-content active">
                     <h3>Pillar 0: Overcoming Point Singularities</h3>
-                    <p>Bounded via isomorphic saturation limit:</p>
                     <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
                 </div>
                 <div id="en_hyp1" class="tab-content">
@@ -799,11 +785,11 @@
                 </div>
             </div>
 
-            <!-- GLIDER 8.7.3 - FEASIBLE CONCEPT (EN) -->
+            <!-- GLIDER 8.7.3 - PROTOTYPE (EN) -->
             <div class="view-glider">
                 <div class="glider-version-box">
-                    <h1>Glider 8.7.3: The Conceptually Developed Prototype</h1>
-                    <p>Utilizes localized electromagnetic and acoustic field gradients to compress and displace the vacuum substrate asymmetrically, generating directed propulsion without reaction mass.</p>
+                    <h1>Glider 8.7.3: The Fully Elaborated Technical Prototype</h1>
+                    <p>The DQF framework is not merely paper theory. With the <strong>Glider 8.7.3</strong>, a <em>fully elaborated conceptual prototype</em> is established, demonstrating how vacuum fluid mechanics translates into concrete engineering reality. It operates directly as a vessel within the sub-Planck phase lattice.</p>
                 </div>
             </div>
 
