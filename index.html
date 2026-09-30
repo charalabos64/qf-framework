@@ -496,7 +496,7 @@
                     </ul>
                 </div>
 
-                <h2>Das Hypothesen-Archiv: Die 12 Säulen des DQF-Frameworks</h2>
+                <h2>Das Hypothesen-Archiv: Die 11 Säulen des DQF-Frameworks</h2>
                 <div class="archive-nav">
                     <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
@@ -508,76 +508,161 @@
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Schwarze Löcher</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Große Synthese</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Gleiter</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Synthese</button>
                 </div>
 
                 <div id="hyp0" class="tab-content active">
-                    <h3>Säule 0: Überwindung der Punkt-Singularität</h3>
-                    <div class="model-fluid"><p>Begrenzung im fluiden Kontinuum über isomorphe Sättigung:</p><code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code></div>
-                    <div class="model-gel"><p>Strukturelle Verhinderung unendlicher Dichten durch maximale Dehnbarkeit der Aether-Netzwerkketten:</p><code>S_{\text{res}} = \Phi^{-1}</code></div>
+                    <h3>Säule 0: Überwindung der Punkt-Singularität durch Kontinuums-Mechanik</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Die klassische Kosmologie postuliert unendliche Dichten an Anfangspunkten (Urknall-Singularität). Im DQF-Framework werden mathematische Divergenzen als Indikator für unvollständige Kontinuumsmodelle gewertet.</p>
+                        <p><strong>Formale Axiomatik:</strong> Durch die isomorphe Begrenzung im reibungsfreien Ozean wird der Zustand mathematisch abgesichert via:</p>
+                        <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Unendliche Dichten sind in einem viskoelastischen Gel-Netzwerk durch die maximale Dehnbarkeit der Polymerketten strukturell unmöglich.</p>
+                        <p><strong>Formale Axiomatik:</strong> Die isomorphe Begrenzung des Aether-Netzwerks sichert den Zustand ab via:</p>
+                        <code>S_{\text{res}} = \Phi^{-1}</code>
+                    </div>
                 </div>
 
                 <div id="hyp1" class="tab-content">
-                    <h3>Säule I: Das Vakuum-Medium</h3>
-                    <div class="model-fluid"><p>Kompressibles Quantenfluid (Ozean):</p><code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code></div>
-                    <div class="model-gel"><p>Viskoelastisches Aether-Gel-Netzwerk mit Scherelastizität:</p><code>P = K \cdot \rho^\gamma \quad (\text{inkl. Netzsteifigkeit } \mu_{\text{lattice}})</code></div>
+                    <h3>Säule I: Das Primäre Vakuum-Medium</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Das Vakuum ist kein passiver geometrischer Raum, sondern ein kompressibles, verlustarmes Quantenfluid mit der Basisdichte $\rho_0$ und polytropem Verhalten.</p>
+                        <p><strong>Formale Axiomatik:</strong> Zustandsgleichung und hydrodynamische Schallgeschwindigkeit:</p>
+                        <code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Das Vakuum ist ein netzartiges Medium mit Polytropen-Zustand und integrierter Scherelastizität, getragen von den sub-Planckschen Gitterbindungen.</p>
+                        <p><strong>Formale Axiomatik:</strong> Zustandsgleichung mit Netzwerksteifigkeit:</p>
+                        <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Netzsteifigkeit } \mu_{\text{lattice}})</code>
+                    </div>
                 </div>
 
                 <div id="hyp2" class="tab-content">
-                    <h3>Säule II: Materie-Wirbel</h3>
-                    <div class="model-fluid"><p>Topologische Wirbelerhaltung im Ozean:</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
-                    <div class="model-gel"><p>Elastisch verankerte Solitonen im Netzwerk-Verbund:</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
+                    <h3>Säule II: Topologische Solitonen als Materieäquivalente</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind stabile, lokal begrenzte Wirbelstrukturen (Solitonen) im fluiden Kontinuum des Ozeans.</p>
+                        <p><strong>Formale Axiomatik:</strong> Topologische Wirbelerhaltung und Zirkulation:</p>
+                        <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind stabile, elastisch verankerte Wirbelkerne (Topologische Knoten) im Aether-Gel-Netzwerk.</p>
+                        <p><strong>Formale Axiomatik:</strong> Erhaltung der Zirkulation im Netzwerk:</p>
+                        <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                    </div>
                 </div>
 
                 <div id="hyp3" class="tab-content">
-                    <h3>Säule III: Sättigungsgrenze</h3>
-                    <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                    <h3>Säule III: Die Isomorphe Sättigungsgrenze ($S_{\text{res}}$)</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Jedes reale physikalische Medium besitzt ein elastisches Belastungslimit gegen unendliche Kompression im fluiden Raum.</p>
+                        <p><strong>Formale Axiomatik:</strong> Obergrenze skaliert über den Goldenen Schnitt:</p>
+                        <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Die maximale Dehnbarkeit und Belastbarkeit des Aether-Netzwerks besitzt eine universelle Obergrenze.</p>
+                        <p><strong>Formale Axiomatik:</strong> Begrenzung via Goldenem Schnitt:</p>
+                        <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                    </div>
                 </div>
 
                 <div id="hyp4" class="tab-content">
-                    <h3>Säule IV: Akustische Kosmologie & Hubble-Tension</h3>
-                    <div class="model-fluid"><p>Standard-Wellengleichung für Druckausbreitung im Ozean:</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
-                    <div class="model-gel"><p>Gel-Netzwerk-Relaxation als Lösung der Hubble-Tension (Volumen-Relaxation):</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code></div>
+                    <h3>Säule IV: Akustische Kosmologie & Expansion</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Kontinuierliche Ausbreitung von Druck- und Dichtewellen auf kosmischen Skalen im reibungsfreien Ozean.</p>
+                        <p><strong>Formale Axiomatik:</strong> Kompressible Wellengleichung:</p>
+                        <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Ausbreitung von kombinierten Druck- und Transversalwellen im raumbildenden Gel. Integration der Netzwerk-Relaxation als physikalische Lösung der Hubble-Tension.</p>
+                        <p><strong>Formale Axiomatik:</strong> Modifizierte Gel-Wellengleichung mit Volumen-Relaxation:</p>
+                        <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code>
+                    </div>
                 </div>
 
                 <div id="hyp5" class="tab-content">
-                    <h3>Säule V: Rotverschiebung & CMB</h3>
-                    <div class="model-fluid"><p>Hydrodynamischer Dissipationsverlust auf intergalaktischen Pfaden:</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
-                    <div class="model-gel"><p>Energieabgabe an eingefrorene Aether-Netzwerk-Verspannungen (CMB als Phonon-Restmoden):</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code></div>
+                    <h3>Säule V: Hydrodynamische Rotverschiebung & CMB</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Kosmische Photonen unterliegen auf intergalaktischen Pfaden einer minimalen, stetigen Energieabgabe an das Vakuumsubstrat.</p>
+                        <p><strong>Formale Axiomatik:</strong> Dissipativer Energieverlust im Ozean:</p>
+                        <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Photonen verlieren Energie an die innere Reibung und eingefrorene Verspannungen des Aether-Gels (wobei die Kosmische Hintergrundstrahlung als akustische Restmode des Netzes interpretiert wird).</p>
+                        <p><strong>Formale Axiomatik:</strong> Dissipativer Verlust mit Netzwerk-Term:</p>
+                        <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code>
+                    </div>
                 </div>
 
                 <div id="hyp6" class="tab-content">
-                    <h3>Säule VI: Dunkle-Materie-Ersatz</h3>
-                    <div class="model-fluid"><p>Druckgradienten und Wirbelfelder im Fluid:</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
-                    <div class="model-gel"><p>Echte elastische Aether-Netzwerk-Scherung (<code>μ_lattice</code>):</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
+                    <h3>Säule VI: Mechanische Lösung des Dunkle-Materie-Paradoxons</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Flache galaktische Rotationskurven basieren auf makroskopischen Druckgradienten des Ozeans.</p>
+                        <p><strong>Formale Axiomatik:</strong> Radiale Kraftdichte im Fluid:</p>
+                        <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Flache Rotationskurven von Galaxien resultieren direkt aus der echten elastischen Rückstellkraft des Aether-Gel-Netzwerks ($\mu_{\text{lattice}}$).</p>
+                        <p><strong>Formale Axiomatik:</strong> Radiale Kraftdichte durch Gel-Scherung:</p>
+                        <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                    </div>
                 </div>
 
                 <div id="hyp7" class="tab-content">
-                    <h3>Säule VII: Gravitation</h3>
-                    <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                    <h3>Säule VII: Hydrodynamische Gravitation</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Gravitation ist ein realer Druck- und Dichtegradient im Fluid, erzeugt durch verdrängte Wirbel.</p>
+                        <p><strong>Formale Axiomatik:</strong> Effektive Kraftdichte:</p>
+                        <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Gravitation ist ein Druckgradient und eine lokale Netzwerk-Kompression im elastischen Aether-Gel.</p>
+                        <p><strong>Formale Axiomatik:</strong> Effektive Kraftdichte:</p>
+                        <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                    </div>
                 </div>
 
                 <div id="hyp8" class="tab-content">
-                    <h3>Säule VIII: PRV-Prinzip</h3>
-                    <code>\omega_{\text{res}} = k \cdot c</code>
+                    <h3>Säule VIII: Das PRV-Prinzip (Prüfbare Resonanz-Verifikation)</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Nachweisbarkeit von Vakuum-Eigenresonanzen unter extremen Feldgradienten im Ozean.</p>
+                        <p><strong>Formale Axiomatik:</strong> Resonanzbedingung:</p>
+                        <code>\omega_{\text{res}} = k \cdot c</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Nachweis von Netzwerk-Eigenresonanzen und Transversalmoden unter gezielten Feldgradienten im Gel.</p>
+                        <p><strong>Formale Axiomatik:</strong> Resonanzbedingung:</p>
+                        <code>\omega_{\text{res}} = k \cdot c</code>
+                    </div>
                 </div>
 
                 <div id="hyp9" class="tab-content">
-                    <h3>Säule IX: Schwarze Löcher & Horizont</h3>
-                    <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                    <h3>Säule IX: Schwarze Löcher als Drain-Vortizes</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Singularitäten als supermassive hydrodynamische Sinkkästen mit akustischem Horizont.</p>
+                        <p><strong>Formale Axiomatik:</strong> Akustische Mach-Zahl im Fluid:</p>
+                        <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Kollaps-Zonen überschreiten die lokale Fließgrenze des Aether-Gels und erzeugen einen akustischen Drain.</p>
+                        <p><strong>Formale Axiomatik:</strong> Akustische Mach-Zahl im Netzwerk:</p>
+                        <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                    </div>
                 </div>
 
                 <div id="hyp10" class="tab-content">
-                    <h3>Säule X: Die Große Synthese</h3>
-                    <div class="model-fluid"><p>Makro-Kopplung im Fluid:</p><code>\nabla P = \mathbf{f}_{\text{grav}}</code></div>
-                    <div class="model-gel"><p>Vollständige Aether-Gel-Synthese (Druck + Netzwerk-Scherung):</p><code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code></div>
-                </div>
-
-                <div id="hyp11" class="tab-content">
-                    <h3>Säule XI: Gleiter 8.7.3</h3>
-                    <div class="model-fluid"><p>Asymmetrische Fluid-Verdrängung (U-Boot-Prinzip im Ozean).</p></div>
-                    <div class="model-gel"><p>Yield Stress Breaking (Fließgrenzen-Aufbruch im Aether-Gel-Netzwerk).</p></div>
+                    <h3>Säule X: Die Große Synthese – Makro-Kopplung</h3>
+                    <div class="model-fluid">
+                        <p><strong>Systemische Prämisse:</strong> Symbiotisches Zusammenspiel von Druckgradienten und Wirbel-Ankern im fluiden Ozean.</p>
+                        <p><strong>Formale Axiomatik:</strong> Makro-Gleichung:</p>
+                        <code>\nabla P = \mathbf{f}_{\text{grav}}</code>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Systemische Prämisse:</strong> Vollständige Vereinigung von Druckgradient und Aether-Gel-Scherung in einer universellen Feldgleichung.</p>
+                        <p><strong>Formale Axiomatik:</strong> Vollständige Makro-Feldgleichung:</p>
+                        <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
+                    </div>
                 </div>
             </div>
 
@@ -652,7 +737,7 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Dual-Model Edition)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (11 Säulen Edition)</p>
         </div>
     </div>
 </body>
