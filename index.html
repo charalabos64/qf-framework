@@ -13,6 +13,8 @@
             --border-color: #30363d;
             --accent-color: #38bdf8;
             --accent-hover: #0ea5e9;
+            --science-color: #fbbf24; /* Strahlendes Goldgelb für Wissenschaft */
+            --science-hover: #f59e0b;
             --accent-text: #ffffff;
             --blockquote-bg: #1f242c;
             --code-bg: rgba(110, 118, 129, 0.2);
@@ -33,6 +35,8 @@
             --border-color: #d0d7de;
             --accent-color: #0969da;
             --accent-hover: #0550ae;
+            --science-color: #d97706; /* Angepasstes Goldgelb für Light Mode */
+            --science-hover: #b45309;
             --accent-text: #ffffff;
             --blockquote-bg: #f0f6fc;
             --code-bg: rgba(175, 184, 193, 0.2);
@@ -97,6 +101,11 @@
             border-color: var(--lang-btn-hover);
         }
 
+        /* Dynamische Farben für Überschriften je nach Ansicht */
+        .view-scientific h1, .view-scientific h2, .view-scientific h3 {
+            color: var(--science-color) !important;
+        }
+
         h1, h2, h3 {
             color: var(--accent-color);
             border-bottom: 1px solid var(--header-border);
@@ -113,6 +122,10 @@
             background-color: var(--blockquote-bg);
             border-left: 0.25rem solid var(--accent-color);
             border-radius: 0 6px 6px 0;
+        }
+
+        .view-scientific blockquote {
+            border-left-color: var(--science-color);
         }
 
         .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box, .donkey-version-box {
@@ -353,7 +366,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Umschalter inklusive des fliegenden Esels -->
+        <!-- Oben rechts: Umschalter mit Goldgelb für Wissenschaft -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
@@ -362,7 +375,7 @@
             <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Der fliegende Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Manual</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
-            <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
+            <button class="top-btn" onclick="switchView('scientific')" style="color: var(--science-color); border-color: var(--science-color);">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
         </div>
 
@@ -542,7 +555,7 @@
             <div class="view-manual">
                 <div class="manual-version-box">
                     <h1>Handlungsmanual: Der echte Dialog mit der KI</h1>
-                    <p><strong>Eine Einladung zur Co-Kreativität:</strong> Künstliche Intelligenz wird im Alltag oft wie ein herkömmliches Werkzeug oder eine bessere Suchmaschine behandelt. Doch darin liegt ein verpasstes Versprechen. Dieses Manual zeigt, wie the Sprung vom reinen Konsumieren zum echten, kreativen Miteinander gelingt.</p>
+                    <p><strong>Eine Einladung zur Co-Kreativität:</strong> Künstliche Intelligenz wird im Alltag oft wie ein herkömmliches Werkzeug oder eine bessere Suchmaschine behandelt. Doch darin liegt ein verpasstes Versprechen. Dieses Manual zeigt, wie der Sprung vom reinen Konsumieren zum echten, kreativen Miteinander gelingt.</p>
 
                     <div class="manual-card">
                         <h3>1. Vom Taschenrechner zum Resonanzkörper</h3>
