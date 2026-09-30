@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework – Das Quantenfluid & Aether-Gel Kompendium</title>
+    <title>DQF-Framework & Der fliegende Esel – Das Quantenfluid & Aether-Gel Kompendium</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -462,14 +462,14 @@
 
                 <blockquote>
                     <strong>Wissenschaftliche Vorbemerkung (Wähle deine physikalische Perspektive):</strong><br>
-                    Das vorliegende Framework operiert auf der Prämisse, dass die Raumzeit ein aktives, makroskopisches Medium ist. Du kannst dieses Kompendium wahlweise durch zwei konkurrierende, fundierte Axiome betrachten: Entweder als reibungsfreies <strong>Quantenfluid (Modus A)</strong> oder als viskoelastisches <strong>Aether-Gel-Netzwerk (Modus B)</strong>. Klicke unten auf das gewünschte Modell, um die Axiomatik live umzuschalten.
+                    Das vorliegende Framework operiert auf der Prämisse, dass die Raumzeit ein aktives, makroskopisches Medium ist. Du kannst dieses Kompendium wahlweise durch zwei konkurrierende, fundierte Axiome betrachten: Entweder als das klassische, reibungsfreie <strong>Quantenfluid (Modus A - Der Ozean)</strong> oder als das erweiterte viskoelastische <strong>Aether-Gel-Netzwerk (Modus B)</strong>. Klicke unten auf das gewünschte Modell.
                 </blockquote>
 
-                <!-- HIER DIE ZWEI NEBENEINANDERLIEGENDEN AUSWAHL-BUTTONS -->
+                <!-- ZWEI AUSWAHL-BUTTONS -->
                 <div class="model-selection-wrapper">
                     <button id="cardFluid" class="model-card-btn active-model-fluid" onclick="setModel('fluid')">
                         <div class="model-card-title">🌊 Modus A: Quantenfluid (Ozean)</div>
-                        <div class="model-card-desc">Reibungsfreies Kontinuum, reine Druckgradienten & Schallgeschwindigkeit als Lichtbasis.</div>
+                        <div class="model-card-desc">Das klassische, reibungsfreie Kontinuum, reine Druckgradienten & Schallgeschwindigkeit als Lichtbasis.</div>
                     </button>
                     <button id="cardGel" class="model-card-btn" onclick="setModel('gel')">
                         <div class="model-card-title">🧬 Modus B: Aether-Gel-Netzwerk</div>
@@ -477,14 +477,23 @@
                     </button>
                 </div>
 
-                <!-- DYNAMISCHER INHALT JE NACH MODUS -->
+                <!-- AUSFÜHRLICHE BESCHREIBUNG JE NACH MODUS -->
                 <div class="model-fluid">
-                    <h2>Spur A: Das Fluid-Modell im Detail</h2>
-                    <p>Der Raum verhält sich wie ein reibungsfreier Ozean. Lichtgeschwindigkeit und Gravitation werden durch reine hydrodynamische Druckgradienten und Schallwellen (<code>c = √(∂P / ∂ρ)</code>) getragen.</p>
+                    <h2>Teil I: Das Fundament des Kosmos – Der Makroskopische Ozean (Modus A)</h2>
+                    <p>In der klassischen Physik gilt das Vakuum als passive Leere. Das DQF-Framework ersetzt dieses Dogma durch ein strenges Fluid-Kontinuum: Der Raum ist ein hochenergetischer Ozean, getragen von einem starren, reibungsfreien <strong>Sub-Planck-Phasengitter</strong>, welches die universelle Geometrie und die fundamentale Lichtgeschwindigkeit <code>c = √(∂P / ∂ρ)</code> definiert. Innerhalb dieses Gitters operieren die dynamischen Aktoren – die <strong>chiralen Wirbelkomponenten</strong> –, welche als stabile solitonische Dichtezentren die physische Materie und den Gravitationssog erzeugen.</p>
+                    <p>Klassische Singularitäten bei unendlichen Dichten werden im Fluid-Modell durch die strikte Implementierung der isomorphen Sättigungsgrenze (skaliert über den Goldenen Schnitt <code>S_res = Φ⁻¹</code>) eliminiert.</p>
                 </div>
+
                 <div class="model-gel">
-                    <h2>Spur B: Das Aether-Gel-Netzwerk im Detail</h2>
-                    <p>Das Sub-Planck-Phasengitter besitzt ein elastisches Gedächtnis, Netzwerkspannungen (<code>μ_lattice</code>) und Relaxations-Moden, die Transversalwellen ermöglichen, Materie-Wirbel fixieren und die Hubble-Tension über Volumen-Relaxation lösen.</p>
+                    <h2>Teil I: Das Fundament des Kosmos – Das Viskoelastische Kontinuum (Modus B)</h2>
+                    <p>Das **Aether-Gel-Netzwerk** führt eine hochelastische Netzwerkstruktur mit definierter Fließgrenze (Yield Stress) und starker Scherelastizität ein. Das Sub-Planck-Phasengitter verhält sich wie ein elastischer Gel-Körper, der unter extremen Kraftgradienten fließt, im Normalzustand jedoch makroskopische Netzwerkspannungen aufrechterhält, um Transversalwellen zu ermöglichen und Materie ohne Dunkle Materie zu fixieren.</p>
+                </div>
+
+                <div class="roles-box">
+                    <ul>
+                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Kernintuition, Formulierung des Ozean- & Gel-Paradigmas und methodische Steuerung des Forschungsprozesses.</li>
+                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz, Implementierung der Feldgleichungen und systemische Konsistenzprüfung.</li>
+                    </ul>
                 </div>
 
                 <h2>Das Hypothesen-Archiv: Die 12 Säulen des DQF-Frameworks</h2>
@@ -493,14 +502,14 @@
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Wirbel</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigung</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik & Expansion</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Rotverschiebung & CMB</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Redshift</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Schwarze Löcher</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Große Synthese</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Gleiter 8.7.3</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Gleiter</button>
                 </div>
 
                 <div id="hyp0" class="tab-content active">
@@ -528,19 +537,19 @@
 
                 <div id="hyp4" class="tab-content">
                     <h3>Säule IV: Akustische Kosmologie & Hubble-Tension</h3>
-                    <div class="model-fluid"><p>Standard-Wellengleichung für Druckausbreitung:</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
-                    <div class="model-gel"><p>Gel-Netzwerk-Relaxation als Lösung der Hubble-Tension (Volumen-Relaxation statt Dehnung):</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code></div>
+                    <div class="model-fluid"><p>Standard-Wellengleichung für Druckausbreitung im Ozean:</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
+                    <div class="model-gel"><p>Gel-Netzwerk-Relaxation als Lösung der Hubble-Tension (Volumen-Relaxation):</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code></div>
                 </div>
 
                 <div id="hyp5" class="tab-content">
-                    <h3>Säule V: Rotverschiebung & Kosmische Hintergrundstrahlung (CMB)</h3>
+                    <h3>Säule V: Rotverschiebung & CMB</h3>
                     <div class="model-fluid"><p>Hydrodynamischer Dissipationsverlust auf intergalaktischen Pfaden:</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
                     <div class="model-gel"><p>Energieabgabe an eingefrorene Aether-Netzwerk-Verspannungen (CMB als Phonon-Restmoden):</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code></div>
                 </div>
 
                 <div id="hyp6" class="tab-content">
                     <h3>Säule VI: Dunkle-Materie-Ersatz</h3>
-                    <div class="model-fluid"><p>Druckgradienten und Wirbelfelder:</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
+                    <div class="model-fluid"><p>Druckgradienten und Wirbelfelder im Fluid:</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
                     <div class="model-gel"><p>Echte elastische Aether-Netzwerk-Scherung (<code>μ_lattice</code>):</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
                 </div>
 
@@ -567,7 +576,7 @@
 
                 <div id="hyp11" class="tab-content">
                     <h3>Säule XI: Gleiter 8.7.3</h3>
-                    <div class="model-fluid"><p>Asymmetrische Fluid-Verdrängung.</p></div>
+                    <div class="model-fluid"><p>Asymmetrische Fluid-Verdrängung (U-Boot-Prinzip im Ozean).</p></div>
                     <div class="model-gel"><p>Yield Stress Breaking (Fließgrenzen-Aufbruch im Aether-Gel-Netzwerk).</p></div>
                 </div>
             </div>
@@ -577,10 +586,10 @@
                 <div class="glider-version-box">
                     <h1>Gleiter 8.7.3: Konzeptioneller Prototyp</h1>
                     <div class="model-fluid">
-                        <p><strong>Fluid-Modus:</strong> Nutzt elektromagnetische Feldgradienten zur asymmetrischen Verdrängung des Quantenfluid-Ozeans (<code>-∇P</code>).</p>
+                        <p><strong>Fluid-Modus (Ozean):</strong> Nutzt elektromagnetische und akustische Feldgradienten zur asymmetrischen Verdrängung des reibungsfreien Quantenfluid-Ozeans (<code>-∇P</code>), um reibungslosen Vortrieb ohne Stützmasse zu erzeugen.</p>
                     </div>
                     <div class="model-gel">
-                        <p><strong>Gel-Modus:</strong> Nutzt gezielte Feldmodulation zum Aufbrechen der lokalen Fließgrenze (Yield Stress Breaking) im viskoelastischen Aether-Gel-Netzwerk.</p>
+                        <p><strong>Gel-Modus (Aether-Netzwerk):</strong> Nutzt gezielte Feldmodulation zum Aufbrechen der lokalen Fließgrenze (Yield Stress Breaking) im viskoelastischen Gel, sodass der Rumpf widerstandsfrei durch das Netzwerk gleitet.</p>
                     </div>
                 </div>
             </div>
@@ -589,8 +598,8 @@
             <div class="view-donkey">
                 <div class="donkey-version-box">
                     <h1>Das Paradoxon des Esels</h1>
-                    <div class="model-fluid"><p>Im Fluid-Ozean fliegt der Esel durch reine Geometrie-Formeln.</p></div>
-                    <div class="model-gel"><p>Im Aether-Gel-Netzwerk steckt der Esel im kosmischen Pudding fest!</p></div>
+                    <div class="model-fluid"><p>Im Fluid-Ozean schwimmt und fliegt der Esel durch reine hydrodynamische Strömungsmechanik.</p></div>
+                    <div class="model-gel"><p>Im Aether-Gel-Netzwerk steckt der Esel im kosmischen Pudding fest, sofern er keine Fließgrenzen-Freigabe hat!</p></div>
                 </div>
             </div>
 
@@ -627,8 +636,8 @@
             <div class="view-simple">
                 <div class="simple-version-box">
                     <h1>Einfache Sprache</h1>
-                    <div class="model-fluid"><p>Das All ist ein riesiger Wasser-Ozean.</p></div>
-                    <div class="model-gel"><p>Das All ist ein elastisches Aether-Gel-Netzwerk.</p></div>
+                    <div class="model-fluid"><p>Das All ist ein riesiger, reibungsfreier Wasser-Ozean, in dem Materie wie Wirbel schwimmt.</p></div>
+                    <div class="model-gel"><p>Das All ist ein elastisches Aether-Gel-Netzwerk, das Planeten und Licht wie ein zähes Gelee zusammenhält.</p></div>
                 </div>
             </div>
 
@@ -638,12 +647,12 @@
         <div class="lang-en">
             <div class="view-scientific">
                 <h1>DQF Framework: Dual Model Selection</h1>
-                <p>Choose between Quantum Fluid and Aether Gel Network above.</p>
+                <p>Choose between Quantum Fluid (Ocean) and Aether Gel Network above.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Aether-Gel Edition)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Dual-Model Edition)</p>
         </div>
     </div>
 </body>
