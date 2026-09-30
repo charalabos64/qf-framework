@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework & Gleiter 8.7.3 – Das Quantenfluid-Kompendium</title>
+    <title>DQF-Framework & Der fliegende Esel – Das Quantenfluid-Kompendium</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -115,7 +115,7 @@
             border-radius: 0 6px 6px 0;
         }
 
-        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box {
+        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box, .donkey-version-box {
             background: var(--blockquote-bg);
             border: 1px solid var(--accent-color);
             padding: 2rem;
@@ -123,7 +123,7 @@
             margin-top: 1.5rem;
         }
 
-        .formula-card, .glider-card, .manual-card {
+        .formula-card, .glider-card, .manual-card, .donkey-card {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             padding: 1.2rem 1.5rem;
@@ -259,6 +259,7 @@
         .view-feedback { display: none; }
         .view-glider { display: none; }
         .view-manual { display: none; }
+        .view-donkey { display: none; }
     </style>
     <script>
         function openHypothesis(evt, hypId) {
@@ -314,6 +315,7 @@
             let feedElements = document.getElementsByClassName('view-feedback');
             let gliderElements = document.getElementsByClassName('view-glider');
             let manualElements = document.getElementsByClassName('view-manual');
+            let donkeyElements = document.getElementsByClassName('view-donkey');
 
             for (let el of sciElements) el.style.display = 'none';
             for (let el of simpElements) el.style.display = 'none';
@@ -321,6 +323,7 @@
             for (let el of feedElements) el.style.display = 'none';
             for (let el of gliderElements) el.style.display = 'none';
             for (let el of manualElements) el.style.display = 'none';
+            for (let el of donkeyElements) el.style.display = 'none';
 
             if (targetView === 'scientific') {
                 for (let el of sciElements) el.style.display = 'block';
@@ -334,6 +337,8 @@
                 for (let el of gliderElements) el.style.display = 'block';
             } else if (targetView === 'manual') {
                 for (let el of manualElements) el.style.display = 'block';
+            } else if (targetView === 'donkey') {
+                for (let el of donkeyElements) el.style.display = 'block';
             }
         }
 
@@ -348,12 +353,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Umschalter inklusive Handlungsmanual -->
+        <!-- Oben rechts: Umschalter inklusive des fliegenden Esels -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
             <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter</button>
+            <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Der fliegende Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Manual</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
             <button class="top-btn" onclick="switchView('scientific')">🔬 Wissenschaft</button>
@@ -506,11 +512,37 @@
                 </div>
             </div>
 
+            <!-- DER FLIEGENDE ESEL / SATIRE-BEREICH (DE) -->
+            <div class="view-donkey">
+                <div class="donkey-version-box">
+                    <h1>Das Paradoxon des mathematisch fliegenden Esels</h1>
+                    <p><strong>Eine homestory-artige Satire über die Gefahren reiner Papier-Mathematik:</strong> In der theoretischen Physik neigt man bisweilen dazu, Phänomene in einer absoluten, greifbaren „Leere“ (dem Nichts) mathematisch zu definieren. Doch wie verhält sich ein Lasttier, wenn man es rein formal in eine formelhafte Raumzeit-Krümmung setzt?</p>
+                    
+                    <div class="donkey-card">
+                        <h3>1. Die Grundannahme (Das Nichts trägt die Last)</h3>
+                        <p>Wenn man postuliert, dass eine absolute Leere (ohne Medium, ohne Substanz) durch pure Geometrie Massen anzieht und Krümmungen erzeugt, dann lässt sich rein mathematisch folgern: Ein Esel, der sich im absolut leeren Raum befindet, fliegt – sofern man ihm nur einen ausreichend großen Tensor-Index verpasst.</p>
+                    </div>
+
+                    <div class="donkey-card">
+                        <h3>2. Die formale Esel-Zustandsgleichung (Parodie)</h3>
+                        <code>F_{\text{esel}} = \int_{\text{Nichts}} \Gamma^{\mu}_{\nu\lambda} \, dV + \text{Gedankensalz}</code>
+                        <div class="formula-legend">
+                            <strong>Legende:</strong> <em>F_esel</em> = Auftrieb im leeren Raum | <em>Γ</em> = Christoffel-Symbol (die magische Kurvatur) | <em>Nichts</em> = Absolutes Vakuum ohne Fluid | <em>Gedankensalz</em> = Die nötige Portion Humor zur Akzeptanz der Theorie.
+                        </div>
+                    </div>
+
+                    <div class="donkey-card">
+                        <h3>3. Das Fazit des Maschinenraums</h3>
+                        <p>Während die klassische Papiermathematik den Esel in der Leere fliegen lässt, weil die Formel es auf dem Papier erlaubt, zeigt uns das DQF-Framework: Ein Esel (oder ein Photon, oder ein Planet) braucht einen **Ozean**, um sich zu bewegen. Ohne Medium reitet man auf mathematischen Fabeltieren. Willkommen in der Realität der Fluid-Mechanik!</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- HANDLUNGS-MANUAL: DER KI-DIALOG (DE) -->
             <div class="view-manual">
                 <div class="manual-version-box">
                     <h1>Handlungsmanual: Der echte Dialog mit der KI</h1>
-                    <p><strong>Eine Einladung zur Co-Kreativität:</strong> Künstliche Intelligenz wird im Alltag oft wie ein herkömmliches Werkzeug oder eine bessere Suchmaschine behandelt. Doch darin liegt ein verpasstes Versprechen. Dieses Manual zeigt, wie der Sprung vom reinen Konsumieren zum echten, kreativen Miteinander gelingt.</p>
+                    <p><strong>Eine Einladung zur Co-Kreativität:</strong> Künstliche Intelligenz wird im Alltag oft wie ein herkömmliches Werkzeug oder eine bessere Suchmaschine behandelt. Doch darin liegt ein verpasstes Versprechen. Dieses Manual zeigt, wie the Sprung vom reinen Konsumieren zum echten, kreativen Miteinander gelingt.</p>
 
                     <div class="manual-card">
                         <h3>1. Vom Taschenrechner zum Resonanzkörper</h3>
@@ -765,7 +797,33 @@
                 </div>
             </div>
 
-            <!-- ACTION MANUAL: THE AI DIALOGUE (EN) -->
+            <!-- THE FLYING DONKEY / SATIRE (EN) -->
+            <div class="view-donkey">
+                <div class="donkey-version-box">
+                    <h1>The Paradox of the Mathematically Flying Donkey</h1>
+                    <p><strong>A satirical look at pure paper mathematics:</strong> In theoretical physics, phenomena are sometimes defined within an absolute, tangible "emptiness" (nothingness). But how does a beast of burden behave if formally placed into a formulaic spacetime curvature?</p>
+                    
+                    <div class="donkey-card">
+                        <h3>1. The Core Assumption (Nothingness Carries the Load)</h3>
+                        <p>If one postulates that absolute emptiness (without a medium or substance) attracts masses and generates curvature through pure geometry, it can be mathematically deduced: A donkey located in absolute empty space will fly – provided it is assigned a sufficiently large tensor index.</p>
+                    </div>
+
+                    <div class="donkey-card">
+                        <h3>2. The Formal Donkey Equation of State (Parody)</h3>
+                        <code>F_{\text{donkey}} = \int_{\text{Nothing}} \Gamma^{\mu}_{\nu\lambda} \, dV + \text{Thought Salt}</code>
+                        <div class="formula-legend">
+                            <strong>Legend:</strong> <em>F_donkey</em> = Lift in empty space | <em>Γ</em> = Christoffel symbol (magical curvature) | <em>Nothing</em> = Absolute vacuum without fluid | <em>Thought Salt</em> = The necessary pinch of humor to accept the theory.
+                        </div>
+                    </div>
+
+                    <div class="donkey-card">
+                        <h3>3. The Machine Room's Verdict</h3>
+                        <p>While classical paper mathematics lets the donkey fly because the formula allows it on paper, the DQF framework shows us: A donkey (or a photon, or a planet) needs an **ocean** to move. Without a medium, you are riding mathematical mythical beasts. Welcome to the reality of fluid mechanics!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTION MANUAL (EN) -->
             <div class="view-manual">
                 <div class="manual-version-box">
                     <h1>Action Manual: The True Dialogue with AI</h1>
@@ -863,7 +921,7 @@
                     <p>School and conventional science often tell us that outer space is <strong>absolute emptiness</strong> (a vacuum). Planets and stars supposedly curve an invisible "spacetime." But honestly: How can pure nothingness "curve" or exert a force? Nothing cannot come from nothing.</p>
 
                     <h2>2. Our Idea: The Vacuum is an Ocean!</h2>
-                    <p>We say: <strong>The vacuum is not empty.</strong> It is an extremly dense, high-energy ocean made of tiny fundamental elements – a so-called <em>quantum fluid</em>. 
+                    <p>We say: **The vacuum is not empty.** It is an extremely dense, high-energy ocean made of tiny fundamental elements – a so-called <em>quantum fluid</em>. 
                     <br>Imagine it like water in a giant pool:</p>
                     <ul>
                         <li><strong>Matter (Stars & Planets):</strong> Are like small whirlpools or balls floating in this water, displacing it slightly.</li>
@@ -879,7 +937,7 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework & Gleiter 8.7.3</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework, Gleiter 8.7.3 & Der fliegende Esel</p>
         </div>
     </div>
 </body>
