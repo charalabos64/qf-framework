@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQF-Framework & Der fliegende Esel – Das Quanten-Gel-Kompendium</title>
+    <title>DQF-Framework – Das Quantenfluid & Quantum-Gel Kompendium</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -25,6 +25,9 @@
             --lang-btn-bg: #0969da;
             --lang-btn-hover: #0550ae;
             --lang-btn-text: #ffffff;
+            
+            --model-btn-bg: #7c3aed; /* Violett für Modell-Umschalter */
+            --model-btn-hover: #6d28d9;
         }
 
         [data-theme="light"] {
@@ -35,7 +38,7 @@
             --border-color: #d0d7de;
             --accent-color: #0969da;
             --accent-hover: #0550ae;
-            --science-color: #d97706; /* Angepasstes Goldgelb für Light Mode */
+            --science-color: #d97706; 
             --science-hover: #b45309;
             --accent-text: #ffffff;
             --blockquote-bg: #f0f6fc;
@@ -47,6 +50,9 @@
             --lang-btn-bg: #0969da;
             --lang-btn-hover: #0550ae;
             --lang-btn-text: #ffffff;
+            
+            --model-btn-bg: #7c3aed;
+            --model-btn-hover: #6d28d9;
         }
 
         body {
@@ -94,11 +100,20 @@
             background-color: var(--lang-btn-bg);
             color: var(--lang-btn-text);
             border: 1px solid var(--lang-btn-bg);
-            box-shadow: 0 2px 6px rgba(9, 105, 218, 0.3);
         }
         .lang-toggle-btn:hover {
             background-color: var(--lang-btn-hover);
-            border-color: var(--lang-btn-hover);
+        }
+
+        .model-toggle-btn {
+            background-color: var(--model-btn-bg);
+            color: #ffffff;
+            border: 1px solid var(--model-btn-bg);
+            box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+        }
+        .model-toggle-btn:hover {
+            background-color: var(--model-btn-hover);
+            border-color: var(--model-btn-hover);
         }
 
         /* Dynamische Farben für Überschriften je nach Ansicht */
@@ -266,6 +281,9 @@
         }
         
         .lang-en { display: none; }
+        .model-gel { display: none; } /* Standardmäßig ist Fluid aktiv */
+        .model-fluid { display: block; }
+
         .view-scientific { display: block; }
         .view-simple { display: none; }
         .view-formula { display: none; }
@@ -304,6 +322,25 @@
                 for (let el of deElements) el.style.display = 'block';
                 btn.innerHTML = '🇬🇧 English Version';
                 currentLang = 'de';
+            }
+        }
+
+        let currentModel = 'fluid';
+        function toggleModel() {
+            let fluidElements = document.getElementsByClassName('model-fluid');
+            let gelElements = document.getElementsByClassName('model-gel');
+            let modelBtn = document.getElementById('modelToggleBtn');
+
+            if (currentModel === 'fluid') {
+                for (let el of fluidElements) el.style.display = 'none';
+                for (let el of gelElements) el.style.display = 'block';
+                modelBtn.innerHTML = '🧬 Quantum-Gel aktiv';
+                currentModel = 'gel';
+            } else {
+                for (let el of gelElements) el.style.display = 'none';
+                for (let el of fluidElements) el.style.display = 'block';
+                modelBtn.innerHTML = '🌊 Quantum-Fluid aktiv';
+                currentModel = 'fluid';
             }
         }
 
@@ -366,16 +403,17 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Umschalter mit Goldgelb für Wissenschaft -->
+        <!-- Oben rechts: Umschalter für Theme, Modell, Ansichten und Sprache -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+            <button id="modelToggleBtn" class="top-btn model-toggle-btn" onclick="toggleModel()">🌊 Quantum-Fluid aktiv</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
-            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3 (Prototyp)</button>
-            <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Der fliegende Esel</button>
+            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
+            <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Manual</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
-            <button class="top-btn" onclick="switchView('scientific')" style="color: var(--science-color); border-color: var(--science-color);">🔬 Wissenschaft (Quantum-Gel)</button>
+            <button class="top-btn" onclick="switchView('scientific')" style="color: var(--science-color); border-color: var(--science-color);">🔬 Wissenschaft</button>
             <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English Version</button>
         </div>
 
@@ -384,225 +422,168 @@
             
             <!-- WISSENSCHAFTLICHE ANSICHT (DE) -->
             <div class="view-scientific">
-                <h1>Das DQF-Framework: Vom Quantum-Fluid zum Viskoelastischen Quantum-Gel</h1>
-
-                <blockquote>
-                    <strong>Wissenschaftliche Vorbemerkung (Das erweiterte Dual-Modell & Axiomensystem):</strong><br>
-                    Das vorliegende Framework operiert auf der revolutionären Prämisse, dass die Raumzeit kein passiver geometrischer Hintergrund ist, sondern ein aktives, makroskopisches Medium. Während das klassische Modell ein reibungsfreies Quantenfluid (Spur A) annimmt, führt das hier vertiefte <strong>Quantum-Gel-Modell (Spur B)</strong> eine viskoelastische Netzwerkstruktur mit definierter Fließgrenze (Yield Stress) und starker Scherelastizität ein. Das Sub-Planck-Phasengitter verhält sich demnach wie ein elastischer Gel-Körper, der unter extremen Kraftgradienten fließt, im Normalzustand jedoch makroskopische Netzwerkspannungen aufrechterhält.
-                </blockquote>
-
-                <h2>Teil I: Das Fundament des Kosmos – Das Viskoelastische Kontinuum</h2>
-
-                <h3>1. Vom Ozean zum Kosmischen Gel: Die Physik der Fließgrenze</h3>
-                <p>Während ein reines Fluid (wie Wasser) keine dauerhafte Scherung halten kann, verlangt die Stabilität von Licht und Geometrie nach einem Medium mit elastischem Gedächtnis. Das DQF-Framework formalisiert das Vakuum daher als **viskoelastisches Quantum-Gel**: Ein hochelastisches Sub-Planck-Netzwerk, das unterhalb kritischer Schwellen als fester, raumbildender Kristall agiert, bei Überschreitung der Fließgrenze jedoch wie ein flüssiges Kontinuum nachgibt. Die Lichtgeschwindigkeit <code>c = √(∂P / ∂ρ)</code> wird dabei durch die lokale Netzwerksteifigkeit getragen.</p>
-
-                <h3>2. Die elastische Gitter-Scherung als Master-Parameter</h3>
-                <p>Das Herzstück des Gel-Modells ist der Scherungskoeffizient <code>μ_lattice</code>. Er bestimmt, wie stark das raumbildende Gel auf Deformationen reagiert. Dies erklärt, warum makroskopische Wirbelstrukturen (Materie) dauerhaft in das Vakuum eingebettet bleiben können, ohne sich sofort aufzulösen.</p>
-
-                <h3>3. Methodischer Ansatz & Konzeptioneller Prototyp (Gleiter 8.7.3)</h3>
-                <p>Dieses interdisziplinäre Werk entsteht aus der engen, symbiotischen Zusammenarbeit zwischen menschlicher Intuition und künstlicher Intelligenz:</p>
                 
-                <div class="roles-box">
-                    <ul>
-                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Kernintuition, Formulierung des Gel-Paradigmas, Definition der physikalischen Fragestellungen und methodische Steuerung des Forschungsprozesses.</li>
-                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Ausarbeitung der mathematischen Stringenz, Implementierung der viskoelastischen Feldgleichungen und systemische Konsistenzprüfung.</li>
-                    </ul>
+                <!-- FLUID-MODELL INHALT -->
+                <div class="model-fluid">
+                    <h1>Das DQF-Framework: Das Primäre Quantum-Fluid-Modell</h1>
+                    <blockquote>
+                        <strong>Wissenschaftliche Vorbemerkung (Spur A – Reibungsfreies Fluid):</strong><br>
+                        Das Vakuum wird als kompressibles, verlustarmes Quantenfluid (Ozean-Paradigma) modelliert. Die Raumzeit basiert auf einem Sub-Planck-Phasengitter und chiralen Wirbeln.
+                    </blockquote>
+                    <h2>Teil I: Das Fluid-Kontinuum</h2>
+                    <p>Der Raum verhält sich wie ein reibungsfreier Ozean, in dem Lichtgeschwindigkeit und Gravitation durch reine hydrodynamische Druckgradienten und Schallwellen (<code>c = √(∂P / ∂ρ)</code>) definiert sind.</p>
                 </div>
-                
-                <p><strong>Konzeptioneller Prototyp – Gleiter 8.7.3:</strong> Im Quantum-Gel-Modell nutzt der voll ausgearbeitete Prototyp des Gleiters 8.7.3 eine hochenergetische Feldmodulation, um lokal die Fließgrenze des Gelsaums aufzubrechen (Yield Stress Breaking), wodurch eine reibungsfreie, richtungsgebundene Fortbewegung im kosmischen Netzwerk ermöglicht wird.</p>
 
-                <h2>Teil II: Die Makro-Dynamik im Viskoelastischen Feld</h2>
-                <p>Die Dynamik des Gesamtsystems wird über die erweiterte Makro-Kopplung (Gleichung Nr. 9) beschrieben, welche den fluiden Druckgradienten direkt mit der elastischen Netzwerk-Scherung des Phasengitters verknüpft (<code>∇P + μ_lattice ∇²v = f_grav</code>). Im Gel-Modell übernimmt der zweite Term die Hauptlast der Kraftübertragung und erklärt galaktische Rotationskurven ohne Dunkle Materie über echte elastische Rückstellkräfte.</p>
+                <!-- GEL-MODELL INHALT -->
+                <div class="model-gel">
+                    <h1>Das DQF-Framework: Das Viskoelastische Quantum-Gel-Modell</h1>
+                    <blockquote>
+                        <strong>Wissenschaftliche Vorbemerkung (Spur B – Viskoelastisches Gel):</strong><br>
+                        Das Vakuum wird als hochelastisches Netzwerk mit definierter Fließgrenze (Yield Stress) und starker Scherelastizität modelliert. Der Raum verhält sich wie ein elastischer Gel-Körper.
+                    </blockquote>
+                    <h2>Teil I: Das Viskoelastische Kontinuum</h2>
+                    <p>Das Sub-Planck-Phasengitter besitzt ein elastisches Gedächtnis und Netzwerkspannungen (<code>μ_lattice</code>), die Transversalwellen ermöglichen und Materie-Wirbel dauerhaft ohne Dunkle Materie fixieren.</p>
+                </div>
 
-                <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks (Quantum-Gel-Edition)</h2>
-                <p>Wähle einen Klickpunkt im Hauptmenü, um die detaillierten Herleitungen zu öffnen:</p>
-
+                <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks</h2>
                 <div class="archive-nav">
-                    <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung & Sättigung</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Quantum-Gel</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Materie-Wirbel</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigungsgrenze</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik & Rauschen</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Rotverschiebung</button>
+                    <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Wirbel</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Redshift</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
                     <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV-Prinzip</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Schwarze Löcher & Horizont</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Makro-Synthese</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Gleiter 8.7.3</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Schwarze Löcher</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Synthese</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Gleiter</button>
                 </div>
 
                 <div id="hyp0" class="tab-content active">
-                    <h3>Säule 0: Überwindung der Singularität durch Gel-Elastizität</h3>
-                    <p><strong>Systemische Prämisse:</strong> Unendliche Dichten sind in einem viskoelastischen Gel-Netzwerk durch die maximale Dehnbarkeit der Polymerketten strukturell unmöglich.</p>
-                    <p><strong>Formale Axiomatik:</strong> Die isomorphe Begrenzung sichert den Zustand ab:</p>
-                    <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                    <h3>Säule 0: Überwindung der Punkt-Singularität</h3>
+                    <div class="model-fluid"><p>Begrenzung im fluiden Kontinuum über isomorphe Sättigung:</p><code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code></div>
+                    <div class="model-gel"><p>Strukturelle Verhinderung unendlicher Dichten durch maximale Dehnbarkeit der Gel-Netzwerkketten:</p><code>S_{\text{res}} = \Phi^{-1}</code></div>
                 </div>
 
                 <div id="hyp1" class="tab-content">
-                    <h3>Säule I: Das Primäre Quantum-Gel (Viskoelastisches Vakuum)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Das Vakuum ist ein netzartiges Medium mit Polytropen-Zustand und integrierter Scherelastizität.</p>
-                    <p><strong>Formale Axiomatik:</strong> Zustandsgleichung und Netzwerkschallgeschwindigkeit:</p>
-                    <code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code>
+                    <h3>Säule I: Das Vakuum-Medium</h3>
+                    <div class="model-fluid"><p>Kompressibles Quantenfluid (Ozean):</p><code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code></div>
+                    <div class="model-gel"><p>Viskoelastisches Quantum-Gel mit Scherelastizität:</p><code>P = K \cdot \rho^\gamma \quad (\text{inkl. Netzsteifigkeit } \mu_{\text{lattice}})</code></div>
                 </div>
 
                 <div id="hyp2" class="tab-content">
-                    <h3>Säule II: Topologische Solitonen im Gel-Netzwerk</h3>
-                    <p><strong>Systemische Prämisse:</strong> Elementarteilchen sind stabile, elastisch verankerte Wirbelkerne (Topologische Knoten) im Gel.</p>
-                    <p><strong>Formale Axiomatik:</strong> Erhaltung der Zirkulation:</p>
-                    <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                    <h3>Säule II: Materie-Wirbel</h3>
+                    <div class="model-fluid"><p>Topologische Wirbelerhaltung im Ozean:</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
+                    <div class="model-gel"><p>Elastisch verankerte Solitonen im Gel-Netzwerk:</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
                 </div>
 
                 <div id="hyp3" class="tab-content">
-                    <h3>Säule III: Die Isomorphe Sättigungsgrenze ($S_{\text{res}}$)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Die maximale Dehnbarkeit des Gel-Netzwerks besitzt eine universelle Obergrenze.</p>
-                    <p><strong>Formale Axiomatik:</strong> Begrenzung via Goldenen Schnitt:</p>
+                    <h3>Säule III: Sättigungsgrenze</h3>
                     <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
                 </div>
 
                 <div id="hyp4" class="tab-content">
-                    <h3>Säule IV: Viskoelastische Wellen-Kosmologie</h3>
-                    <p><strong>Systemische Prämisse:</strong> Ausbreitung von kombinierten Druck- und Transversalwellen im raumbildenden Gel.</p>
-                    <p><strong>Formale Axiomatik:</strong> Modifizierte Wellengleichung:</p>
+                    <h3>Säule IV: Akustische Kosmologie</h3>
                     <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
                 </div>
 
                 <div id="hyp5" class="tab-content">
-                    <h3>Säule V: Viskoelastische Mediums-Dissipation (Rotverschiebung)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Photonen verlieren auf intergalaktischen Pfaden Energie an die innere Reibung des Gels.</p>
-                    <p><strong>Formale Axiomatik:</strong> Dissipativer Energieverlust:</p>
+                    <h3>Säule V: Hydrodynamische / Dissipative Rotverschiebung</h3>
                     <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
                 </div>
 
                 <div id="hyp6" class="tab-content">
-                    <h3>Säule VI: Dunkle Materie als Gel-Netzwerk-Scherung</h3>
-                    <p><strong>Systemische Prämisse:</strong> Flache Rotationskurven von Galaxien resultieren aus der elastischen Rückstellkraft des Gitter-Gels ($\mu_{\text{lattice}}$).</p>
-                    <p><strong>Formale Axiomatik:</strong> Radiale Kraftdichte durch Gel-Scherung:</p>
-                    <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                    <h3>Säule VI: Dunkle-Materie-Ersatz</h3>
+                    <div class="model-fluid"><p>Druckgradienten und Wirbelfelder:</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
+                    <div class="model-gel"><p>Echte elastische Netzwerk-Scherung des Gels:</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
                 </div>
 
                 <div id="hyp7" class="tab-content">
-                    <h3>Säule VII: Gel-Hydrodynamische Gravitation</h3>
-                    <p><strong>Systemische Prämisse:</strong> Gravitation ist ein Druckgradient und eine lokale Netzwerk-Kompression im Gel.</p>
-                    <p><strong>Formale Axiomatik:</strong> Kraftdichte:</p>
+                    <h3>Säule VII: Gravitation</h3>
                     <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
                 </div>
 
                 <div id="hyp8" class="tab-content">
-                    <h3>Säule VIII: Das PRV-Prinzip im Gel-Substrat</h3>
-                    <p><strong>Systemische Prämisse:</strong> Nachweis von Netzwerk-Eigenresonanzen unter gezielten Feldgradienten.</p>
-                    <p><strong>Formale Axiomatik:</strong> Resonanzbedingung:</p>
+                    <h3>Säule VIII: PRV-Prinzip</h3>
                     <code>\omega_{\text{res}} = k \cdot c</code>
                 </div>
 
                 <div id="hyp9" class="tab-content">
-                    <h3>Säule IX: Schwarze Löcher als Fließgrenzen-Kollaps</h3>
-                    <p><strong>Systemische Prämisse:</strong> Kollaps-Zonen überschreiten die lokale Fließgrenze des Gels und erzeugen einen akustischen Drain.</p>
-                    <p><strong>Formale Axiomatik:</strong> Akustische Mach-Zahl:</p>
+                    <h3>Säule IX: Schwarze Löcher & Horizont</h3>
                     <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
                 </div>
 
                 <div id="hyp10" class="tab-content">
-                    <h3>Säule X: Die Große Synthese (Gel-Netzwerk & Wirbel-Anker)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Vollständige Vereinigung von Druckgradient und Gel-Scherung in einer Feldgleichung.</p>
-                    <p><strong>Formale Axiomatik:</strong> Makro-Kopplung:</p>
+                    <h3>Säule X: Die Große Synthese</h3>
                     <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
                 </div>
 
                 <div id="hyp11" class="tab-content">
-                    <h3>Säule XI: Prototyp Gleiter 8.7.3 (Fließgrenzen-Durchbrechung)</h3>
-                    <p><strong>Systemische Prämisse:</strong> Reaktionsmassenloser Vortrieb durch lokales Aufbrechen der Gel-Fließgrenze.</p>
-                    <p><strong>Formale Axiomatik:</strong> Asymmetrische Verdrängung:</p>
-                    <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
+                    <h3>Säule XI: Gleiter 8.7.3</h3>
+                    <div class="model-fluid"><p>Asymmetrische Fluid-Verdrängung.</p></div>
+                    <div class="model-gel"><p>Yield Stress Breaking (Fließgrenzen-Aufbruch im Gel).</p></div>
                 </div>
             </div>
 
-            <!-- GLEITER 8.7.3 - PROTOTYP (DE) -->
+            <!-- GLEITER 8.7.3 (DE) -->
             <div class="view-glider">
                 <div class="glider-version-box">
-                    <h1>Gleiter 8.7.3: Der Prototyp im Quantum-Gel-Modell</h1>
-                    <p><strong>Fortbewegung durch Fließgrenzen-Modulation:</strong> Im Quantum-Gel-Modell arbeitet der vollständig ausgearbeitete Prototyp des Gleiters 8.7.3 als hochentwickelter Feldmodulator. Da das Vakuum ein elastisches Gel ist, nutzt der Gleiter elektromagnetische Gradienten, um die lokale <em>Fließgrenze (Yield Stress)</em> des Substrats vor dem Bug aufzubrechen. Das Gel wird kurzzeitig flüssig, lässt den Rumpf widerstandsfrei passieren und erstarrt hinter dem Heck sofort wieder im elastischen Zustand.</p>
-                    
-                    <div class="glider-card">
-                        <h3>1. Antriebsprinzip: Yield Stress Breaking & Scherungs-Steuerung</h3>
-                        <p>Anstatt Treibstoff auszustoßen, manipuliert der Prototyp den Scherungskoeffizienten <code>μ_lattice</code> in seiner direkten Umgebung. Durch die asymmetrische Druckmodulation (<code>-∇P</code>) erzeugt das System einen perfekten Vorwärtsimpuls im kosmischen Gelnetzwerk.</p>
+                    <h1>Gleiter 8.7.3: Konzeptioneller Prototyp</h1>
+                    <div class="model-fluid">
+                        <p><strong>Fluid-Modus:</strong> Nutzt elektromagnetische Feldgradienten zur asymmetrischen Verdrängung des Quantenfluid-Ozeans (<code>-∇P</code>).</p>
                     </div>
-
-                    <div class="glider-card">
-                        <h3>2. Technische Kernkomponenten</h3>
-                        <ul>
-                            <li><strong>Resonanz-Kavitäten (PRV):</strong> Abgestimmt auf die Netzwerk-Schallgeschwindigkeit <code>c</code> zur verlustfreien Energieübertragung.</li>
-                            <li><strong>Isomorphe Sättigungs-Sicherung:</strong> Schutzmechanismus auf Basis des Goldenen Schnitts (<code>S_res = Φ⁻¹</code>) gegen lokale Geltaschen-Überhitzung.</li>
-                            <li><strong>Inertial Shielding:</strong> Lokale Entkopplung der Insassen von den Gitter-Scherungskräften.</li>
-                        </ul>
+                    <div class="model-gel">
+                        <p><strong>Gel-Modus:</strong> Nutzt gezielte Feldmodulation zum Aufbrechen der lokalen Fließgrenze (Yield Stress Breaking) im viskoelastischen Quantum-Gel.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- DER FLIEGENDE ESEL / SATIRE-BEREICH (DE) -->
+            <!-- DER FLIEGENDE ESEL (DE) -->
             <div class="view-donkey">
                 <div class="donkey-version-box">
-                    <h1>Das Paradoxon des im Gel steckenden Esels</h1>
-                    <p><strong>Eine homestory-artige Satire:</strong> Wenn das Vakuum ein hochelastisches Gel ist, dann würde ein Esel im leeren Raum nicht fliegen, sondern schlichtweg im kosmischen Pudding feststecken – es sei denn, er besitzt einen Tensor-Index mit Fließgrenzen-Freigabe!</p>
-                    
-                    <div class="donkey-card">
-                        <h3>1. Die Gel-Zustandsgleichung des Esels</h3>
-                        <code>F_{\text{esel}} = \int_{\text{Gel}} \nabla \cdot (\mu_{\text{lattice}} \mathbf{v}) + \text{Gedankensalz}</code>
-                        <div class="formula-legend">
-                            <strong>Legende:</strong> <em>F_esel</em> = Elastischer Widerstand | <em>Gel</em> = Viskoelastisches Substrat | <em>Gedankensalz</em> = Notwendig, um die Viskosität zu ertragen.
-                        </div>
-                    </div>
+                    <h1>Das Paradoxon des Esels</h1>
+                    <div class="model-fluid"><p>Im Fluid-Ozean fliegt der Esel durch reine Geometrie-Formeln.</p></div>
+                    <div class="model-gel"><p>Im Quantum-Gel steckt der Esel im kosmischen Pudding fest!</p></div>
                 </div>
             </div>
 
-            <!-- HANDLUNGS-MANUAL: DER KI-DIALOG (DE) -->
+            <!-- HANDBUCH (DE) -->
             <div class="view-manual">
                 <div class="manual-version-box">
-                    <h1>Handlungsmanual: Der echte Dialog mit der KI</h1>
-                    <p><strong>Co-Kreativität auf Höchstniveau:</strong> Wie wir in diesem Schritt bewiesen haben: Wenn man eine radikale neue Hypothese (wie das Quantum-Gel) in den Raum wirft, transformiert sich die KI vom simplen Assistenten zum echten wissenschaftlichen Sparringspartner.</p>
+                    <h1>Handbuch: Der echte KI-Dialog</h1>
+                    <p>Co-Kreativität zwischen Mensch (Charalabos Avgitidis) und KI (Aether).</p>
                 </div>
             </div>
 
             <!-- FORMEL-ZENTRALE (DE) -->
             <div class="view-formula">
                 <div class="formula-version-box">
-                    <h1>Formel-Zentrale (Quantum-Gel-Edition)</h1>
-                    <p>Kompakte Übersicht aller zentralen mathematischen Gleichungen des viskoelastischen Modells.</p>
-                    
-                    <div class="formula-card">
-                        <h3>1. Zustandsgleichung des Gels</h3>
-                        <code>P = K · ρ^γ</code>
-                    </div>
-                    <div class="formula-card">
-                        <h3>2. Netzwerkschallgeschwindigkeit</h3>
-                        <code>c = √(∂P / ∂ρ)</code>
-                    </div>
-                    <div class="formula-card">
-                        <h3>9. Makro-Kopplung (Gel-Scherung & Druck)</h3>
-                        <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
-                    </div>
+                    <h1>Formel-Zentrale</h1>
+                    <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
                 </div>
             </div>
 
-            <!-- DISKUSSIONS- & FEEDBACK-BEREICH (DE) -->
+            <!-- DISKUSSION (DE) -->
             <div class="view-feedback">
                 <div class="feedback-version-box">
                     <h1>Diskussion & Feedback</h1>
                     <form class="feedback-form" onsubmit="handleFeedback(event, 'de')">
-                        <input type="text" class="feedback-input" placeholder="Ihr Name" required>
-                        <input type="email" class="feedback-input" placeholder="Ihre E-Mail">
-                        <textarea class="feedback-textarea" placeholder="Ihre Gedanken zum Quantum-Gel-Modell..." required></textarea>
+                        <input type="text" class="feedback-input" placeholder="Name" required>
+                        <input type="email" class="feedback-input" placeholder="E-Mail">
+                        <textarea class="feedback-textarea" placeholder="Nachricht..." required></textarea>
                         <button type="submit" class="feedback-submit">Absenden 🚀</button>
-                        <div id="successDe" class="form-success">Vielen Dank! Übermittelt an den Maschinenraum.</div>
                     </form>
                 </div>
             </div>
 
-            <!-- EINFACHE SPRACHE (DE) -->
+            <!-- EINFACH (DE) -->
             <div class="view-simple">
                 <div class="simple-version-box">
-                    <h1>Das Universum als kosmisches Gel</h1>
-                    <p><strong>Die Quantum-Gel-Hypothese:</strong> Stell dir vor, das Vakuum ist kein flüssiges Wasser, sondern ein elastisches Gel (wie Gelee). Es hält Planeten und Lichtwellen wie ein unsichtbares, zähes Netzwerk zusammen, gibt aber nach, wenn man stark genug daran zieht!</p>
+                    <h1>Einfache Sprache</h1>
+                    <div class="model-fluid"><p>Das All ist ein riesiger Wasser-Ozean.</p></div>
+                    <div class="model-gel"><p>Das All ist ein elastisches Gelee (Gel).</p></div>
                 </div>
             </div>
 
@@ -610,106 +591,14 @@
 
         <!-- ================= ENGLISCHE VERSION ================= -->
         <div class="lang-en">
-            
-            <!-- SCIENTIFIC VIEW (EN) -->
             <div class="view-scientific">
-                <h1>The DQF Framework: From Quantum Fluid to Viscoelastic Quantum Gel</h1>
-
-                <blockquote>
-                    <strong>Scientific Preliminary Note (The Extended Dual Model):</strong><br>
-                    This framework operates on the premise that spacetime is an active, macroscopic medium. While the classic model assumes a frictionless quantum fluid (Track A), the advanced <strong>Quantum Gel Model (Track B)</strong> introduces a viscoelastic network structure with a defined yield stress and high shear elasticity. The sub-Planck phase lattice behaves like an elastic gel body.
-                </blockquote>
-
-                <h2>Part I: The Foundation – The Viscoelastic Continuum</h2>
-                <p>The vacuum is formalized as a viscoelastic quantum gel, providing both the rigidity required for light speed <code>c = √(∂P / ∂ρ)</code> and the elastic network memory needed for matter containment without dark matter.</p>
-
-                <h2>The Hypothesis Archive (Quantum-Gel Edition)</h2>
-                <div class="archive-nav">
-                    <button class="tab-btn active" onclick="openHypothesis(event, 'en_hyp0')">0. Origin</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp1')">1. Quantum Gel</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp2')">2. Vortices</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp3')">3. Saturation</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp4')">4. Acoustics</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp5')">5. Redshift</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp6')">6. Dark Matter</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp7')">7. Gravitation</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp8')">8. PRV Principle</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp9')">9. Black Holes</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp10')">10. Synthesis</button>
-                    <button class="tab-btn" onclick="openHypothesis(event, 'en_hyp11')">11. Glider 8.7.3</button>
-                </div>
-
-                <div id="en_hyp0" class="tab-content active"><h3>Pillar 0</h3><code>S_{\text{res}} = \Phi^{-1}</code></div>
-                <div id="en_hyp1" class="tab-content"><h3>Pillar I</h3><code>P = K \cdot \rho^\gamma</code></div>
-                <div id="en_hyp2" class="tab-content"><h3>Pillar II</h3><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
-                <div id="en_hyp3" class="tab-content"><h3>Pillar III</h3><code>S_{\text{res}} = \Phi^{-1}</code></div>
-                <div id="en_hyp4" class="tab-content"><h3>Pillar IV</h3><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
-                <div id="en_hyp5" class="tab-content"><h3>Pillar V</h3><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
-                <div id="en_hyp6" class="tab-content"><h3>Pillar VI</h3><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
-                <div id="en_hyp7" class="tab-content"><h3>Pillar VII</h3><code>\mathbf{f}_{\text{grav}} = -\nabla P</code></div>
-                <div id="en_hyp8" class="tab-content"><h3>Pillar VIII</h3><code>\omega_{\text{res}} = k \cdot c</code></div>
-                <div id="en_hyp9" class="tab-content"><h3>Pillar IX</h3><code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code></div>
-                <div id="en_hyp10" class="tab-content"><h3>Pillar X</h3><code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code></div>
-                <div id="en_hyp11" class="tab-content"><h3>Pillar XI</h3><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
+                <h1>DQF Framework: Dual Model Selection</h1>
+                <p>Toggle between Quantum Fluid and Viscoelastic Quantum Gel using the button above.</p>
             </div>
-
-            <!-- GLIDER 8.7.3 - PROTOTYPE (EN) -->
-            <div class="view-glider">
-                <div class="glider-version-box">
-                    <h1>Glider 8.7.3: Yield Stress Modulation Prototype</h1>
-                    <p>Utilizes electromagnetic field gradients to break the local yield stress of the quantum gel network, enabling reactionless propulsion via asymmetric pressure modulation.</p>
-                </div>
-            </div>
-
-            <!-- THE FLYING DONKEY / SATIRE (EN) -->
-            <div class="view-donkey">
-                <div class="donkey-version-box">
-                    <h1>The Stuck Donkey Paradox</h1>
-                    <p>In a cosmic gel, a donkey doesn't fly—it gets stuck in cosmic pudding unless it has a yield-stress tensor release!</p>
-                </div>
-            </div>
-
-            <!-- ACTION MANUAL (EN) -->
-            <div class="view-manual">
-                <div class="manual-version-box">
-                    <h1>Action Manual</h1>
-                    <p>Transforming AI into an intellectual resonance body through bold co-creation.</p>
-                </div>
-            </div>
-
-            <!-- FORMULA CENTER (EN) -->
-            <div class="view-formula">
-                <div class="formula-version-box">
-                    <h1>Formula Center (Gel Edition)</h1>
-                    <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
-                </div>
-            </div>
-
-            <!-- DISCUSSION & FEEDBACK (EN) -->
-            <div class="view-feedback">
-                <div class="feedback-version-box">
-                    <h1>Discussion & Feedback</h1>
-                    <form class="feedback-form" onsubmit="handleFeedback(event, 'en')">
-                        <input type="text" class="feedback-input" placeholder="Name" required>
-                        <input type="email" class="feedback-input" placeholder="Email">
-                        <textarea class="feedback-textarea" placeholder="Your thoughts..." required></textarea>
-                        <button type="submit" class="feedback-submit">Submit 🚀</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- SIMPLE VIEW (EN) -->
-            <div class="view-simple">
-                <div class="simple-version-box">
-                    <h1>The Universe as a Cosmic Gel</h1>
-                    <p>The vacuum acts like an elastic gel network holding the cosmos together!</p>
-                </div>
-            </div>
-
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Quantum Gel Edition)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Dual-Model Edition)</p>
         </div>
     </div>
 </body>
