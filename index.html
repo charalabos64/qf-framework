@@ -13,7 +13,7 @@
             --border-color: #30363d;
             --accent-color: #38bdf8;
             --accent-hover: #0ea5e9;
-            --science-color: #fbbf24; /* Strahlendes Goldgelb für Wissenschaft */
+            --science-color: #fbbf24;
             --science-hover: #f59e0b;
             --accent-text: #ffffff;
             --blockquote-bg: #1f242c;
@@ -26,8 +26,10 @@
             --lang-btn-hover: #0550ae;
             --lang-btn-text: #ffffff;
             
-            --model-btn-bg: #7c3aed; /* Violett für Modell-Umschalter */
-            --model-btn-hover: #6d28d9;
+            --model-fluid-bg: #0369a1;
+            --model-fluid-hover: #0284c7;
+            --model-gel-bg: #7c3aed;
+            --model-gel-hover: #6d28d9;
         }
 
         [data-theme="light"] {
@@ -51,8 +53,10 @@
             --lang-btn-hover: #0550ae;
             --lang-btn-text: #ffffff;
             
-            --model-btn-bg: #7c3aed;
-            --model-btn-hover: #6d28d9;
+            --model-fluid-bg: #0284c7;
+            --model-fluid-hover: #0369a1;
+            --model-gel-bg: #7c3aed;
+            --model-gel-hover: #6d28d9;
         }
 
         body {
@@ -105,15 +109,49 @@
             background-color: var(--lang-btn-hover);
         }
 
-        .model-toggle-btn {
-            background-color: var(--model-btn-bg);
-            color: #ffffff;
-            border: 1px solid var(--model-btn-bg);
-            box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+        /* NEU: Prominente Modell-Auswahl-Boxen nebeneinander */
+        .model-selection-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
-        .model-toggle-btn:hover {
-            background-color: var(--model-btn-hover);
-            border-color: var(--model-btn-hover);
+        @media (max-width: 650px) {
+            .model-selection-wrapper { grid-template-columns: 1fr; }
+        }
+        .model-card-btn {
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease;
+            color: var(--text-color);
+        }
+        .model-card-btn:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .model-card-btn.active-model-fluid {
+            border-color: var(--model-fluid-bg);
+            background: rgba(3, 105, 161, 0.1);
+        }
+        .model-card-btn.active-model-gel {
+            border-color: var(--model-gel-bg);
+            background: rgba(124, 58, 237, 0.1);
+        }
+        .model-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .model-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         /* Dynamische Farben für Überschriften je nach Ansicht */
@@ -281,7 +319,7 @@
         }
         
         .lang-en { display: none; }
-        .model-gel { display: none; } /* Standardmäßig ist Fluid aktiv */
+        .model-gel { display: none; }
         .model-fluid { display: block; }
 
         .view-scientific { display: block; }
@@ -325,22 +363,22 @@
             }
         }
 
-        let currentModel = 'fluid';
-        function toggleModel() {
+        function setModel(targetModel) {
             let fluidElements = document.getElementsByClassName('model-fluid');
             let gelElements = document.getElementsByClassName('model-gel');
-            let modelBtn = document.getElementById('modelToggleBtn');
+            let cardFluid = document.getElementById('cardFluid');
+            let cardGel = document.getElementById('cardGel');
 
-            if (currentModel === 'fluid') {
+            if (targetModel === 'fluid') {
+                for (let el of fluidElements) el.style.display = 'block';
+                for (let el of gelElements) el.style.display = 'none';
+                cardFluid.classList.add('active-model-fluid');
+                cardGel.classList.remove('active-model-gel');
+            } else {
                 for (let el of fluidElements) el.style.display = 'none';
                 for (let el of gelElements) el.style.display = 'block';
-                modelBtn.innerHTML = '🧬 Quantum-Gel aktiv';
-                currentModel = 'gel';
-            } else {
-                for (let el of gelElements) el.style.display = 'none';
-                for (let el of fluidElements) el.style.display = 'block';
-                modelBtn.innerHTML = '🌊 Quantum-Fluid aktiv';
-                currentModel = 'fluid';
+                cardGel.classList.add('active-model-gel');
+                cardFluid.classList.remove('active-model-fluid');
             }
         }
 
@@ -403,10 +441,9 @@
 </head>
 <body>
     <div class="container">
-        <!-- Oben rechts: Umschalter für Theme, Modell, Ansichten und Sprache -->
+        <!-- Oben rechts: Allgemeine Leiste -->
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
-            <button id="modelToggleBtn" class="top-btn model-toggle-btn" onclick="toggleModel()">🌊 Quantum-Fluid aktiv</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
             <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
@@ -423,26 +460,33 @@
             <!-- WISSENSCHAFTLICHE ANSICHT (DE) -->
             <div class="view-scientific">
                 
-                <!-- FLUID-MODELL INHALT -->
-                <div class="model-fluid">
-                    <h1>Das DQF-Framework: Das Primäre Quantum-Fluid-Modell</h1>
-                    <blockquote>
-                        <strong>Wissenschaftliche Vorbemerkung (Spur A – Reibungsfreies Fluid):</strong><br>
-                        Das Vakuum wird als kompressibles, verlustarmes Quantenfluid (Ozean-Paradigma) modelliert. Die Raumzeit basiert auf einem Sub-Planck-Phasengitter und chiralen Wirbeln.
-                    </blockquote>
-                    <h2>Teil I: Das Fluid-Kontinuum</h2>
-                    <p>Der Raum verhält sich wie ein reibungsfreier Ozean, in dem Lichtgeschwindigkeit und Gravitation durch reine hydrodynamische Druckgradienten und Schallwellen (<code>c = √(∂P / ∂ρ)</code>) definiert sind.</p>
+                <h1>Das DQF-Framework: Das erweiterte Kosmologie-Kompendium</h1>
+
+                <blockquote>
+                    <strong>Wissenschaftliche Vorbemerkung (Wähle deine physikalische Perspektive):</strong><br>
+                    Das vorliegende Framework operiert auf der Prämisse, dass die Raumzeit ein aktives, makroskopisches Medium ist. Du kannst dieses Kompendium wahlweise durch zwei konkurrierende, fundierte Axiome betrachten: Entweder als reibungsfreies <strong>Quantenfluid (Modus A)</strong> oder als viskoelastisches <strong>Quantum-Gel (Modus B)</strong>. Klicke unten auf das gewünschte Modell, um die Axiomatik live umzuschalten.
+                </blockquote>
+
+                <!-- HIER DIE ZWEI NEBENEINANDERLIEGENDEN AUSWAHL-BUTTONS -->
+                <div class="model-selection-wrapper">
+                    <button id="cardFluid" class="model-card-btn active-model-fluid" onclick="setModel('fluid')">
+                        <div class="model-card-title">🌊 Modus A: Quantenfluid (Ozean)</div>
+                        <div class="model-card-desc">Reibungsfreies Kontinuum, reine Druckgradienten & Schallgeschwindigkeit als Lichtbasis.</div>
+                    </button>
+                    <button id="cardGel" class="model-card-btn" onclick="setModel('gel')">
+                        <div class="model-card-title">🧬 Modus B: Quantum-Gel (Netzwerk)</div>
+                        <div class="model-card-desc">Viskoelastisches Substrat mit Fließgrenze & starker Scherelastizität für feste Gitter-Rückstellung.</div>
+                    </button>
                 </div>
 
-                <!-- GEL-MODELL INHALT -->
+                <!-- DYNAMISCHER INHALT JE NACH MODUS -->
+                <div class="model-fluid">
+                    <h2>Spur A: Das Fluid-Modell im Detail</h2>
+                    <p>Der Raum verhält sich wie ein reibungsfreier Ozean. Lichtgeschwindigkeit und Gravitation werden durch reine hydrodynamische Druckgradienten und Schallwellen (<code>c = √(∂P / ∂ρ)</code>) getragen.</p>
+                </div>
                 <div class="model-gel">
-                    <h1>Das DQF-Framework: Das Viskoelastische Quantum-Gel-Modell</h1>
-                    <blockquote>
-                        <strong>Wissenschaftliche Vorbemerkung (Spur B – Viskoelastisches Gel):</strong><br>
-                        Das Vakuum wird als hochelastisches Netzwerk mit definierter Fließgrenze (Yield Stress) und starker Scherelastizität modelliert. Der Raum verhält sich wie ein elastischer Gel-Körper.
-                    </blockquote>
-                    <h2>Teil I: Das Viskoelastische Kontinuum</h2>
-                    <p>Das Sub-Planck-Phasengitter besitzt ein elastisches Gedächtnis und Netzwerkspannungen (<code>μ_lattice</code>), die Transversalwellen ermöglichen und Materie-Wirbel dauerhaft ohne Dunkle Materie fixieren.</p>
+                    <h2>Spur B: Das Gel-Modell im Detail</h2>
+                    <p>Das Sub-Planck-Phasengitter besitzt ein elastisches Gedächtnis und Netzwerkspannungen (<code>μ_lattice</code>), die Transversalwellen ermöglichen und Materie-Wirbel dauerhaft fixieren.</p>
                 </div>
 
                 <h2>Das Hypothesen-Archiv: Die Säulen des DQF-Frameworks</h2>
@@ -593,12 +637,12 @@
         <div class="lang-en">
             <div class="view-scientific">
                 <h1>DQF Framework: Dual Model Selection</h1>
-                <p>Toggle between Quantum Fluid and Viscoelastic Quantum Gel using the button above.</p>
+                <p>Choose between Quantum Fluid and Viscoelastic Quantum Gel above.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Dual-Model Edition)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Dual-Card Edition)</p>
         </div>
     </div>
 </body>
