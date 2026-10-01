@@ -159,6 +159,27 @@
             color: var(--text-muted);
         }
 
+        /* Visuelles Kosmos-Schaubild (Waben & Säulen) */
+        .visual-cosmos-box {
+            background: var(--bg-color);
+            border: 1px solid var(--science-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .visual-cosmos-box h3 {
+            color: var(--science-color);
+            margin-top: 0;
+            border-bottom: none;
+        }
+        .svg-container {
+            width: 100%;
+            max-width: 450px;
+            margin: 1rem auto;
+            display: block;
+        }
+
         .public-guide-box {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
@@ -413,6 +434,42 @@
                 </button>
             </div>
 
+            <!-- VISUELLES KOSMOS-SCHAUBILD (Waben & Säulen) -->
+            <div class="visual-cosmos-box">
+                <h3>🌌 Visuelle System-Architektur: Das Kosmische Wabennetz & Filament-Säulen</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Interaktives Schema der makroskopischen Waben-Stabilisierung und der radialen Galaxiensäulen (Säule XIV).</p>
+                <svg class="svg-container" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Äußerer Rahmen (Kosmischer Kreis) -->
+                    <circle cx="200" cy="200" r="185" fill="none" stroke="var(--border-color)" stroke-width="2" stroke-dasharray="4,4"/>
+                    <circle cx="200" cy="200" r="170" fill="none" stroke="var(--science-color)" stroke-width="1.5" opacity="0.6"/>
+                    
+                    <!-- Voids (Pufferkammern / Dunkle Zonen) -->
+                    <circle cx="120" cy="120" r="35" fill="var(--bg-color)" opacity="0.9" stroke="var(--border-color)" stroke-width="1"/>
+                    <circle cx="280" cy="130" r="40" fill="var(--bg-color)" opacity="0.9" stroke="var(--border-color)" stroke-width="1"/>
+                    <circle cx="200" cy="280" r="45" fill="var(--bg-color)" opacity="0.9" stroke="var(--border-color)" stroke-width="1"/>
+
+                    <!-- Waben-Netzwerk & Filament-Säulen (Zugfeste Stege) -->
+                    <polygon points="200,30 290,90 290,210 200,270 110,210 110,90" fill="none" stroke="var(--accent-color)" stroke-width="2" opacity="0.4"/>
+                    <line x1="200" y1="200" x2="200" y2="30" stroke="var(--science-color)" stroke-width="2.5" />
+                    <line x1="200" y1="200" x2="290" y2="90" stroke="var(--science-color)" stroke-width="2.5" />
+                    <line x1="200" y1="200" x2="290" y2="210" stroke="var(--science-color)" stroke-width="2.5" />
+                    <line x1="200" y1="200" x2="200" y2="270" stroke="var(--science-color)" stroke-width="2.5" />
+                    <line x1="200" y1="200" x2="110" y2="210" stroke="var(--science-color)" stroke-width="2.5" />
+                    <line x1="200" y1="200" x2="110" y2="90" stroke="var(--science-color)" stroke-width="2.5" />
+
+                    <!-- Zentrale Beobachtungs- und Anker-Zone -->
+                    <circle cx="200" cy="200" r="14" fill="var(--science-color)" />
+                    <circle cx="200" cy="200" r="6" fill="#ffffff" />
+
+                    <!-- Beschriftungen / Marker -->
+                    <text x="200" y="15" fill="var(--science-color)" font-size="10" font-weight="bold" text-anchor="middle">KOSMISCHER RAND</text>
+                    <text x="200" y="218" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">ZENTRUM / ANKER</text>
+                    <text x="120" y="123" fill="var(--text-muted)" font-size="9" text-anchor="middle">VOID (PUFFER)</text>
+                    <text x="280" y="133" fill="var(--text-muted)" font-size="9" text-anchor="middle">VOID (PUFFER)</text>
+                    <text x="200" y="283" fill="var(--text-muted)" font-size="9" text-anchor="middle">VOID (PUFFER)</text>
+                </svg>
+            </div>
+
             <!-- ÖFFENTLICHER LEITFADEN -->
             <div class="public-guide-box">
                 <h3>🧭 Leitfaden für Entdecker: Die Kosmische Migration des Universums</h3>
@@ -420,7 +477,7 @@
                 <ul>
                     <li><strong>Die kosmische Migration:</strong> So wie Strömungen und Massenströme feldbasierten Medien folgen, zieht das gesamte Quantenfluid-System auf gigantischen Bahnen durch die Realität.</li>
                     <li><strong>Atmende Expansion:</strong> Neue Fluid-Produktion treibt die Expansion an, während der Kosmische Riss als universeller Abfluss die Materie recycelt.</li>
-                    <li><strong>Materie & Anker:</strong> Sterne und Planeten sind keine fremden Klötze, sondern lokale Dichte-Knoten und Verdichtungs-Anker (wie die Sonne), auf denen Planeten strömungsmechanisch gelagert sind.</li>
+                    <li><strong>Waben-Stabilisierung:</strong> Das zellulare Netz aus Filament-Säulen und Voids schützt das System vor dem thermischen Zerfall (Anti-Entropie-Prinzip).</li>
                 </ul>
             </div>
 
@@ -436,7 +493,7 @@
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, des geschlossenen Kreislaufs und der Waben-Stabilisierung.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, des geschlossenen Kreislaufs und der makroskopischen Waben-Stabilisierung.</li>
                     <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und Systemarchitektur.</li>
                 </ul>
             </div>
@@ -670,7 +727,7 @@
                 </div>
             </div>
 
-            <!-- SÄULE XIV (NEU) -->
+            <!-- SÄULE XIV -->
             <div id="hyp14" class="tab-content">
                 <h3>Säule XIV: Das zellulare Waben-Netzwerk & makroskopische System-Balance (Anti-Entropie-Prinzip)</h3>
                 <div class="model-fluid">
@@ -718,7 +775,7 @@
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - With Pillar XIV Honeycomb Stabilization)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - With Visual SVG Honeycomb Schematic)</p>
         </div>
     </div>
 </body>
