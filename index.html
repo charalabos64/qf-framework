@@ -185,6 +185,18 @@
             color: var(--science-color);
         }
 
+        .glossary-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .glossary-box h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
         .view-scientific h1, .view-scientific h2, .view-scientific h3 {
             color: var(--science-color) !important;
         }
@@ -438,7 +450,7 @@
 
             <blockquote>
                 <strong>Wissenschaftliche Vorbemerkung (Hypothesen-Status):</strong><br>
-                Alle hier formulierten Aussagen verstehen sich als pure, offene Arbeitshypothesen – als gedankliche Brücken, die starre Dogmen überwinden und den Kosmos als atmendes, wanderndes Lebewesen begreifbar machen.
+                Alle hier formulierten Aussagen verstehen sich as pure, offene Arbeitshypothesen – als gedankliche Brücken, die starre Dogmen überwinden und den Kosmos als atmendes, wanderndes Lebewesen begreifbar machen.
             </blockquote>
 
             <!-- MODUS AUSWAHL -->
@@ -476,12 +488,12 @@
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Wanderung (Kosmos als migrierender Organismus), der Fluid-Verdichtung und des geschlossenen Kreislaufs.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Wanderung (Kosmos als migrierender Organismus), des zeitlosen Ur-Zustands und des geschlossenen Kreislaufs.</li>
                     <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und Systemarchitektur.</li>
                 </ul>
             </div>
 
-            <h2>Das Hypothesen-Archiv: Die 12 Säulen</h2>
+            <h2>Das Hypothesen-Archiv: Die 13 Säulen</h2>
             <div class="archive-nav">
                 <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium & Verdichtung</button>
@@ -495,6 +507,7 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Sinkkästen & Migration</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Ozean-Gleiter</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Voids & Puffer</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp12')">12. Zeitlosigkeit</button>
             </div>
 
             <!-- SÄULE 0 -->
@@ -607,7 +620,7 @@
             <div id="hyp7" class="tab-content">
                 <h3>Säule VII: Kraftdichte der Gravitation & Gleitmechanik</h3>
                 <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Zentralgestirne als stationäre Verdichtungs-Anker ($\rho_{\text{sun}}$). Planeten gleiten reibungsfrei auf den Drucklinien.</p>
+                    <p><strong>Formale Arbeitshypothese:</strong> Zentralgestirne als stationäre Verdichtungs-Anker ($\rho_{\text{sun}}$). Planeten gleiten reibungslos auf den Drucklinien.</p>
                     <code>\mathbf{f}_{\text{orbit}} = -\frac{1}{\rho_0} \nabla P(\rho_{\text{sun}}) + \mathbf{v}_{\text{glide}} \times (\nabla \times \mathbf{v}_{\text{lattice}})</code>
                     <div class="academic-target-box"><strong>Legende:</strong> $\rho_{\text{sun}}$ = Anker-Dichte, $\mathbf{v}_{\text{glide}}$ = Gleitgeschwindigkeit.</div>
                 </div>
@@ -677,6 +690,21 @@
                     <div class="academic-target-box"><strong>Legende:</strong> $K_{\text{lattice}}$ = Kompressionsmodul des Gitters, $\Delta V$ = Volumenänderung.</div>
                 </div>
             </div>
+
+            <!-- SÄULE XII -->
+            <div id="hyp12" class="tab-content">
+                <h3>Säule XII: Der Zeitlose Ur-Zustand & Jenseits jeder Skalierung</h3>
+                <div class="model-fluid">
+                    <p><strong>Formale Arbeitshypothese:</strong> Das Universum unterliegt keinem linearen Anfang und keinem Ende (analog zum Hartle-Hawking-Zustand ohne Raumzeit-Grenzen). Auf fundamentaler Skala bricht die konventionelle Skalierung zusammen, während substratische Muster zeitlos unendlich existieren.</p>
+                    <code>\lim_{\text{scale} \to \text{fundament}} \left( \frac{\partial t}{\partial x} \right) \to \text{invariant} \quad \text{und} \quad E_{\text{kosmos}} = \text{konstant (zeitlos)}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> Invarianter Zustand jenseits linearer Kausalität und thermischer Alterung.</div>
+                </div>
+                <div class="model-gel">
+                    <p><strong>Formale Arbeitshypothese:</strong> Das Aether-Gel-Netzwerk altert nicht global. Lokale Muster (wie Quallen-Zyklen oder solitäre Wirbel) können unendlich persistieren, während das Gesamtsystem in einem ewigen, unskalierten Sein ruht.</p>
+                    <code>\oint \text{Netzwerk-Zustand} \, dt = \infty \quad (\text{Ewiger Kreislauf})</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> Ewige Persistenz topologischer Netzwerk-Strukturen ohne Hitzetod.</div>
+                </div>
+            </div>
         </div>
 
         <!-- FORMEL-ZENTRALE -->
@@ -691,18 +719,22 @@
                     <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
                     <div class="formula-legend"><strong>Void-Puffer-Gleichung:</strong> Beschreibt die Volumenatmung der Voids als Druckausgleich.</div>
                 </div>
+                <div class="formula-card">
+                    <code>\lim_{\text{scale} \to \text{fundament}} \left( \frac{\partial t}{\partial x} \right) \to \text{invariant}</code>
+                    <div class="formula-legend"><strong>Zeitlose Skalierungs-Invariante:</strong> Das Fundament jenseits linearer Anfang-und-Ende-Dogmen.</div>
+                </div>
             </div>
         </div>
 
-        <!-- WEITERE ANSIHTEN -->
-        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Der Kosmos als atmender Schwamm mit Voids als Pufferkammern.</p></div></div>
+        <!-- WEITERE ANSICHTEN -->
+        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Der Kosmos als ewig existierender, atmender Ozean ohne Anfang und Ende.</p></div></div>
         <div class="view-glider" style="display:none;"><div class="glider-version-box"><h1>🚀 Gleiter 8.7.3</h1><p>Reibungsloser Vortrieb durch asymmetrische Druckgradienten.</p></div></div>
-        <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Ozean vs. Pudding-Steckenbleiben im Gel.</p></div></div>
+        <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Ozean vs. Pudding-Steckenbleiben im Gel!</p></div></div>
         <div class="view-manual" style="display:none;"><div class="manual-version-box"><h1>🧭 Handbuch</h1><p>Menschliche Vision trifft auf formale Präzision.</p></div></div>
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Strict Template Adherence)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - With Timeless Pillar XII)</p>
         </div>
     </div>
 </body>
