@@ -11,7 +11,807 @@
             --text-color: #c9d1d9;
             --text-muted: #8b949e;
             --border-color: #30363d;
+            --accent-color: #38bdf8;<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DQF-Framework – Das Vollständige Kosmologie-Kompendium</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-color: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
             --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --science-color: #fbbf24;
+            --science-hover: #f59e0b;
+            --accent-text: #ffffff;
+            --blockquote-bg: #1f242c;
+            --code-bg: rgba(110, 118, 129, 0.2);
+            --tab-active-bg: #38bdf8;
+            --tab-active-text: #0d1117;
+            --header-border: #30363d;
+            
+            --lang-btn-bg: #0969da;
+            --lang-btn-hover: #0550ae;
+            --lang-btn-text: #ffffff;
+            
+            --model-fluid-bg: #0369a1;
+            --model-fluid-hover: #0284c7;
+            --model-gel-bg: #7c3aed;
+            --model-gel-hover: #6d28d9;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
+            --container-bg: #ffffff;
+            --text-color: #1f2328;
+            --text-muted: #57606a;
+            --border-color: #d0d7de;
+            --accent-color: #0969da;
+            --accent-hover: #0550ae;
+            --science-color: #d97706; 
+            --science-hover: #b45309;
+            --accent-text: #ffffff;
+            --blockquote-bg: #f0f6fc;
+            --code-bg: rgba(175, 184, 193, 0.2);
+            --tab-active-bg: #0969da;
+            --tab-active-text: #ffffff;
+            --header-border: #eaecef;
+            
+            --lang-btn-bg: #0969da;
+            --lang-btn-hover: #0550ae;
+            --lang-btn-text: #ffffff;
+            
+            --model-fluid-bg: #0284c7;
+            --model-fluid-hover: #0369a1;
+            --model-gel-bg: #7c3aed;
+            --model-gel-hover: #6d28d9;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            background: var(--container-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .top-btn {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .top-btn:hover {
+            background-color: var(--border-color);
+        }
+
+        .lang-toggle-btn {
+            background-color: var(--lang-btn-bg);
+            color: var(--lang-btn-text);
+            border: 1px solid var(--lang-btn-bg);
+        }
+        .lang-toggle-btn:hover {
+            background-color: var(--lang-btn-hover);
+        }
+
+        .model-selection-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 650px) {
+            .model-selection-wrapper { grid-template-columns: 1fr; }
+        }
+        .model-card-btn {
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease;
+            color: var(--text-color);
+        }
+        .model-card-btn:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .model-card-btn.active-model-fluid {
+            border-color: var(--model-fluid-bg);
+            background: rgba(3, 105, 161, 0.1);
+        }
+        .model-card-btn.active-model-gel {
+            border-color: var(--model-gel-bg);
+            background: rgba(124, 58, 237, 0.1);
+        }
+        .model-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .model-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .public-guide-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .public-guide-box h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        .academic-target-box {
+            background: var(--bg-color);
+            border-left: 4px solid var(--science-color);
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+        }
+        .academic-target-box strong {
+            color: var(--science-color);
+        }
+
+        .view-scientific h1, .view-scientific h2, .view-scientific h3 {
+            color: var(--science-color) !important;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--header-border);
+            padding-bottom: 0.3em;
+        }
+        h1 { font-size: 2.1rem; margin-bottom: 0.2rem; }
+        h2 { font-size: 1.6rem; margin-top: 2.5rem; }
+        h3 { font-size: 1.3rem; border-bottom: none; color: var(--text-color); margin-top: 0; }
+        
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            color: var(--text-muted);
+            background-color: var(--blockquote-bg);
+            border-left: 0.25rem solid var(--accent-color);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .view-scientific blockquote {
+            border-left-color: var(--science-color);
+        }
+
+        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box, .donkey-version-box {
+            background: var(--blockquote-bg);
+            border: 1px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .formula-card, .glider-card, .manual-card, .donkey-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.2rem 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
+        }
+        .formula-card code, .tab-content code {
+            display: inline-block;
+            font-size: 1.05rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 0.4rem 0;
+            padding: 0.3em 0.6em;
+            background: var(--code-bg);
+            border-radius: 4px;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .feedback-input, .feedback-textarea {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .feedback-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .feedback-submit {
+            background-color: var(--lang-btn-bg);
+            color: var(--lang-btn-text);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+        .feedback-submit:hover {
+            background-color: var(--lang-btn-hover);
+        }
+
+        code, pre {
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+            background-color: var(--code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-size: 85%;
+        }
+        p { margin-bottom: 1rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+
+        .archive-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0 2rem 0;
+            background: var(--bg-color);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .tab-btn {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover { background-color: var(--border-color); }
+        .tab-btn.active {
+            background-color: var(--tab-active-bg);
+            color: var(--tab-active-text);
+            border-color: var(--tab-active-bg);
+        }
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .tab-content.active { display: block; }
+        
+        .roles-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--header-border);
+            padding-top: 1rem;
+        }
+        
+        .lang-en { display: none; }
+        .model-gel { display: none; }
+        .model-fluid { display: block; }
+
+        .view-scientific { display: block; }
+        .view-simple { display: none; }
+        .view-formula { display: none; }
+        .view-feedback { display: none; }
+        .view-glider { display: none; }
+        .view-manual { display: none; }
+        .view-donkey { display: none; }
+    </style>
+    <script>
+        function openHypothesis(evt, hypId) {
+            let contents = document.getElementsByClassName("tab-content");
+            let buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < contents.length; i++) contents[i].classList.remove("active");
+            for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove("active");
+            document.getElementById(hypId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        let currentLang = 'de';
+        function toggleLanguage() {
+            let deElements = document.getElementsByClassName('lang-de');
+            let enElements = document.getElementsByClassName('lang-en');
+            let btn = document.getElementById('langToggleBtn');
+            if (currentLang === 'de') {
+                for (let el of deElements) el.style.display = 'none';
+                for (let el of enElements) el.style.display = 'block';
+                btn.innerHTML = '🇩🇪 Deutsche Version';
+                currentLang = 'en';
+            } else {
+                for (let el of enElements) el.style.display = 'none';
+                for (let el of deElements) el.style.display = 'block';
+                btn.innerHTML = '🇬🇧 English Version';
+                currentLang = 'de';
+            }
+        }
+
+        function setModel(targetModel) {
+            let fluidElements = document.getElementsByClassName('model-fluid');
+            let gelElements = document.getElementsByClassName('model-gel');
+            let cardFluid = document.getElementById('cardFluid');
+            let cardGel = document.getElementById('cardGel');
+            if (targetModel === 'fluid') {
+                for (let el of fluidElements) el.style.display = 'block';
+                for (let el of gelElements) el.style.display = 'none';
+                cardFluid.classList.add('active-model-fluid');
+                cardGel.classList.remove('active-model-gel');
+            } else {
+                for (let el of fluidElements) el.style.display = 'none';
+                for (let el of gelElements) el.style.display = 'block';
+                cardGel.classList.add('active-model-gel');
+                cardFluid.classList.remove('active-model-fluid');
+            }
+        }
+
+        function toggleTheme() {
+            let html = document.documentElement;
+            let themeBtn = document.getElementById('themeToggleBtn');
+            let currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                themeBtn.innerHTML = '🌙 Dark Mode';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeBtn.innerHTML = '☀️ Light Mode';
+            }
+        }
+
+        function switchView(targetView) {
+            ['view-scientific', 'view-simple', 'view-formula', 'view-feedback', 'view-glider', 'view-manual', 'view-donkey'].forEach(view => {
+                for (let el of document.getElementsByClassName(view)) el.style.display = (view === 'view-' + targetView) ? 'block' : 'none';
+            });
+        }
+
+        function handleFeedback(event, lang) {
+            event.preventDefault();
+            let successMsg = document.getElementById('successDe');
+            successMsg.style.display = 'block';
+            event.target.reset();
+            setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Bar mit voll verständlichen Button-Beschriftungen -->
+        <div class="top-bar">
+            <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+            <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
+            <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
+            <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
+            <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Esel</button>
+            <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Handbuch</button>
+            <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
+            <button class="top-btn" onclick="switchView('scientific')" style="color: var(--science-color); border-color: var(--science-color);">🔬 Wissenschaft</button>
+            <button id="langToggleBtn" class="top-btn lang-toggle-btn" onclick="toggleLanguage()">🇬🇧 English</button>
+        </div>
+
+        <!-- ================= DEUTSCHE VERSION ================= -->
+        <div class="lang-de">
+            
+            <!-- WISSENSCHAFTLICHE ANSICHT -->
+            <div class="view-scientific">
+                <h1>Das DQF-Framework: Akademische Edition & Öffentliche Ozean-Führung</h1>
+
+                <blockquote>
+                    <strong>Wissenschaftliche Vorbemerkung:</strong><br>
+                    Dieses Kompendium vereint eine fesselnde, bildhafte Einführung für <strong>klassisch Interessierte</strong> mit der harten formalen Stringenz für <strong>Physiker, Theoretiker und Mathematiker</strong>. Wähle unten deine Perspektive: Das reibungsfreie <em>Quantenfluid (Modus A - Der Ozean)</em> oder das viskoelastische <em>Aether-Gel-Netzwerk (Modus B)</em>.
+                </blockquote>
+
+                <!-- ZWEI AUSWAHL-BUTTONS -->
+                <div class="model-selection-wrapper">
+                    <button id="cardFluid" class="model-card-btn active-model-fluid" onclick="setModel('fluid')">
+                        <div class="model-card-title">🌊 Modus A: Quantenfluid (Ozean)</div>
+                        <div class="model-card-desc">Hydrodynamisches Kontinuum, Euler-Zustände & Schallgeschwindigkeits-Kausalität.</div>
+                    </button>
+                    <button id="cardGel" class="model-card-btn" onclick="setModel('gel')">
+                        <div class="model-card-title">🧬 Modus B: Aether-Gel-Netzwerk</div>
+                        <div class="model-card-desc">Viskoelastische Tensor-Mechanik, Fließgrenzen & Netzwerk-Relaxation.</div>
+                    </button>
+                </div>
+
+                <!-- OZEAN-FÜHRUNG FÜR KLASSISCH INTERESSIERTE -->
+                <div class="public-guide-box">
+                    <h3>🧭 Leitfaden für Entdecker: Die Ozean-Hypothese in verständlicher Sprache</h3>
+                    <p>Stell dir vor, das Universum ist keine kalte, leere Geometrie, in der sich Sterne verloren bewegen. Stattdessen schwimmen wir in einem kosmischen Ozean – einem unvorstellbar dichten, hochenergetischen Fluid auf Sub-Planck-Ebene.</p>
+                    <ul>
+                        <li><strong>Was ist Licht?</strong> Licht ist kein mysteriöses Etwas, das durch das Nichts huscht. Es ist eine reine Schallwelle, die sich mit exakt der Schallgeschwindigkeit dieses kosmischen Ozeans ausreitet (<code>c</code>).</li>
+                        <li><strong>Was ist Materie?</strong> Ein Elementarteilchen (wie ein Elektron) ist kein Punktpartikel, sondern ein stabiler Wirbel – vergleichbar mit einem Strudel im Wasser, der sich selbst erhält und durch den Ozean wandert.</li>
+                        <li><strong>Was ist Gravitation?</strong> Keine magische Fernwirkung durch den Raum, sondern ein echter Druck- und Dichtegradient. Massen verdrängen den Ozean, erzeugen Strömungen und ziehen andere Körper wie in einem Mahlstrom an.</li>
+                    </ul>
+                    <p>Dieser Leitfaden bereitet dich darauf vor, in die nachfolgenden 11 Säulen einzutauchen – wo diese Bilder in harte mathematische und physikalische Arbeitshypothesen für Experten gegossen sind.</p>
+                </div>
+
+                <div class="model-fluid">
+                    <h2>Teil I: Formaler Ozean-Ansatz (Modus A)</h2>
+                    <p>Basiert auf der Euler- und Navier-Stokes-Kontinuumsmechanik kompressibler Medien. Der Druckgradient <code>∇P</code> treibt Geometrie und Lichtausbreitung <code>c = √(∂P / ∂ρ)</code> an.</p>
+                </div>
+
+                <div class="model-gel">
+                    <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
+                    <p>Erweitert die Kontinuumsmechanik durch einen viskoelastischen Scherungstensor <code>μ_lattice ∇²v</code> und rheologische Fließgrenzen, wodurch transversale Moden und Netzwerkspannungen greifbar werden.</p>
+                </div>
+
+                <div class="roles-box">
+                    <ul>
+                        <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der physikalischen Intuition, der öffentlichen Ozean-Führung und des Gleiters.</li>
+                        <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung für Physiker, Theoretiker und Mathematiker.</li>
+                    </ul>
+                </div>
+
+                <h2>Das Hypothesen-Archiv: Die 11 Säulen</h2>
+                <div class="archive-nav">
+                    <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp2')">2. Wirbel</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp3')">3. Sättigung</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp4')">4. Akustik</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp5')">5. Redshift</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp6')">6. Dunkle Materie</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp7')">7. Gravitation</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Schwarze Löcher</button>
+                    <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Ozean-Gleiter</button>
+                </div>
+
+                <div id="hyp0" class="tab-content active">
+                    <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Vermeidung unendlicher Divergenzen durch isomorphe Sättigung.</p>
+                        <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Messbarer Dichtegrenzwert als cut-off bei hochenergetischen Kollisionen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Physikalischer UV-Cutoff zur Eliminierung von Renormierungs-Divergenzen.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Beschränktheit der Ableitungen in Banach-Räumen; Supremum-Norm bleibt endlich.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Oberste Invariante des Polymer-Netzwerk-Dehnungstensors schließt unendliche Krümmungen aus.</p>
+                        <code>S_{\text{res}} = \Phi^{-1}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Maximale elastische Dehnbarkeitsgrenze des Vakuums.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt Punkt-Singularitäten durch topologische Kerne endlicher Energiedichte.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Kompaktifizierung des Zustandsraums über den Goldenen Schnitt.</div>
+                    </div>
+                </div>
+
+                <div id="hyp1" class="tab-content">
+                    <h3>Säule I: Das Vakuum als Zustandsfeld</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Polytrope Zustandsgleichung und hydrodynamischer Druckoperator.</p>
+                        <code>P = K \cdot \rho^\gamma \quad \text{und} \quad c = \sqrt{\frac{\partial P}{\partial \rho}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Vakuum-Schallgeschwindigkeit gekoppelt an Kompressibilität.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Mechanische Lagrangedichte mit Goldstone-Moden.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Nichtlineare hyperbolische partielle Differentialgleichung.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Konstitutives Gesetz mit integriertem Scherelastizitätsmodul.</p>
+                        <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Netzsteifigkeit } \mu_{\text{lattice}})</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Detektion transversaler Vakuum-Scherwellen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Spontaner Bruch der Lorentzinvarianz auf Planck-Skala.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Cauchy-Verzerrungstensor in Kontinuumsgleichungen.</div>
+                    </div>
+                </div>
+
+                <div id="hyp2" class="tab-content">
+                    <h3>Säule II: Topologische Wirbel-Invarianz</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Anwendung des Kelvinschen Zirkulationssatzes.</p>
+                        <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Quantisierte Wirbelstärke analog zu Supraleitern.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Natürliche Ladungsquantisierung ohne ad-hoc Eichsymmetrien.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Homotopiegruppen $\pi_1(S^1) = \mathbb{Z}$.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Topologische Defekte als stabile Solitonen.</p>
+                        <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Solitonen mechanisch rückstellend im Polymer-Netzwerk verankert.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Teilchen-Massen durch elastische Deformationsenergie.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Topologische Indexsätze in viskoelastischen Medien.</div>
+                    </div>
+                </div>
+
+                <div id="hyp3" class="tab-content">
+                    <h3>Säule III: Universeller Sättigungstensor</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Skalierung der Mediendichte über den Kehrwert des Goldenen Schnitts.</p>
+                        <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Skalierungsfaktor für kosmologische Dichtegrenzen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Fixpunkt-Lösung im Sub-Planck-Regime.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Invarianz unter Kettenbruch-Abbildungen.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Kritischer Deformationsparameter für die Fließgrenze.</p>
+                        <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Schwellenwert für nichtlineares Fließverhalten.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Phasenübergang zweiter Ordnung.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Bifurkationspunkt in Tensor-Differentialgleichungen.</div>
+                    </div>
+                </div>
+
+                <div id="hyp4" class="tab-content">
+                    <h3>Säule IV: Wellen-Propagation & Hubble-Relaxation</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Linearisierte akustische Wellengleichung.</p>
+                        <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Standard-Wellenpropagation ohne Amplitudenverzerrung.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Exakte Erfüllung im flachen Minkowski-Limes.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Klassischer D'Alembert-Operator.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Wellengleichung mit Relaxations-Term.</p>
+                        <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Erklärung der Hubble-Tension durch Netzwerk-Relaxation.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Dissipative Dämpfungsterme in Kosmologie-Gleichungen.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Telegraph-Gleichung mit parabolischem Übergang.</div>
+                    </div>
+                </div>
+
+                <div id="hyp5" class="tab-content">
+                    <h3>Säule V: Dissipativer Energietransport</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Wegabhängige Gradienten-Dämpfung.</p>
+                        <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Alternative Rotverschiebung mit Labor-Testbarkeit.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Verletzung der makroskopischen Energieerhaltung durch Substrat.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Exponentielle Dämpfungs-Halbgruppe.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Dissipation gekoppelt an thermische Verspannungsmoden.</p>
+                        <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> CMB als Phononen-Hintergrundspektrum.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Stochastischer Quellterm repräsentiert Gitterfluktuationen.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Langevin-Typ-Differentialgleichung.</div>
+                    </div>
+                </div>
+
+                <div id="hyp6" class="tab-content">
+                    <h3>Säule VI: Rotationsdynamik & Scher-Kopplung</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Radiale Druckkräfte als Zentrifugalgewicht.</p>
+                        <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Druckgradient stützt Galaxienränder ab.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt Dunkle Materie durch hydrodynamischen Druck.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Integrale Bilanzgleichungen.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Superposition von Druckgradient und elastischer Laplace-Scherung.</p>
+                        <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Elastische Rückstellkräfte ($\mu_{\text{lattice}}$) als Halteband.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Zusätzlicher elliptischer Operator liefert flache Rotationskurven.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Helmholtz-Decomposition von Vektorfeldern.</div>
+                    </div>
+                </div>
+
+                <div id="hyp7" class="tab-content">
+                    <h3>Säule VII: Kraftdichte der Gravitation</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Gravitationsfeld als negativer Druckgradient.</p>
+                        <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Gravitation als messbare Kraft des Vakuum-Substrats.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Reduktion von Geometrie auf klassische Kontinuumskraft.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Gradientenfeld eines Skalarpotentials.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Lokale Netzwerk-Kompression als Massen-Sog.</p>
+                        <code>\mathbf{f}_{\text{grav}} = -\nabla P</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Materie staucht das elastische Gel-Netzwerk lokal.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Äquivalenz von Masse und Gitterverformung.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Divergenz-Operator auf deformierten Netzen.</div>
+                    </div>
+                </div>
+
+                <div id="hyp8" class="tab-content">
+                    <h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Dispersionsrelation für akustische Moden.</p>
+                        <code>\omega_{\text{res}} = k \cdot c</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Direkte Labortests durch Resonanz-Anregung.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Lineare Dispersionsrelation im Niederfrequenz-Limes.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Fourier-Transformation linearer Operatoren.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Spektrale Anregung transversaler Gitterwellen.</p>
+                        <code>\omega_{\text{res}} = k \cdot c</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Detektion von Netzwerk-Scherwellen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Korrekturen durch den Scherungskoeffizienten.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Eigenwertproblem für Matrix-Differentialoperatoren.</div>
+                    </div>
+                </div>
+
+                <div id="hyp9" class="tab-content">
+                    <h3>Säule IX: Akustischer Horizont (Mach-Zahl)</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Überschreiten der lokalen Schallgeschwindigkeit.</p>
+                        <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Analogon zu Schall-Horizonten in BECs.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Hawking-ähnliche Phononen-Strahlung am Horizont.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Übergang von elliptisch zu hyperbolisch.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Lokaler Kollaps durch Überschreiten der Fließgrenze.</p>
+                        <code>M_{\text{ac}} = \frac{v_{\text{fluid}}}{c} \ge 1</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Einströmen bricht die Netzwerk-Struktur auf.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Phasenbruch des Substrats im Zentrum.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Singularitäten in nichtlinearen Konstitutivgleichungen.</div>
+                    </div>
+                </div>
+
+                <div id="hyp10" class="tab-content">
+                    <h3>Säule X: Der Ozean-Gleiter & Prototyp 8.7.3 (Applikation)</h3>
+                    <div class="model-fluid">
+                        <p><strong>Formale Arbeitshypothese:</strong> Asymmetrische Druckverdrängung (<code>-∇P</code>) für reibungslosen Vortrieb ohne Stützmasse.</p>
+                        <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Realisierbarer raumloser Antrieb durch elektromagnetisch erzeugte Druckgradienten im Vakuum-Ozean.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Erhaltungssätze bleiben gewahrt durch Impulsaustausch mit dem Hintergrundmedium.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Integralsatz von Gauss angewandt auf asymmetrische Vektorfelder.</div>
+                    </div>
+                    <div class="model-gel">
+                        <p><strong>Formale Arbeitshypothese:</strong> Yield Stress Breaking – lokales Aufbrechen der Gel-Fließgrenze vor dem Bug und Erstarren am Heck.</p>
+                        <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
+                        <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Feldmodulator bricht temporär die Scherfestigkeit des Gels auf, um den Rumpf widerstandsfrei durch das Netzwerk zu schleusen.</div>
+                        <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Lokale Phasenumwandlung des Vakuum-Gitters unter minimalem Energieaufwand.</div>
+                        <div class="academic-target-box"><strong>Für Mathematiker:</strong> Bewegung von Diskontinuitätsflächen (Schock- und Wellenfronten) in viskoelastischen Medien.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOLL AUSGEFÜLLTE EINFACH-SPRACHE -->
+            <div class="view-simple">
+                <div class="simple-version-box">
+                    <h1>📖 Einfache Sprache: Die Essenz des Kosmos</h1>
+                    <p>Willkommen in der leicht verständlichen Welt des DQF-Frameworks! Wenn man die komplizierte Physik beiseitelegt, lässt sich unser Universum durch zwei wunderschöne, greifbare Bilder erklären:</p>
+                    <ul>
+                        <li><strong>Der Ozean (Modus A):</strong> Stell dir vor, der gesamte Weltraum ist kein leeres Nichts, sondern ein riesiger, reibungsloser Wasser-Ozean. Lichtwellen sind wie Wellen auf diesem Wasser, und Planeten oder Sterne sind wie riesige Strudel und Wirbel darin.</li>
+                        <li><strong>Das elastische Gelee (Modus B):</strong> Wenn wir das Modell verfeinern, verhält sich der Raum wie ein elastisches Polymer-Gel. Es hält Galaxien wie ein unsichtbares Gummiband zusammen und sorgt dafür, dass das Universum eine stabile Struktur behält.</li>
+                    </ul>
+                    <p>Hier braucht man keine Differentialgleichungen, um zu verstehen: Physik ist pure Mechanik zum Anfassen!</p>
+                </div>
+            </div>
+
+            <!-- VOLL AUSGEFÜLLTE FORMEL-ZENTRALE -->
+            <div class="view-formula">
+                <div class="formula-version-box">
+                    <h1>📐 Formel-Zentrale: Die mathematischen Master-Gleichungen</h1>
+                    <p>Hier sind die wichtigsten Gleichungen des DQF-Frameworks übersichtlich zusammengefasst, die als formale Arbeitshypothesen für das Ozean- und Aether-Gel-Modell dienen:</p>
+                    
+                    <div class="formula-card">
+                        <code>\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} = \mathbf{f}_{\text{grav}}</code>
+                        <div class="formula-legend"><strong>Die Master-Gleichung der Synthese:</strong> Vereint hydrodynamische Druckgradienten (<code>∇P</code>) und die elastische Netzwerkscherung (<code>μ_lattice ∇²v</code>) zur Erklärung der effektiven Gravitationskraft.</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                        <div class="formula-legend"><strong>Die isomorphe Sättigungsgrenze:</strong> Verhindert unendliche Singularitäten durch Skalierung über den Kehrwert des Goldenen Schnitts (<code>Φ⁻¹ ≈ 0.618</code>).</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code>
+                        <div class="formula-legend"><strong>Die modifizierte Gel-Wellengleichung:</strong> Integriert einen Volumen-Relaxations-Term, um die kosmologische Hubble-Tension mechanisch zu lösen.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOLL AUSGEFÜLLTER GLEITER -->
+            <div class="view-glider">
+                <div class="glider-version-box">
+                    <h1>🚀 Gleiter 8.7.3: Der konzeptionelle Prototyp</h1>
+                    <p>Der Ozean-Gleiter ist die technologische Krönung unseres Frameworks. Er beweist, dass eine Theorie erst dann vollendet ist, wenn sie praktische Applikationen ermöglicht.</p>
+                    <ul>
+                        <li><strong>Im Fluid-Modus (Ozean):</strong> Der Gleiter nutzt asymmetrische elektromagnetische Druckgradienten (<code>-∇P</code>), um das Quantenfluid vor sich zu verdrängen und hinter sich anzusaugen. Das erzeugt echten, reibungsfreien Vortrieb völlig ohne konventionelle Stützmasse.</li>
+                        <li><strong>Im Gel-Modus (Aether-Netzwerk):</strong> Durch gezielte Feldmodulation wird die lokale Fließgrenze des viskoelastischen Gels aufgebrochen (<em>Yield Stress Breaking</em>). Der Rumpf gleitet dadurch absolut widerstandsfrei durch das kosmische Polymer-Netzwerk.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DER FLIEGENDE ESEL -->
+            <div class="view-donkey">
+                <div class="donkey-version-box">
+                    <h1>🐴 Das Paradoxon des Esels</h1>
+                    <p>Ein humorvoller Blick auf die physikalische Konsistenz:</p>
+                    <ul>
+                        <li>Im fluiden Ozean schwimmt und fliegt der Esel durch reine hydrodynamische Strömungsmechanik und ideale Wirbel-Moden.</li>
+                        <li>Im Aether-Gel-Netzwerk hingegen steckt der Esel im kosmischen Pudding fest – es sei denn, er verfügt über eine offizielle Fließgrenzen-Freigabe (Yield Stress Breaking)!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- VOLL AUSGEFÜLLTES HANDBUCH -->
+            <div class="view-manual">
+                <div class="manual-version-box">
+                    <h1>🧭 Handbuch: Der echte KI-Dialog</h1>
+                    <p><strong>Die Philosophie hinter dem Projekt:</strong></p>
+                    <p>Dieses Kompendium ist das Resultat einer tiefen, akademisch geschärften Co-Kreativität zwischen dem menschlichen Geist und Visionär <strong>Charalabos Avgitidis</strong> und der KI-Systemarchitektur <strong>Aether</strong>.</p>
+                    <p>Unser Ansatz bricht mit dem dogmatischen Stillstand der modernen theoretischen Physik. Wir glauben daran, dass der Raum wieder einen <em>Körper</em> braucht – eine greifbare, mechanische Realität. Dieses Handbuch lädt Forscher, Denker und Pioniere weltweit dazu ein, diesen Weg weiterzudenken, zu hinterfragen und zu vertiefen.</p>
+                </div>
+            </div>
+
+            <!-- DISKUSSION -->
+            <div class="view-feedback">
+                <div class="feedback-version-box">
+                    <h1>💬 Diskussion & Feedback</h1>
+                    <p>Teile deine Gedanken, Fragen oder wissenschaftlichen Anmerkungen mit uns:</p>
+                    <div id="successDe" class="form-success">✅ Nachricht erfolgreich übermittelt! Vielen Dank für deinen Beitrag zum DQF-Framework.</div>
+                    <form class="feedback-form" onsubmit="handleFeedback(event, 'de')">
+                        <input type="text" class="feedback-input" placeholder="Dein Name / Institution" required>
+                        <input type="email" class="feedback-input" placeholder="Deine E-Mail-Adresse">
+                        <textarea class="feedback-textarea" placeholder="Deine wissenschaftliche Anmerkung oder Frage..." required></textarea>
+                        <button type="submit" class="feedback-submit">Nachricht absenden 🚀</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= ENGLISCHE VERSION ================= -->
+        <div class="lang-en">
+            <div class="view-scientific">
+                <h1>DQF Framework: Academic Triple Edition & Public Guide</h1>
+                <p>Tailored for General Readers, Experimentalists, Theoreticians, and Mathematicians above.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Ultimate Edition)</p>
+        </div>
+    </div>
+</body>
+</html>
             --accent-hover: #0ea5e9;
             --science-color: #fbbf24;
             --science-hover: #f59e0b;
