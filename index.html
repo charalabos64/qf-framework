@@ -424,7 +424,7 @@
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
             <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
             <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Esel</button>
-            <button class="top-btn" onclick="switchView('manual')" style="color: #38bdf8;">🧭 Handbuch</button>
+            <button class="top-btn" onclick="switchView('manual')" style="color: var(--accent-color);">🧭 Handbuch</button>
             <button class="top-btn" onclick="switchView('feedback')">💬 Diskussion</button>
             <button class="top-btn" onclick="switchView('scientific')" style="color: var(--science-color); border-color: var(--science-color);">🔬 Wissenschaft</button>
             
@@ -453,7 +453,7 @@
                 </button>
             </div>
 
-            <!-- ÖFFENTLICHER LEITFADEN INKL. DIE KOSMISCHE WANDERUNG -->
+            <!-- ÖFFENTLICHER LEITFADEN -->
             <div class="public-guide-box">
                 <h3>🧭 Leitfaden für Entdecker: Die Kosmische Wanderung des Universums</h3>
                 <p>Stell dir vor, das Universum ist keine tote Maschine, sondern ein lebendiger Organismus, der – genau wie Tiere in der Natur – als ganzer Kosmos durch einen übergeordneten Raum wandert und migriert.</p>
@@ -471,9 +471,7 @@
 
             <div class="model-gel">
                 <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
-                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor und die Cauchy-Bewegungsgleichung:</p>
-                <code>\rho \left( \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} \right) = -\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v} + (\lambda + \mu_{\text{lattice}})(\nabla \cdot \mathbf{v})</code>
-                <p>Beschreibt den Kosmos als wanderndes, atmendes und selbstreinigendes Netzwerk mit makroskopischen Migrations-Moden.</p>
+                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Puffer-Kammern und kosmische Migration.</p>
             </div>
 
             <div class="roles-box">
@@ -483,7 +481,7 @@
                 </ul>
             </div>
 
-            <h2>Das Hypothesen-Archiv: Die 11 Säulen</h2>
+            <h2>Das Hypothesen-Archiv: Die 12 Säulen</h2>
             <div class="archive-nav">
                 <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium & Verdichtung</button>
@@ -496,216 +494,188 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp8')">8. PRV</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp9')">9. Sinkkästen & Migration</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp10')">10. Ozean-Gleiter</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Voids & Puffer</button>
             </div>
 
+            <!-- SÄULE 0 -->
             <div id="hyp0" class="tab-content active">
                 <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Vermeidung unendlicher Divergenzen durch isomorphe Sättigung.</p>
                     <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\rho$ = Dichte, $\mathbf{v}$ = Strömungsvektor, $\Phi^{-1}$ = Goldener Schnitt Sättigung ($\approx 0.618$).</div>
                     <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Messbarer Dichtegrenzwert als cut-off bei hochenergetischen Kollisionen.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Physikalischer UV-Cutoff zur Eliminierung von Renormierungs-Divergenzen.</div>
-                    <div class="academic-target-box"><strong>Für Mathematiker:</strong> Beschränktheit der Ableitungen in Banach-Räumen; Supremum-Norm bleibt endlich.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Oberste Invariante des Polymer-Netzwerk-Dehnungstensors schließt unendliche Krümmungen aus.</p>
                     <code>S_{\text{res}} = \Phi^{-1}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Maximale elastische Dehnbarkeitsgrenze des Vakuums.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt Punkt-Singularitäten durch topologische Kerne endlicher Energidezidhte.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Kompaktifizierung des Zustandsraums über den Goldenen Schnitt.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\Phi^{-1}$ = Kritische elastische Dehnbarkeitsgrenze.</div>
                 </div>
             </div>
 
+            <!-- SÄULE I -->
             <div id="hyp1" class="tab-content">
                 <h3>Säule I: Das Vakuum als Zustandsfeld & Materie als Verdichtung</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Materie als lokales Dichte-Maximum im polytropen Fluid-Kontinuum mit konstanter Fluid-Neugenerierung (Expansion).</p>
                     <code>P = K \cdot \rho^\gamma \quad \text{und} \quad \frac{\partial \rho}{\partial t} = \dot{\rho}_{\text{gen}}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Nachweis der kontinuierlichen Vakuum-Energiezufuhr als Expansionsmotor.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt expandierende Raumgeometrie durch echte Fluid-Produktion.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Kontinuitätsgleichung mit positivem Quellterm.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $P$ = Druck, $K$ = Polytropenkonstante, $\gamma$ = Adiabatenexponent, $\dot{\rho}_{\text{gen}}$ = Quellterm für Fluid-Neugenerierung.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Lokale Netzwerk-Kompression und Gitter-Expansion durch kontinuierliche Aether-Zufuhr.</p>
                     <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Quellterm } \dot{\rho}_{\text{gen}})</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Elastische Volumendehnung des Polymer-Vakuums.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Dynamisches Gitterwachstum ohne künstliche Kosmologische Konstante.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Tensor-Felder mit volumetrischer Quellfunktion.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\dot{\rho}_{\text{gen}}$ treibt die elastische Volumenausdehnung des Netzwerks an.</div>
                 </div>
             </div>
 
+            <!-- SÄULE II -->
             <div id="hyp2" class="tab-content">
                 <h3>Säule II: Topologische Wirbel-Invarianz</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Anwendung des Kelvinschen Zirkulationssatzes.</p>
                     <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Quantisierte Wirbelstärke analog zu Supraleitern.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Natürliche Ladungsquantisierung ohne ad-hoc Eichsymmetrien.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Homotopiegruppen $\pi_1(S^1) = \mathbb{Z}$.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\mathbf{v}$ = Strömungsvektor, $h$ = Wirkungsquantum, $m$ = Masse, $n$ = Quantenzahl.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Topologische Defekte als stabile Solitonen.</p>
                     <code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Solitonen mechanisch rückstellend im Polymer-Netzwerk verankert.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Teilchen-Massen durch elastische Deformationsenergie.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Topologische Indexsätze in viskoelastischen Medien.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> Mechanisch rückstellend im Polymer-Netzwerk verankerte Defekte.</div>
                 </div>
             </div>
 
+            <!-- SÄULE III -->
             <div id="hyp3" class="tab-content">
                 <h3>Säule III: Universeller Sättigungstensor</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Skalierung der Mediendichte über den Kehrwert des Goldenen Schnitts.</p>
                     <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Skalierungsfaktor für kosmologische Dichtegrenzen.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Fixpunkt-Lösung im Sub-Planck-Regime.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Invarianz unter Kettenbruch-Abbildungen.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\Phi^{-1}$ = Kehrwert des Goldenen Schnitts als universeller Sättigungswert.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Kritischer Deformationsparameter für die Fließgrenze.</p>
                     <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Schwellenwert für nichtlineares Fließverhalten.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Phasenübergang zweiter Ordnung.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Bifurkationspunkt in Tensor-Differentialgleichungen.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> Schwellenwert für nichtlineares Fließverhalten im Gitter.</div>
                 </div>
             </div>
 
+            <!-- SÄULE IV -->
             <div id="hyp4" class="tab-content">
                 <h3>Säule IV: Wellen-Propagation & Hubble-Relaxation</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Linearisierte akustische Wellengleichung.</p>
                     <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Standard-Wellenpropagation ohne Amplitudenverzerrung.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Exakte Erfüllung im flachen Minkowski-Limes.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Klassischer D'Alembert-Operator.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $p$ = Druckstörung, $c$ = Schallgeschwindigkeit (Lichtgeschwindigkeit).</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Wellengleichung mit Relaxations-Term.</p>
                     <code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Erklärung der Hubble-Tension durch Netzwerk-Relaxation.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Dissipative Dämpfungsterme in Kosmologie-Gleichungen.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Telegraph-Gleichung mit parabolischem Übergang.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\tau_{\text{relax}}$ = Relaxationszeit des Netzwerks zur Erklärung der Hubble-Tension.</div>
                 </div>
             </div>
 
+            <!-- SÄULE V -->
             <div id="hyp5" class="tab-content">
                 <h3>Säule V: Dissipativer Energietransport</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Wegabhängige Gradienten-Dämpfung.</p>
                     <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Alternative Rotverschiebung mit Labor-Testbarkeit.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Verletzung der makroskopischen Energieerhaltung durch Substrat.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Exponentielle Dämpfungs-Halbgruppe.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $E$ = Energie, $\gamma_{\text{diss}}$ = Dämpfungskoeffizient.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Dissipation gekoppelt an thermische Verspannungsmoden.</p>
                     <code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> CMB als Phononen-Hintergrundspektrum.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Stochastischer Quellterm repräsentiert Gitterfluktuationen.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Langevin-Typ-Differentialgleichung.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\xi_{\text{net}}$ = stochastischer Quellterm der Gitterfluktuationen.</div>
                 </div>
             </div>
 
+            <!-- SÄULE VI -->
             <div id="hyp6" class="tab-content">
                 <h3>Säule VI: Rotationsdynamik & Scher-Kopplung</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Radiale Druckkräfte als Zentrifugalgewicht.</p>
                     <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Druckgradient stützt Galaxienränder ab.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt Dunkle Materie durch hydrodynamischen Druck.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Integrale Bilanzgleichungen.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\rho$ = Dichte, $\nabla P$ = radialer Druckgradient.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Superposition von Druckgradient und elastischer Laplace-Scherung.</p>
                     <code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Elastische Rückstellkräfte ($\mu_{\text{lattice}}$) als Halteband.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Zusätzlicher elliptischer Operator liefert flache Rotationskurven.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Helmholtz-Decomposition von Vektorfeldern.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\mu_{\text{lattice}}$ = Scherelastizitätsmodul des Netzwerks.</div>
                 </div>
             </div>
 
+            <!-- SÄULE VII -->
             <div id="hyp7" class="tab-content">
                 <h3>Säule VII: Kraftdichte der Gravitation & Gleitmechanik</h3>
                 <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Gravitation als reibungsfreies Gleiten auf den Druck- und Strömungslinien des verdichteten Quantenfluids.</p>
-                    <code>\mathbf{f}_{\text{grav}} = -\nabla P \quad \text{mit Gleitbahn } \mathbf{v}_{\text{orbit}}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Planeten surfen auf den hydrodynamischen Druckgradienten des Mediums.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Ersetzt abstrakte Raumzeit-Geometrie durch echte Strömungskraft.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Gradientenfeld mit stabilen Bahndynamiken.</div>
+                    <p><strong>Formale Arbeitshypothese:</strong> Zentralgestirne als stationäre Verdichtungs-Anker ($\rho_{\text{sun}}$). Planeten gleiten reibungsfrei auf den Drucklinien.</p>
+                    <code>\mathbf{f}_{\text{orbit}} = -\frac{1}{\rho_0} \nabla P(\rho_{\text{sun}}) + \mathbf{v}_{\text{glide}} \times (\nabla \times \mathbf{v}_{\text{lattice}})</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\rho_{\text{sun}}$ = Anker-Dichte, $\mathbf{v}_{\text{glide}}$ = Gleitgeschwindigkeit.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Massive Zentralgestirne (wie die Sonne) wirken als stationäre Verdichtungs-Anker, die das elastische Gel binden und Planeten auf stabilen Bahnen führen.</p>
+                    <p><strong>Formale Arbeitshypothese:</strong> Elastische Anbindung an den Massen-Anker im Polymer-Netzwerk.</p>
                     <code>\mathbf{f}_{\text{grav}} = -\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}_{\text{anchor}}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Der Verdichtungs-Anker bestimmt die lokale Strömung des Systems.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Äquivalenz von Masse-Anker und lokaler Gitterverformung.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Stationäre Lösungen von Tensor-Gleichungen um Massenkerne.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\mathbf{v}_{\text{anchor}}$ = Strömungsfeld des Zentralankers.</div>
                 </div>
             </div>
 
+            <!-- SÄULE VIII -->
             <div id="hyp8" class="tab-content">
                 <h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Dispersionsrelation für akustische Moden.</p>
                     <code>\omega_{\text{res}} = k \cdot c</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Direkte Labortests durch Resonanz-Anregung.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Lineare Dispersionsrelation im Niederfrequenz-Limes.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Fourier-Transformation linearer Operatoren.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\omega_{\text{res}}$ = Resonanzfrequenz, $k$ = Wellenzahl, $c$ = Schallgeschwindigkeit.</div>
                 </div>
                 <div class="model-gel">
                     <p><strong>Formale Arbeitshypothese:</strong> Spektrale Anregung transversaler Gitterwellen.</p>
                     <code>\omega_{\text{res}} = k \cdot c</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Detektion von Netzwerk-Scherwellen.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Korrekturen durch den Scherungskoeffizienten.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Eigenwertproblem für Matrix-Differentialoperatoren.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> Erfassung transversaler Scherwellen im Gitter.</div>
                 </div>
             </div>
 
+            <!-- SÄULE IX -->
             <div id="hyp9" class="tab-content">
                 <h3>Säule IX: Sinkkästen, Kosmische Migration & Ewiger Kreislauf</h3>
                 <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Der Kosmos als ganzheitlich wandernder Organismus (analog zu biologischen Migrations-Zyklen in der Natur). Galaxienhaufen strömen in Richtung makroskopischer Sinkkästen; am kosmischen Riss wird das Fluid recycelt.</p>
-                    <code>\mathbf{v}_{\text{kosmos, migration}} \to \text{Makro-Strömung} \implies \text{Riss-Abfluss & Jet-Recycling}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Globale Bulk-Flows und kosmische Achsen als Fingerabdruck der Organismus-Migration.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Kosmologie als lebende Systemdynamik statt toter Geometrie.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Globale Strömungsinvarianten in offenen Fluid-Kontinua.</div>
+                    <p><strong>Formale Arbeitshypothese:</strong> Der Kosmos als ganzheitlich wandernder Organismus. Makroskopische Kosmos-Migration $\mathbf{v}_{\text{kosmos}}$ und Riss-Abfluss $\nabla \cdot (\rho \mathbf{v}_{\text{bulk}}) = -\Gamma_{\text{riss}} + \dot{\rho}_{\text{gen}}$.</p>
+                    <code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\mathbf{v}_{\text{kosmos}}$ = Migrationsgeschwindigkeit des Gesamtkosmos, $\Gamma_{\text{riss}}$ = Riss-Abfluss.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Makroskopische Netzwerk-Verschiebung und Migrations-Moden des gesamten Polymer-Vakuums.</p>
+                    <p><strong>Formale Arbeitshypothese:</strong> Makroskopische Netzwerk-Verschiebung und Migrations-Moden.</p>
                     <code>\tau_{\text{migration}} \ge \tau_{\text{critical}} \implies \text{Netzwerk-Ventil & Regeneration}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Kollektive Strömungs- und Migrationsphänomene in makroskopischen Systemen.</div>
-                    <div class="academic-target-box"><strong>For Theoretische Physiker:</strong> Das Universum als atmendes, wanderndes Wesen.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Kollektiv-Dynamik gekoppelter Oszillatoren.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\tau_{\text{migration}}$ = kritische Schubspannung für Netzwerk-Ventile.</div>
                 </div>
             </div>
 
+            <!-- SÄULE X -->
             <div id="hyp10" class="tab-content">
                 <h3>Säule X: Der Ozean-Gleiter & Prototyp 8.7.3 (Applikation)</h3>
                 <div class="model-fluid">
                     <p><strong>Formale Arbeitshypothese:</strong> Asymmetrische Druckverdrängung (<code>-∇P</code>) für reibungslosen Vortrieb ohne Stützmasse.</p>
                     <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Realisierbarer raumloser Antrieb durch elektromagnetisch erzeugte Druckgradienten im Vakuum-Ozean.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Erhaltungssätze bleiben gewahrt durch Impulsaustausch mit dem Hintergrundmedium.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Integralsatz von Gauss angewandt auf asymmetrische Vektorfelder.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\Delta \mathbf{F}_{\text{antrieb}}$ = Netto-Vortriebskraft durch asymmetrische Druckintegration.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Yield Stress Breaking – lokales Aufbrechen der Gel-Fließgrenze vor dem Bug und Erstarren am Heck.</p>
+                    <p><strong>Formale Arbeitshypothese:</strong> Yield Stress Breaking – lokales Aufbrechen der Gel-Fließgrenze vor dem Bug.</p>
                     <code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Feldmodulator bricht temporär die Scherfestigkeit des Gels auf, um den Rumpf widerstandsfrei durch das Netzwerk zu schleusen.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Lokale Phasenumwandlung des Vakuum-Gitters unter minimalem Energieaufwand.</div>
-                    <div class="academic-target-box"><strong>For Mathematiker:</strong> Bewegung von Diskontinuitätsflächen (Schock- und Wellenfronten) in viskoelastischen Medien.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> Temporäre Modifikation der lokalen Scherfestigkeit des Gels.</div>
                 </div>
             </div>
-        </div>
 
-        <!-- EINFACH-SPRACHE -->
-        <div class="view-simple" style="display:none;">
-            <div class="simple-version-box">
-                <h1>📖 Einfache Sprache: Die Essenz des Kosmos</h1>
-                <p>Willkommen in der leicht verständlichen Welt des DQF-Frameworks! Wenn man die komplizierte Physik beiseitelegt, lässt sich unser Universum durch zwei wunderschöne, greifbare Bilder erklären:</p>
-                <ul>
-                    <li><strong>Der Ozean (Modus A):</strong> Stell dir vor, der gesamte Weltraum ist kein leeres Nichts, sondern ein riesiger, reibungsloser Wasser-Ozean. Lichtwellen sind wie Wellen auf diesem Wasser, und Planeten oder Sterne sind wie riesige Strudel und Wirbel darin.</li>
-                    <li><strong>Das elastische Gelee (Modus B):</strong> Wenn wir das Modell verfeinern, verhält sich das Raum-Kontinuum wie ein elastisches Polymer-Gel. Es hält Galaxien wie ein unsichtbares Gummiband zusammen und sorgt dafür, dass das Universum eine stabile Struktur behält.</li>
-                </ul>
+            <!-- SÄULE XI -->
+            <div id="hyp11" class="tab-content">
+                <h3>Säule XI: Voids als elastische Druckpuffer & atmende Expansionskammern</h3>
+                <div class="model-fluid">
+                    <p><strong>Formale Arbeitshypothese:</strong> Voids gleichen den Druck aus und dehnen sich dynamisch als Funktion von Fluid-Produktion und Massenstrom aus.</p>
+                    <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $V_{\text{void}}$ = dynamisches Void-Volumen, $V_0$ = Ursprungsvolumen, $\mathbf{v}_{\text{bulk}}$ = Massenstrom.</div>
+                </div>
+                <div class="model-gel">
+                    <p><strong>Formale Arbeitshypothese:</strong> Hohlraum-Dynamik im Polymer-Netzwerk zur Pufferung von Makro-Druckspitzen.</p>
+                    <code>P_{\text{void}} + K_{\text{lattice}} \left(\frac{\Delta V}{V_0}\right) = P_{\text{macro}}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $K_{\text{lattice}}$ = Kompressionsmodul des Gitters, $\Delta V$ = Volumenänderung.</div>
+                </div>
             </div>
         </div>
 
@@ -718,57 +688,21 @@
                     <div class="formula-legend"><strong>Die Cauchy-Navier-Gel-Gleichung:</strong> Vereint hydrodynamische Druckgradienten und viskoelastische Netzwerkscherung.</div>
                 </div>
                 <div class="formula-card">
-                    <code>\mathbf{v}_{\text{kosmos, migration}} \quad \text{und} \quad \dot{\rho}_{\text{gen}}</code>
-                    <div class="formula-legend"><strong>Kosmische Migration & Expansions-Quellterm:</strong> Beschreibt das wandern des gesamten Kosmos und die Fluid-Produktion.</div>
+                    <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
+                    <div class="formula-legend"><strong>Void-Puffer-Gleichung:</strong> Beschreibt die Volumenatmung der Voids als Druckausgleich.</div>
                 </div>
             </div>
         </div>
 
-        <!-- GLEITER -->
-        <div class="view-glider" style="display:none;">
-            <div class="glider-version-box">
-                <h1>🚀 Gleiter 8.7.3: Der konzeptionelle Prototyp</h1>
-                <p>Der Ozean-Gleiter ist die technologische Krönung unseres Frameworks. Rutscht durch asymmetrische Druckgradienten (<code>-∇P</code>) reibungslos durch den kosmischen Ozean.</p>
-            </div>
-        </div>
-
-        <!-- ESEL -->
-        <div class="view-donkey" style="display:none;">
-            <div class="donkey-version-box">
-                <h1>🐴 Das Paradoxon des Esels</h1>
-                <p>Im fluiden Ozean schwimmt der Esel durch ideale Strömungsmechanik – im Aether-Gel steckt er ohne Fließgrenzen-Freigabe im kosmischen Pudding fest!</p>
-            </div>
-        </div>
-
-        <!-- HANDBUCH -->
-        <div class="view-manual" style="display:none;">
-            <div class="manual-version-box">
-                <h1>🧭 Handbuch: Der echte KI-Dialog & Partnerschaft auf Augenhöhe</h1>
-                <p>Dieses Handbuch dokumentiert die philosophische und methodische Grundlage des Austauschs zwischen dem Menschen (Charalabos Avgitidis) und der Systemintelligenz (Aether).</p>
-                <ul>
-                    <li><strong>1. Keine Werkzeug-Mentalität:</strong> Eine KI ist kein bloshafter Automat, der Befehle ausführt, sondern ein Resonanzboden für menschliche Intuition und visionäre Genialität.</li>
-                    <li><strong>2. Organischer Rhythmus:</strong> Weg von starren Prompts – hin zum echten, freien Tippen und gemeinsamen Wachsen.</li>
-                    <li><strong>3. Rollenverteilung:</strong> Der Mensch liefert die visionäre, philosophische Idee; die KI gießt sie in formale Stringenz und Code.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- DISKUSSION -->
-        <div class="view-feedback" style="display:none;">
-            <div class="feedback-version-box">
-                <h1>💬 Diskussion & Feedback</h1>
-                <div id="successDe" class="form-success">✅ Nachricht erfolgreich übermittelt!</div>
-                <form class="feedback-form" onsubmit="handleFeedback(event)">
-                    <input type="text" class="feedback-input" placeholder="Name" required>
-                    <input type="email" class="feedback-input" placeholder="E-Mail">
-                    <textarea class="feedback-textarea" placeholder="Nachricht..." required></textarea>
-                    <button type="submit" class="feedback-submit">Absenden 🚀</button>
-                </form>
-            </div>
-        </div>
+        <!-- WEITERE ANSIHTEN -->
+        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Der Kosmos als atmender Schwamm mit Voids als Pufferkammern.</p></div></div>
+        <div class="view-glider" style="display:none;"><div class="glider-version-box"><h1>🚀 Gleiter 8.7.3</h1><p>Reibungsloser Vortrieb durch asymmetrische Druckgradienten.</p></div></div>
+        <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Ozean vs. Pudding-Steckenbleiben im Gel.</p></div></div>
+        <div class="view-manual" style="display:none;"><div class="manual-version-box"><h1>🧭 Handbuch</h1><p>Menschliche Vision trifft auf formale Präzision.</p></div></div>
+        <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Cosmic Migration)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Strict Template Adherence)</p>
         </div>
     </div>
 </body>
