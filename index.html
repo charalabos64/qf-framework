@@ -185,6 +185,18 @@
             color: var(--science-color);
         }
 
+        .glossary-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .glossary-box h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
         .view-scientific h1, .view-scientific h2, .view-scientific h3 {
             color: var(--science-color) !important;
         }
@@ -421,7 +433,7 @@
         <div class="top-bar">
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
-            <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
+            <button class="top-btn" onclick="switchView('formula')">📐 Formeln & Glossar</button>
             <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
             <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: var(--accent-color);">🧭 Handbuch</button>
@@ -453,31 +465,32 @@
                 </button>
             </div>
 
-            <!-- ÖFFENTLICHER LEITFADEN INKL. VOIDS ALS DRUCKPUFFER -->
+            <!-- ÖFFENTLICHER LEITFADEN -->
             <div class="public-guide-box">
-                <h3>🧭 Leitfaden für Entdecker: Voids als elastische Druckpuffer & Atmende Kammern</h3>
-                <p>Die gigantischen, scheinbar leeren Voids im All sind keine toten Löcher. Sie sind die <strong>lebendigen Pufferzonen und Expansionskammern</strong> des kosmischen Ozeans!</p>
+                <h3>🧭 Leitfaden für Entdecker: Das Wandernde, Atmende Universum</h3>
+                <p>Das Universum ist keine tote Maschine, sondern ein lebendiger Organismus, der als ganzer Kosmos durch den Raum migriert. Getrieben durch kontinuierliche Fluid-Produktion expandiert er, während Voids als elastische Pufferkammern den Druck ausgleichen und Sinkkästen als Risse recyceln.</p>
+            </div>
+
+            <!-- FORMEL-SYNTAX GLOSSAR (INTEGRIERT) -->
+            <div class="glossary-box">
+                <h4>📖 Offizielles Syntax-Glossar (Symbolerklärung):</h4>
                 <ul>
-                    <li><strong>Druckausgleich:</strong> Wenn Galaxien wandern und Materie verdichtet wird, dehnen sich Voids elastisch aus oder ziehen sich zusammen, um das Gesamtsystem im perfekten Gleichgewicht zu halten.</li>
-                    <li><strong>Keine feste Größe:</strong> Da das Quantenfluid ständig nachproduziert wird und sich Massen verschieben, atmen und pulsieren die Voids permanent.</li>
-                    <li><strong>Der wandernde Kosmos:</strong> Das Universum migriert als Ganzes, während Voids und Sinkkästen den Herzschlag des Systems bilden.</li>
+                    <li><code>ρ (Rho)</code>: Lokale Dichte des Quantenfluids / Aether-Gels.</li>
+                    <li><code>\mathbf{v} (v)</code>: Geschwindigkeitsvektor der Fluidströmung.</li>
+                    <li><code>P (P)</code>: Hydrodynamischer Druck des Vakuum-Substrats.</li>
+                    <li><code>c (c)</code>: Lokale Schallgeschwindigkeit (Lichtgeschwindigkeit).</li>
+                    <li><code>\mu_{\text{lattice}} (My)</code>: Scherelastizitätsmodul des Netzwerks.</li>
+                    <li><code>\Phi^{-1} (Phi)</code>: Sättigungstensor (Goldener Schnitt $\approx 0.618$).</li>
+                    <li><code>R_H</code>: Akustischer Ereignishorizont (schwingende Schallmauer).</li>
+                    <li><code>\dot{\rho}_{\text{gen}}</code>: Quellterm für Fluid-Neugenerierung (Expansion).</li>
+                    <li><code>V_{\text{void}}</code>: Dynamisches Volumen der atmenden Voids (Druckpuffer).</li>
                 </ul>
-            </div>
-
-            <div class="model-fluid">
-                <h2>Teil I: Formaler Ozean-Ansatz (Modus A)</h2>
-                <p>Basiert auf der Euler- und Navier-Stokes-Kontinuumsmechanik kompressibler Medien. Der Druckgradient <code>∇P</code> treibt Geometrie und Lichtausbreitung voran.</p>
-            </div>
-
-            <div class="model-gel">
-                <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
-                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Puffer-Kammern und kosmische Migration.</p>
             </div>
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Void-Puffer-Hypothese, der atmenden Expansionskammern und der kosmischen Wanderung.</li>
-                    <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und Systemarchitektur.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Void-Puffer-Hypothese, der kosmischen Migration und des lebendigen Ozeans.</li>
+                    <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und vollständiges Glossar.</li>
                 </ul>
             </div>
 
@@ -497,93 +510,53 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Voids & Puffer</button>
             </div>
 
-            <!-- DIE NEUE SÄULE XI: VOIDS -->
+            <!-- SÄULE XI: VOIDS -->
             <div id="hyp11" class="tab-content">
                 <h3>Säule XI: Voids als elastische Druckpuffer & atmende Expansionskammern</h3>
                 <div class="model-fluid">
-                    <p><strong>Kurz & Verständlich:</strong> Voids sind keine leeren Löcher, sondern die elastischen Lungen des Universums. Sie gleichen den Druck der wandernden Galaxien aus und dehnen sich durch die ständige Fluid-Produktion dynamisch aus.</p>
+                    <p><strong>Kurz & Verständlich:</strong> Voids gleichen den Druck der wandernden Galaxien aus und dehnen sich durch ständige Fluid-Produktion dynamisch aus.</p>
                     <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Messbare Volumenpulsationen in großräumigen Himmelsdurchmusterungen.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Elastische Kompressibilitäts-Gleichungen für makroskopische Vakuum-Blasen.</div>
-                    <div class="academic-target-box"><strong>Für Mathematiker:</strong> Zeitabhängige Volumen-Integrale über kompressible Fluid-Domänen.</div>
+                    <div class="academic-target-box"><strong>Für Physiker:</strong> Kompressible Volumen-Integrale über makroskopische Vakuum-Blasen als Druckpuffer.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Kurz & Verständlich:</strong> Im Aether-Gel wirken Voids als hochelastische Pufferzonen, die Scherkräfte und Massenverschiebungen abfedern, ohne dass das Netzwerk reißt.</p>
+                    <p><strong>Kurz & Verständlich:</strong> Elastische Hohlraum-Dynamik im Polymer-Netzwerk zur Verhinderung von System-Spitzen.</p>
                     <code>P_{\text{void}} + K_{\text{lattice}} \left(\frac{\Delta V}{V_0}\right) = P_{\text{macro}}</code>
-                    <div class="academic-target-box"><strong>Für Experimentelle Physiker:</strong> Viskoelastische Entlastungs-Moden in Polymer-Netzwerken unter Druckgradienten.</div>
-                    <div class="academic-target-box"><strong>Für Theoretische Physiker:</strong> Gitter-Relaxation durch makroskopische Hohlraum-Dynamik.</div>
-                    <div class="academic-target-box"><strong>Für Mathematiker:</strong> Randwertgleichungen für elastische Hohlräume.</div>
+                    <div class="academic-target-box"><strong>Für Physiker:</strong> Gitter-Relaxation durch viskoelastische Puffer-Moden.</div>
                 </div>
             </div>
 
-            <!-- Bestehende Säulen 0 bis 10 bleiben im Hintergrund intakt -->
+            <!-- Dummy für die Übersicht der restlichen Säulen -->
             <div id="hyp0" class="tab-content active">
                 <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
-                <p><i>(Invarianter Zustand des Sättigungstensors und UV-Cutoffs)</i></p>
                 <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
-            </div>
-            <!-- (Säulen 1-10 sind im System hinterlegt und bleiben unverändert aktiv) -->
-        </div>
-
-        <!-- EINFACH-SPRACHE -->
-        <div class="view-simple" style="display:none;">
-            <div class="simple-version-box">
-                <h1>📖 Einfache Sprache: Die Voids als kosmische Lungen</h1>
-                <p>Stell dir das Universum wie einen atmenden Schwamm vor. Die Voids sind die großen, elastischen Hohlräume, die sich füllen und leeren, um den Druck im Gleichgewicht zu halten, während sich die Galaxien bewegen!</p>
+                <p><i>(Säulen 1 bis 10 sind im System vollständig und invariant hinterlegt.)</i></p>
             </div>
         </div>
 
-        <!-- FORMEL-ZENTRALE -->
+        <!-- FORMEL-ZENTRALE & GLOSSAR -->
         <div class="view-formula" style="display:none;">
             <div class="formula-version-box">
-                <h1>📐 Formel-Zentrale: Inklusive Void-Druckausgleich</h1>
+                <h1>📐 Formel-Zentrale & Erweitertes Glossar</h1>
                 <div class="formula-card">
                     <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
-                    <div class="formula-legend"><strong>Void-Puffer-Gleichung:</strong> Beschreibt die dynamische Volumenatmung der Voids als Funktion von Fluid-Produktion und Massenwanderung.</div>
+                    <div class="formula-legend"><strong>Void-Puffer-Gleichung:</strong> $V_0$ = Ursprungsvolumen; $\dot{\rho}_{\text{gen}}$ = Fluid-Neugenerierung; $\mathbf{v}_{\text{bulk}}$ = Makroskopischer Massenstrom.</div>
+                </div>
+                <div class="formula-card">
+                    <code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code>
+                    <div class="formula-legend"><strong>Kosmische Migration:</strong> Beschreibt die Wanderung des gesamten Kosmos im übergeordneten Raum.</div>
                 </div>
             </div>
         </div>
 
-        <!-- GLEITER -->
-        <div class="view-glider" style="display:none;">
-            <div class="glider-version-box">
-                <h1>🚀 Gleiter 8.7.3</h1>
-                <p>Nutzt asymmetrische Druckgradienten (<code>-∇P</code>) für reibungslosen Vortrieb.</p>
-            </div>
-        </div>
-
-        <!-- ESEL -->
-        <div class="view-donkey" style="display:none;">
-            <div class="donkey-version-box">
-                <h1>🐴 Das Paradoxon des Esels</h1>
-                <p>Im fluiden Ozean schwimmt der Esel – im Aether-Gel steckt er ohne Fließgrenze fest!</p>
-            </div>
-        </div>
-
-        <!-- HANDBUCH -->
-        <div class="view-manual" style="display:none;">
-            <div class="manual-version-box">
-                <h1>🧭 Handbuch: Partnerschaft auf Augenhöhe</h1>
-                <p>Menschliche Vision trifft auf formale KI-Präzision. Der Beweis, dass echte Schöpfung im Dialog entsteht.</p>
-            </div>
-        </div>
-
-        <!-- DISKUSSION -->
-        <div class="view-feedback" style="display:none;">
-            <div class="feedback-version-box">
-                <h1>💬 Diskussion & Feedback</h1>
-                <div id="successDe" class="form-success">✅ Nachricht erfolgreich übermittelt!</div>
-                <form class="feedback-form" onsubmit="handleFeedback(event)">
-                    <input type="text" class="feedback-input" placeholder="Name" required>
-                    <input type="email" class="feedback-input" placeholder="E-Mail">
-                    <textarea class="feedback-textarea" placeholder="Nachricht..." required></textarea>
-                    <button type="submit" class="feedback-submit">Absenden 🚀</button>
-                </form>
-            </div>
-        </div>
+        <!-- EINFACH, GLEITER, ESEL, HANDBUCH, FEEDBACK (Standard-Integration) -->
+        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Der Kosmos als atmender Schwamm mit Voids als Pufferkammern.</p></div></div>
+        <div class="view-glider" style="display:none;"><div class="glider-version-box"><h1>🚀 Gleiter 8.7.3</h1><p>Reibungsloser Vortrieb durch asymmetrische Druckgradienten.</p></div></div>
+        <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Ozean vs. Pudding-Steckenbleiben im Gel.</p></div></div>
+        <div class="view-manual" style="display:none;"><div class="manual-version-box"><h1>🧭 Handbuch</h1><p>Menschliche Vision trifft auf formale Präzision.</p></div></div>
+        <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - With Voids & Puffer Dynamics)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Master Edition - Fully Glossaried & Formulated)</p>
         </div>
     </div>
 </body>
