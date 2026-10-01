@@ -471,30 +471,30 @@
                 <p>Das Universum ist keine tote Maschine, sondern ein lebendiger Organismus, der als ganzer Kosmos durch den Raum migriert. Getrieben durch kontinuierliche Fluid-Produktion expandiert er, während Voids als elastische Pufferkammern den Druck ausgleichen und Sinkkästen als Risse recyceln.</p>
             </div>
 
-            <!-- FORMEL-SYNTAX GLOSSAR (INTEGRIERT) -->
+            <!-- FORMEL-SYNTAX GLOSSAR -->
             <div class="glossary-box">
                 <h4>📖 Offizielles Syntax-Glossar (Symbolerklärung):</h4>
                 <ul>
                     <li><code>ρ (Rho)</code>: Lokale Dichte des Quantenfluids / Aether-Gels.</li>
                     <li><code>\mathbf{v} (v)</code>: Geschwindigkeitsvektor der Fluidströmung.</li>
                     <li><code>P (P)</code>: Hydrodynamischer Druck des Vakuum-Substrats.</li>
-                    <li><code>c (c)</code>: Lokale Schallgeschwindigkeit (Lichtgeschwindigkeit).</li>
-                    <li><code>\mu_{\text{lattice}} (My)</code>: Scherelastizitätsmodul des Netzwerks.</li>
-                    <li><code>\Phi^{-1} (Phi)</code>: Sättigungstensor (Goldener Schnitt $\approx 0.618$).</li>
+                    <li><code>c (c)</code>: Lokale Schallgeschwindigkeit (entspricht der Lichtgeschwindigkeit).</li>
+                    <li><code>\mu_{\text{lattice}} (My)</code>: Scherelastizitätsmodul des Polymer-Netzwerks.</li>
+                    <li><code>\Phi^{-1} (Phi)</code>: Universeller Sättigungstensor (Goldener Schnitt $\approx 0.618$).</li>
                     <li><code>R_H</code>: Akustischer Ereignishorizont (schwingende Schallmauer).</li>
-                    <li><code>\dot{\rho}_{\text{gen}}</code>: Quellterm für Fluid-Neugenerierung (Expansion).</li>
+                    <li><code>\dot{\rho}_{\text{gen}}</code>: Quellterm für Fluid-Neugenerierung (Expansionsmotor).</li>
                     <li><code>V_{\text{void}}</code>: Dynamisches Volumen der atmenden Voids (Druckpuffer).</li>
                 </ul>
             </div>
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Void-Puffer-Hypothese, der kosmischen Migration und des lebendigen Ozeans.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Void-Puffer-Hypothese, der kosmischen Migration, der Sonnen-Verdichtung und des lebendigen Ozeans.</li>
                     <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und vollständiges Glossar.</li>
                 </ul>
             </div>
 
-            <h2>Das Hypothesen-Archiv: Die 12 Säulen</h2>
+            <h2>Das Hypothesen-Archiv: Die 12 Säulen (0 bis 11)</h2>
             <div class="archive-nav">
                 <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
@@ -510,45 +510,125 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp11')">11. Voids & Puffer</button>
             </div>
 
-            <!-- SÄULE XI: VOIDS -->
+            <!-- SÄULE 0 -->
+            <div id="hyp0" class="tab-content active">
+                <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
+                <div class="model-fluid">
+                    <p>Vermeidung unendlicher Divergenzen durch isomorphe Sättigung.</p>
+                    <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
+                </div>
+                <div class="model-gel">
+                    <p>Oberste Invariante des Polymer-Netzwerk-Dehnungstensors schließt unendliche Krümmungen aus.</p>
+                    <code>S_{\text{res}} = \Phi^{-1}</code>
+                </div>
+            </div>
+
+            <!-- SÄULE I -->
+            <div id="hyp1" class="tab-content">
+                <h3>Säule I: Das Vakuum als Zustandsfeld & Materie als Verdichtung</h3>
+                <div class="model-fluid">
+                    <p>Materie als lokales Dichte-Maximum im polytropen Fluid-Kontinuum mit Fluid-Neugenerierung.</p>
+                    <code>P = K \cdot \rho^\gamma \quad \text{und} \quad \frac{\partial \rho}{\partial t} = \dot{\rho}_{\text{gen}}</code>
+                </div>
+                <div class="model-gel">
+                    <p>Lokale Netzwerk-Kompression und Gitter-Expansion.</p>
+                    <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Quellterm } \dot{\rho}_{\text{gen}})</code>
+                </div>
+            </div>
+
+            <!-- SÄULE II -->
+            <div id="hyp2" class="tab-content">
+                <h3>Säule II: Topologische Wirbel-Invarianz</h3>
+                <div class="model-fluid"><p>Kelvin-Zirkulationssatz.</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
+                <div class="model-gel"><p>Topologische Defekte als stabile Solitonen.</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
+            </div>
+
+            <!-- SÄULE III -->
+            <div id="hyp3" class="tab-content">
+                <h3>Säule III: Universeller Sättigungstensor</h3>
+                <div class="model-fluid"><p>Skalierung über den Goldenen Schnitt.</p><code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code></div>
+                <div class="model-gel"><p>Kritischer Deformationsparameter.</p><code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code></div>
+            </div>
+
+            <!-- SÄULE IV -->
+            <div id="hyp4" class="tab-content">
+                <h3>Säule IV: Wellen-Propagation & Hubble-Relaxation</h3>
+                <div class="model-fluid"><p>Akustische Wellengleichung.</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
+                <div class="model-gel"><p>Wellengleichung mit Relaxations-Term.</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code></div>
+            </div>
+
+            <!-- SÄULE V -->
+            <div id="hyp5" class="tab-content">
+                <h3>Säule V: Dissipativer Energietransport</h3>
+                <div class="model-fluid"><p>Gradienten-Dämpfung.</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
+                <div class="model-gel"><p>Dissipation gekoppelt an thermische Verspannung.</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code></div>
+            </div>
+
+            <!-- SÄULE VI -->
+            <div id="hyp6" class="tab-content">
+                <h3>Säule VI: Rotationsdynamik & Scher-Kopplung</h3>
+                <div class="model-fluid"><p>Radiale Druckkräfte.</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
+                <div class="model-gel"><p>Superposition von Druck und Scherung.</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
+            </div>
+
+            <!-- SÄULE VII -->
+            <div id="hyp7" class="tab-content">
+                <h3>Säule VII: Gravitation, Verdichtungs-Anker & Gleiten</h3>
+                <div class="model-fluid"><p>Zentralgestirne als Anker, Planeten gleiten.</p><code>\mathbf{f}_{\text{orbit}} = -\frac{1}{\rho_0} \nabla P(\rho_{\text{sun}}) + \mathbf{v}_{\text{glide}} \times (\nabla \times \mathbf{v}_{\text{lattice}})</code></div>
+                <div class="model-gel"><p>Elastische Anbindung an den Massen-Anker.</p><code>\mathbf{f}_{\text{grav}} = -\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}_{\text{anchor}}</code></div>
+            </div>
+
+            <!-- SÄULE VIII -->
+            <div id="hyp8" class="tab-content">
+                <h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3>
+                <div class="model-fluid"><p>Dispersionsrelation.</p><code>\omega_{\text{res}} = k \cdot c</code></div>
+                <div class="model-gel"><p>Transversale Gitterwellen.</p><code>\omega_{\text{res}} = k \cdot c</code></div>
+            </div>
+
+            <!-- SÄULE IX -->
+            <div id="hyp9" class="tab-content">
+                <h3>Säule IX: Horizont-Atmung, Risse & Kosmische Migration</h3>
+                <div class="model-fluid"><p>Pulsierender Horizont und globale Migration.</p><code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code></div>
+                <div class="model-gel"><p>Netzwerk-Migration und Riss-Entlastung.</p><code>\tau_{\text{migration}} \ge \tau_{\text{critical}} \implies \text{Netzwerk-Ventil}</code></div>
+            </div>
+
+            <!-- SÄULE X -->
+            <div id="hyp10" class="tab-content">
+                <h3>Säule X: Der Ozean-Gleiter & Prototyp 8.7.3</h3>
+                <div class="model-fluid"><p>Asymmetrische Druckverdrängung.</p><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
+                <div class="model-gel"><p>Yield Stress Breaking.</p><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
+            </div>
+
+            <!-- SÄULE XI -->
             <div id="hyp11" class="tab-content">
                 <h3>Säule XI: Voids als elastische Druckpuffer & atmende Expansionskammern</h3>
                 <div class="model-fluid">
-                    <p><strong>Kurz & Verständlich:</strong> Voids gleichen den Druck der wandernden Galaxien aus und dehnen sich durch ständige Fluid-Produktion dynamisch aus.</p>
+                    <p>Voids gleichen den Druck aus und dehnen sich dynamisch aus.</p>
                     <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
-                    <div class="academic-target-box"><strong>Für Physiker:</strong> Kompressible Volumen-Integrale über makroskopische Vakuum-Blasen als Druckpuffer.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Kurz & Verständlich:</strong> Elastische Hohlraum-Dynamik im Polymer-Netzwerk zur Verhinderung von System-Spitzen.</p>
+                    <p>Hohlraum-Dynamik im Polymer-Netzwerk.</p>
                     <code>P_{\text{void}} + K_{\text{lattice}} \left(\frac{\Delta V}{V_0}\right) = P_{\text{macro}}</code>
-                    <div class="academic-target-box"><strong>Für Physiker:</strong> Gitter-Relaxation durch viskoelastische Puffer-Moden.</div>
                 </div>
-            </div>
-
-            <!-- Dummy für die Übersicht der restlichen Säulen -->
-            <div id="hyp0" class="tab-content active">
-                <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
-                <code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code>
-                <p><i>(Säulen 1 bis 10 sind im System vollständig und invariant hinterlegt.)</i></p>
             </div>
         </div>
 
-        <!-- FORMEL-ZENTRALE & GLOSSAR -->
+        <!-- FORMEL-ZENTRALE -->
         <div class="view-formula" style="display:none;">
             <div class="formula-version-box">
-                <h1>📐 Formel-Zentrale & Erweitertes Glossar</h1>
+                <h1>📐 Formel-Zentrale & Glossar</h1>
                 <div class="formula-card">
                     <code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code>
-                    <div class="formula-legend"><strong>Void-Puffer-Gleichung:</strong> $V_0$ = Ursprungsvolumen; $\dot{\rho}_{\text{gen}}$ = Fluid-Neugenerierung; $\mathbf{v}_{\text{bulk}}$ = Makroskopischer Massenstrom.</div>
+                    <div class="formula-legend"><strong>Void-Puffer:</strong> $V_0$ = Ursprungsvolumen; $\dot{\rho}_{\text{gen}}$ = Fluid-Neugenerierung; $\mathbf{v}_{\text{bulk}}$ = Massenstrom.</div>
                 </div>
                 <div class="formula-card">
                     <code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code>
-                    <div class="formula-legend"><strong>Kosmische Migration:</strong> Beschreibt die Wanderung des gesamten Kosmos im übergeordneten Raum.</div>
+                    <div class="formula-legend"><strong>Kosmische Migration:</strong> Konvektiver Transport des Gesamtkosmos.</div>
                 </div>
             </div>
         </div>
 
-        <!-- EINFACH, GLEITER, ESEL, HANDBUCH, FEEDBACK (Standard-Integration) -->
+        <!-- WEITERE ANSICHTEN -->
         <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Der Kosmos als atmender Schwamm mit Voids als Pufferkammern.</p></div></div>
         <div class="view-glider" style="display:none;"><div class="glider-version-box"><h1>🚀 Gleiter 8.7.3</h1><p>Reibungsloser Vortrieb durch asymmetrische Druckgradienten.</p></div></div>
         <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Ozean vs. Pudding-Steckenbleiben im Gel.</p></div></div>
@@ -556,7 +636,7 @@
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Master Edition - Fully Glossaried & Formulated)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Fully Restored & Glossaried)</p>
         </div>
     </div>
 </body>
