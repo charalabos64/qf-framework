@@ -211,7 +211,7 @@
             border-left-color: var(--science-color);
         }
 
-        .simple-version-box, .formula-version-box, .feedback-version-box, .glider-version-box, .manual-version-box, .donkey-version-box {
+        .simple-version-box, .formula-version-box, .genesis-version-box, .feedback-version-box, .glider-version-box, .manual-version-box, .donkey-version-box {
             background: var(--blockquote-bg);
             border: 1px solid var(--accent-color);
             padding: 2rem;
@@ -219,14 +219,14 @@
             margin-top: 1.5rem;
         }
 
-        .formula-card, .glider-card, .manual-card, .donkey-card {
+        .formula-card, .genesis-card, .glider-card, .manual-card, .donkey-card {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             padding: 1.2rem 1.5rem;
             border-radius: 6px;
             margin-bottom: 1.2rem;
         }
-        .formula-card code, .tab-content code {
+        .formula-card code, .genesis-card code, .tab-content code {
             display: inline-block;
             font-size: 1.05rem;
             color: var(--accent-color);
@@ -235,40 +235,6 @@
             padding: 0.3em 0.6em;
             background: var(--code-bg);
             border-radius: 4px;
-        }
-
-        .feedback-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .feedback-input, .feedback-textarea {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            padding: 0.8rem;
-            border-radius: 6px;
-            color: var(--text-color);
-            font-family: inherit;
-            font-size: 0.95rem;
-        }
-        .feedback-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .feedback-submit {
-            background-color: var(--lang-btn-bg);
-            color: var(--lang-btn-text);
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            align-self: flex-start;
-        }
-        .feedback-submit:hover {
-            background-color: var(--lang-btn-hover);
         }
 
         code, pre {
@@ -341,6 +307,7 @@
         .view-scientific { display: block; }
         .view-simple { display: none; }
         .view-formula { display: none; }
+        .view-genesis { display: none; }
         .view-feedback { display: none; }
         .view-glider { display: none; }
         .view-manual { display: none; }
@@ -401,17 +368,9 @@
         }
 
         function switchView(targetView) {
-            ['view-scientific', 'view-simple', 'view-formula', 'view-feedback', 'view-glider', 'view-manual', 'view-donkey'].forEach(view => {
+            ['view-scientific', 'view-simple', 'view-formula', 'view-genesis', 'view-feedback', 'view-glider', 'view-manual', 'view-donkey'].forEach(view => {
                 for (let el of document.getElementsByClassName(view)) el.style.display = (view === 'view-' + targetView) ? 'block' : 'none';
             });
-        }
-
-        function handleFeedback(event) {
-            event.preventDefault();
-            let successMsg = document.getElementById('successDe');
-            successMsg.style.display = 'block';
-            event.target.reset();
-            setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
         }
     </script>
 </head>
@@ -422,6 +381,7 @@
             <button id="themeToggleBtn" class="top-btn" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="top-btn" onclick="switchView('simple')">📖 Einfach</button>
             <button class="top-btn" onclick="switchView('formula')">📐 Formeln</button>
+            <button class="top-btn" onclick="switchView('genesis')" style="color: var(--science-color); border-color: var(--science-color);">🌌 Genesis-Alternative</button>
             <button class="top-btn" onclick="switchView('glider')" style="color: var(--accent-color); border-color: var(--accent-color);">🚀 Gleiter 8.7.3</button>
             <button class="top-btn" onclick="switchView('donkey')" style="color: #f43f5e; border-color: #f43f5e;">🐴 Esel</button>
             <button class="top-btn" onclick="switchView('manual')" style="color: var(--accent-color);">🧭 Handbuch</button>
@@ -499,127 +459,24 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp13')">13. Planeten-Genesis</button>
             </div>
 
-            <!-- SÄULE 0 -->
+            <!-- SÄULEN 0 bis 13 (Standard-Tabs im Archiv) -->
             <div id="hyp0" class="tab-content active">
                 <h3>Säule 0: Formale Regularisierung von Singularitäten</h3>
-                <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Vermeidung unendlicher Divergenzen durch isomorphe Sättigung.</p>
-                    <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\rho$ = Dichte, $\mathbf{v}$ = Strömungsvektor, $\Phi^{-1}$ = Goldener Schnitt Sättigung ($\approx 0.618$).</div>
-                </div>
-                <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Oberste Invariante des Polymer-Netzwerk-Dehnungstensors schließt unendliche Krümmungen aus.</p>
-                    <code>S_{\text{res}} = \Phi^{-1}</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\Phi^{-1}$ = Kritische elastische Dehnbarkeitsgrenze.</div>
-                </div>
+                <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1}</code>
             </div>
-
-            <!-- SÄULE I -->
-            <div id="hyp1" class="tab-content">
-                <h3>Säule I: Das Vakuum als Zustandsfeld & Materie als Verdichtung</h3>
-                <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Materie als lokales Dichte-Maximum im polytropen Fluid-Kontinuum.</p>
-                    <code>P = K \cdot \rho^\gamma \quad \text{und} \quad \frac{\partial \rho}{\partial t} = \dot{\rho}_{\text{gen}}</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $P$ = Druck, $K$ = Polytropenkonstante, $\gamma$ = Adiabatenexponent, $\dot{\rho}_{\text{gen}}$ = Quellterm.</div>
-                </div>
-                <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Lokale Netzwerk-Kompression und Gitter-Expansion durch kontinuierliche Aether-Zufuhr.</p>
-                    <code>P = K \cdot \rho^\gamma \quad (\text{inkl. Quellterm } \dot{\rho}_{\text{gen}})</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\dot{\rho}_{\text{gen}}$ treibt die elastische Volumenausdehnung an.</div>
-                </div>
-            </div>
-
-            <!-- SÄULE II -->
-            <div id="hyp2" class="tab-content">
-                <h3>Säule II: Topologische Wirbel-Invarianz</h3>
-                <div class="model-fluid"><p>Kelvin-Zirkulationssatz.</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
-                <div class="model-gel"><p>Topologische Defekte als stabile Solitonen.</p><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
-            </div>
-
-            <!-- SÄULE III -->
-            <div id="hyp3" class="tab-content">
-                <h3>Säule III: Universeller Sättigungstensor</h3>
-                <div class="model-fluid"><p>Skalierung über den Goldenen Schnitt.</p><code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code></div>
-                <div class="model-gel"><p>Kritischer Deformationsparameter.</p><code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code></div>
-            </div>
-
-            <!-- SÄULE IV -->
-            <div id="hyp4" class="tab-content">
-                <h3>Säule IV: Wellen-Propagation & Hubble-Relaxation</h3>
-                <div class="model-fluid"><p>Akustische Wellengleichung.</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
-                <div class="model-gel"><p>Wellengleichung mit Relaxations-Term.</p><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p + \tau_{\text{relax}}^{-1}\frac{\partial p}{\partial t} = 0</code></div>
-            </div>
-
-            <!-- SÄULE V -->
-            <div id="hyp5" class="tab-content">
-                <h3>Säule V: Dissipativer Energietransport</h3>
-                <div class="model-fluid"><p>Gradienten-Dämpfung.</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
-                <div class="model-gel"><p>Dissipation gekoppelt an thermische Verspannung.</p><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E + \xi_{\text{net}}</code></div>
-            </div>
-
-            <!-- SÄULE VI -->
-            <div id="hyp6" class="tab-content">
-                <h3>Säule VI: Rotationsdynamik & Scher-Kopplung</h3>
-                <div class="model-fluid"><p>Radiale Druckkräfte.</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
-                <div class="model-gel"><p>Superposition von Druck und Scherung.</p><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}</code></div>
-            </div>
-
-            <!-- SÄULE VII -->
-            <div id="hyp7" class="tab-content">
-                <h3>Säule VII: Gravitation & Gleitmechanik</h3>
-                <div class="model-fluid"><p>Zentralgestirne als Anker, Planeten gleiten.</p><code>\mathbf{f}_{\text{orbit}} = -\frac{1}{\rho_0} \nabla P(\rho_{\text{sun}}) + \mathbf{v}_{\text{glide}} \times (\nabla \times \mathbf{v}_{\text{lattice}})</code></div>
-                <div class="model-gel"><p>Elastische Anbindung an den Anker.</p><code>\mathbf{f}_{\text{grav}} = -\nabla P + \mu_{\text{lattice}}\nabla^2\mathbf{v}_{\text{anchor}}</code></div>
-            </div>
-
-            <!-- SÄULE VIII -->
-            <div id="hyp8" class="tab-content">
-                <h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3>
-                <div class="model-fluid"><p>Dispersionsrelation.</p><code>\omega_{\text{res}} = k \cdot c</code></div>
-                <div class="model-gel"><p>Transversale Gitterwellen.</p><code>\omega_{\text{res}} = k \cdot c</code></div>
-            </div>
-
-            <!-- SÄULE IX -->
-            <div id="hyp9" class="tab-content">
-                <h3>Säule IX: Sinkkästen & Migration</h3>
-                <div class="model-fluid"><p>Kosmische Migration.</p><code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code></div>
-                <div class="model-gel"><p>Netzwerk-Verschiebung.</p><code>\tau_{\text{migration}} \ge \tau_{\text{critical}} \implies \text{Netzwerk-Ventil}</code></div>
-            </div>
-
-            <!-- SÄULE X -->
-            <div id="hyp10" class="tab-content">
-                <h3>Säule X: Der Ozean-Gleiter</h3>
-                <div class="model-fluid"><p>Asymmetrische Druckverdrängung.</p><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
-                <div class="model-gel"><p>Yield Stress Breaking.</p><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
-            </div>
-
-            <!-- SÄULE XI -->
-            <div id="hyp11" class="tab-content">
-                <h3>Säule XI: Voids als Druckpuffer</h3>
-                <div class="model-fluid"><p>Volumen-Integration.</p><code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} - \nabla \cdot \mathbf{v}_{\text{bulk}} \right) dt</code></div>
-                <div class="model-gel"><p>Hohlraum-Dynamik.</p><code>P_{\text{void}} + K_{\text{lattice}} \left(\frac{\Delta V}{V_0}\right) = P_{\text{macro}}</code></div>
-            </div>
-
-            <!-- SÄULE XII -->
-            <div id="hyp12" class="tab-content">
-                <h3>Säule XII: Zeitloser Ur-Zustand & Keine Skalierung</h3>
-                <div class="model-fluid"><p>Invarianz jenseits linearer Kausalität.</p><code>\lim_{\text{scale} \to \text{fundament}} \left( \frac{\partial t}{\partial x} \right) \to \text{invariant}</code></div>
-                <div class="model-gel"><p>Ewige Persistenz ohne Hitzetod.</p><code>\oint \text{Netzwerk-Zustand} \, dt = \infty</code></div>
-            </div>
-
-            <!-- SÄULE XIII -->
-            <div id="hyp13" class="tab-content">
-                <h3>Säule XIII: Planetares Gel-Genesis & Resonanz-Akkretion</h3>
-                <div class="model-fluid">
-                    <p><strong>Formale Arbeitshypothese:</strong> Planeten entstehen nicht durch zufällige Staubkollisionen in leeren Voids, sondern als hydrodynamisch stabile Dichte-Knoten in den übersättigten Filamenten des Quantenfluids. Sie kondensieren an stationären Druck- und Resonanzknoten (Schall- und Wellenlinien) um den massiven Zentral-Anker herum.</p>
-                    <code>\rho_{\text{local}}(r) \ge \rho_{\text{crit}} \quad \text{und} \quad \nabla P_{\text{resonance}} + \rho (\mathbf{v} \cdot \nabla)\mathbf{v} = 0</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\rho_{\text{local}}$ = lokale Mediendichte, $\rho_{\text{crit}}$ = Kondensations-Schwellenwert, $\nabla P_{\text{resonance}}$ = stationäre Druckknotenlinien im System.</div>
-                </div>
-                <div class="model-gel">
-                    <p><strong>Formale Arbeitshypothese:</strong> Im viskoelastischen Polymer-Netzwerk bricht die lokale Fließgrenze gezielt in konzentrischen Ringen um den Zentral-Anker auf. Die Material-Kondensation erfolgt exakt dort, wo elastische Scherwellen und Druckgradienten im Gitter destruktiv interferieren.</p>
-                    <code>\mu_{\text{lattice}} \nabla^2 \mathbf{u} + \nabla P = \mathbf{f}_{\text{node}} \quad (\text{Stationäre Ring-Kondensation})</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\mathbf{u}$ = Gitterverschiebung, $\mu_{\text{lattice}}$ = Scherelastizitätsmodul, $\mathbf{f}_{\text{node}}$ = stationäre planetare Ankerpunkte im Gel.</div>
-                </div>
-            </div>
+            <div id="hyp1" class="tab-content"><h3>Säule I: Das Vakuum als Zustandsfeld</h3><code>P = K \cdot \rho^\gamma + \dot{\rho}_{\text{gen}}</code></div>
+            <div id="hyp2" class="tab-content"><h3>Säule II: Topologische Wirbel</h3><code>\oint \mathbf{v} \cdot d\mathbf{r} = n \frac{h}{m}</code></div>
+            <div id="hyp3" class="tab-content"><h3>Säule III: Universeller Sättigungstensor</h3><code>S_{\text{res}} = \Phi^{-1} \approx 0.618</code></div>
+            <div id="hyp4" class="tab-content"><h3>Säule IV: Wellen-Propagation</h3><code>\frac{\partial^2 p}{\partial t^2} - c^2 \nabla^2 p = 0</code></div>
+            <div id="hyp5" class="tab-content"><h3>Säule V: Dissipativer Energietransport</h3><code>\frac{dE}{dx} = -\gamma_{\text{diss}} \cdot E</code></div>
+            <div id="hyp6" class="tab-content"><h3>Säule VI: Rotationsdynamik</h3><code>F_{\text{rot}}(r) = -\frac{1}{\rho}\nabla P</code></div>
+            <div id="hyp7" class="tab-content"><h3>Säule VII: Gravitation & Gleiten</h3><code>\mathbf{f}_{\text{orbit}} = -\frac{1}{\rho_0} \nabla P(\rho_{\text{sun}})</code></div>
+            <div id="hyp8" class="tab-content"><h3>Säule VIII: Resonanz-Spektroskopie (PRV)</h3><code>\omega_{\text{res}} = k \cdot c</code></div>
+            <div id="hyp9" class="tab-content"><h3>Säule IX: Sinkkästen & Migration</h3><code>\frac{D \mathbf{v}_{\text{kosmos}}}{Dt} = -\frac{1}{\rho_{\text{macro}}}\nabla P_{\text{macro}}</code></div>
+            <div id="hyp10" class="tab-content"><h3>Säule X: Der Gleiter</h3><code>\Delta \mathbf{F}_{\text{antrieb}} = -\oint_{\partial V} \nabla P_{\text{asym}} \, dV</code></div>
+            <div id="hyp11" class="tab-content"><h3>Säule XI: Voids als Druckpuffer</h3><code>V_{\text{void}}(t) = V_0 + \int \left( \frac{\dot{\rho}_{\text{gen}}}{\rho_0} \right) dt</code></div>
+            <div id="hyp12" class="tab-content"><h3>Säule XII: Zeitloser Ur-Zustand</h3><code>\lim_{\text{scale} \to \text{fundament}} \left( \frac{\partial t}{\partial x} \right) \to \text{invariant}</code></div>
+            <div id="hyp13" class="tab-content"><h3>Säule XIII: Planetares Gel-Genesis</h3><code>\rho_{\text{local}}(r) \ge \rho_{\text{crit}}</code></div>
         </div>
 
         <!-- FORMEL-ZENTRALE -->
@@ -630,22 +487,44 @@
                     <code>\rho \left( \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} \right) = -\nabla P + \mu_{\text{lattice}} \nabla^2 \mathbf{v}</code>
                     <div class="formula-legend"><strong>Die Cauchy-Navier-Gel-Gleichung:</strong> Basis für Strömung und Dichte-Verteilung.</div>
                 </div>
-                <div class="formula-card">
-                    <code>\rho_{\text{local}}(r) \ge \rho_{\text{crit}} \quad \text{und} \quad \nabla P_{\text{resonance}} = 0</code>
-                    <div class="formula-legend"><strong>Planetares Genesis-Kriterium:</strong> Kondensation an stationären Druckknoten statt Zufalls-Staubkollisionen.</div>
+            </div>
+        </div>
+
+        <!-- GENESIS-ALTERNATIVE (NEUE REGISTERKARTE) -->
+        <div class="view-genesis" style="display:none;">
+            <div class="genesis-version-box">
+                <h1>🌌 Die formale Alternative zum Singularitäts-Dogma</h1>
+                <p>In der klassischen Kosmologie führt die Rückwärts-Extrapolation unvermeidlich zu einer mathematischen Singularität (unendliche Dichte und Krümmung). Das DQF-Framework ersetzt dieses Dogma durch ein reguliertes Kontinuums-Genesis-Modell.</p>
+                
+                <div class="genesis-card">
+                    <h3>1. Das mathematische Problem der klassischen Singularität</h3>
+                    <code>\lim_{t \to 0} \rho(t) = \infty \quad \text{und} \quad \lim_{t \to 0} R_{\mu\nu} = \infty</code>
+                    <p>Unendlichkeiten signalisieren das Versagen des Modells, nicht die Realität eines Nullpunkts aus dem Nichts.</p>
+                </div>
+
+                <div class="genesis-card">
+                    <h3>2. Isomorphe Sättigung (Säule 0 & XII)</h3>
+                    <code>S_{\text{res}} = \lim_{\rho \to \rho_{\text{max}}} \left[ \left(\frac{\nabla \cdot \mathbf{v}}{\rho}\right) \cdot \rho_0 \right] = \Phi^{-1} \approx 0.618</code>
+                    <p>Eine fundamentale Obergrenze der Mediendichte und ein universeller Sättigungstensor schließen unendliche Krümmungen algebraisch aus.</p>
+                </div>
+
+                <div class="genesis-card">
+                    <h3>3. Kontinuierlicher Quellterm statt Urknall-Explosion</h3>
+                    <code>\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = \dot{\rho}_{\text{gen}}</code>
+                    <p>Das System expandiert durch permanente interne Nachspeisung. Kein zeitlicher Nullpunkt, sondern ein ewig kreisendes Kontinuum.</p>
                 </div>
             </div>
         </div>
 
         <!-- WEITERE ANSICHTEN -->
-        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Planeten surfen auf den stehenden Wellen und Druckknoten des dichten Quantengels um unsere Sonne – keine verirrten Staubkörner!</p></div></div>
+        <div class="view-simple" style="display:none;"><div class="simple-version-box"><h1>📖 Einfach</h1><p>Keine Singularität aus dem Nichts, sondern ein ewiges, stabiles Kontinuum mit festen Sättigungsgrenzen.</p></div></div>
         <div class="view-glider" style="display:none;"><div class="glider-version-box"><h1>🚀 Gleiter 8.7.3</h1><p>Reibungsloser Vortrieb durch asymmetrische Druckgradienten.</p></div></div>
         <div class="view-donkey" style="display:none;"><div class="donkey-version-box"><h1>🐴 Esel-Paradoxon</h1><p>Ideale Strömung im Fluid vs. Pudding-Steckenbleiben im Gel!</p></div></div>
         <div class="view-manual" style="display:none;"><div class="manual-version-box"><h1>🧭 Handbuch</h1><p>Menschliche Vision trifft auf formale Präzision.</p></div></div>
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Rigorously Sanitized)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - With Genesis Alternative Tab)</p>
         </div>
     </div>
 </body>
