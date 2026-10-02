@@ -487,17 +487,17 @@
 
             <div class="model-gel">
                 <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
-                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Void-Puffer und topologische Nicht-Lokalität.</p>
+                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Void-Puffer, topologische Nicht-Lokalität und akustische Metriken.</p>
             </div>
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, der strikten Trennung von lokaler Abstands-Konstanz und globaler Void-Pulsation sowie der topologischen Verschränkungs-Mechanik.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, der strikten Trennung von lokaler Abstands-Konstanz und globaler Void-Pulsation sowie der topologischen Verschränkungs- und Lorentz-Invarianz-Mechanik.</li>
                     <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und Systemarchitektur.</li>
                 </ul>
             </div>
 
-            <h2>Das Hypothesen-Archiv: Die 16 Säulen (Vollständig Ausformuliert)</h2>
+            <h2>Das Hypothesen-Archiv: Die 17 Säulen (Vollständig Ausformuliert)</h2>
             <div class="archive-nav">
                 <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
@@ -514,7 +514,8 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp12')">12. Zeitlosigkeit</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp13')">13. Planeten</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp14')">14. Waben</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp15')" style="color: var(--science-color);">15. Verschränkung</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp15')">15. Verschränkung</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp16')" style="color: var(--science-color);">16. Lorentz</button>
             </div>
 
             <!-- SÄULE 0 -->
@@ -743,18 +744,33 @@
                 </div>
             </div>
 
-            <!-- SÄULE XV (NEU: TOPOLOGISCHE VERSCHRÄNKUNG) -->
+            <!-- SÄULE XV -->
             <div id="hyp15" class="tab-content">
                 <h3>Säule XV: Topologische Nicht-Lokalität & Verschränkung im Netzwerk</h3>
                 <div class="model-fluid">
-                    <p><strong>Ausführliche Arbeitshypothese:</strong> Quantenmechanische Verschränkung ist keine „spukhafte Fernwirkung“, sondern das Resultat subskalarer, topologischer Mikro-Kanäle im Fluid-Substrat. Verschmelzende Wirbel teilen sich einen internen Spannungsstrang, wodurch Zustandsänderungen entlang des topologischen Kurzwegs instantan übertragen werden.</p>
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Quantenmechanische Verschränkung ist keine „spukhafte Fernwirkung“, sondern das Resultat subskalarer, topologischer Mikro-Kanäle im Fluid-Substrat.</p>
                     <code>T_{\text{gel}} = \mu_{\text{lattice}} \nabla^2 \mathbf{v} + \sum_{k} \delta(\mathbf{x} - \mathbf{x}_k) \cdot \chi_{ij}</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $\chi_{ij}$ = Topologischer Kopplungstensor verschränkter Wirbel; keine Signale reisen durch den leeren Euklid-Raum.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\chi_{ij}$ = Topologischer Kopplungstensor verschränkter Wirbel.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Ausführliche Arbeitshypothese:</strong> Im fraktalen Polymer-Gel existieren nicht-triviale subskatale Faltungen. Zwei an demselben Anker generierte Solitonen (Teilchen) bleiben über einen internen Netzwerk-Kanal direkt verknüpft, der euklidische Entfernungen topologisch überbrückt.</p>
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Im fraktalen Polymer-Gel existieren subskatale Faltungen, die Entfernungen topologisch überbrücken.</p>
                     <code>\tau_{\text{topological}} \to 0 \quad \text{bei} \quad \chi_{ij} \neq 0</code>
                     <div class="academic-target-box"><strong>Legende:</strong> Sofortige Spannungs-Relaxation im internen Gel-Strang.</div>
+                </div>
+            </div>
+
+            <!-- SÄULE XVI -->
+            <div id="hyp16" class="tab-content">
+                <h3>Säule XVI: Akustische Lorentz-Invarianz & Effektive Metrik</h3>
+                <div class="model-fluid">
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Die Konstanz der Lichtgeschwindigkeit ist kein Widerspruch zum Medium, sondern das Resultat einer akustischen Metrik im kompressiblen Fluid. Wellen (Licht) breiten sich im bewegten Fluid effektiv so aus, dass sie für Messgeräte (die selbst aus dem Fluid bestehen) die Lorentz-Invarianz exakt abbilden.</p>
+                    <code>ds^2 = \frac{\rho_0}{c_s} \left[ - (c_s^2 - v^2) dt^2 - 2v_i dt dx^i + \delta_{ij} dx^i dx^j \right]</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $c_s$ = lokale Schallgeschwindigkeit; die Relativitätstheorie ist der emergente Grenzfall der Fluid-Akustik.</div>
+                </div>
+                <div class="model-gel">
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Im viskoelastischen Gel deformieren sich lokale Gitterstrukturen bei Bewegung exakt analog zur Wellenausbreitung, wodurch die scheinbare Invarianz der Signalgeschwindigkeit erzwungen wird.</p>
+                    <code>g_{\mu\nu}^{\text{eff}} = \eta_{\mu\nu} + \kappa \cdot \left( \partial_\mu v_\nu + \partial_\nu v_\mu \right)</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> Effektiver Metrik-Tensor durch Gitterdeformation.</div>
                 </div>
             </div>
         </div>
@@ -764,8 +780,8 @@
             <div class="formula-version-box">
                 <h1>📐 Formel-Zentrale: Die mathematischen Master-Gleichungen</h1>
                 <div class="formula-card">
-                    <code>T_{\text{gel}} = \mu_{\text{lattice}} \nabla^2 \mathbf{v} + \sum_{k} \delta(\mathbf{x} - \mathbf{x}_k) \cdot \chi_{ij}</code>
-                    <div class="formula-legend"><strong>Der topologische Verschränkungs-Tensor:</strong> Erklärung der Nicht-Lokalität durch innere Gitter-Kanäle.</div>
+                    <code>ds^2 = \frac{\rho_0}{c_s} \left[ - (c_s^2 - v^2) dt^2 - 2v_i dt dx^i + \delta_{ij} dx^i dx^j \right]</code>
+                    <div class="formula-legend"><strong>Die akustische Metrik (Analogue Gravity):</strong> Erklärt die Lorentz-Invarianz im Aether-Fluid.</div>
                 </div>
             </div>
         </div>
@@ -791,7 +807,7 @@
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Updated with Topological Non-Locality)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Hotspot Recovery Sync)</p>
         </div>
     </div>
 </body>
