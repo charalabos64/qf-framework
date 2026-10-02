@@ -487,17 +487,17 @@
 
             <div class="model-gel">
                 <h2>Teil I: Formaler Aether-Gel-Ansatz (Modus B)</h2>
-                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Void-Puffer, topologische Nicht-Lokalität und akustische Metriken.</p>
+                <p>Erweitert die Kontinuumsmechanik durch den viskoelastischen Scherungstensor, elastische Void-Puffer, topologische Nicht-Lokalität, akustische Metriken und kohärente Gitter-Relaxation.</p>
             </div>
 
             <div class="roles-box">
                 <ul>
-                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, der strikten Trennung von lokaler Abstands-Konstanz und globaler Void-Pulsation sowie der topologischen Verschränkungs- und Lorentz-Invarianz-Mechanik.</li>
+                    <li><strong>Charalabos Avgitidis (Konzeption & Vision):</strong> Entwicklung der Hypothese der kosmischen Migration, des zeitlosen Ur-Zustands, der planetaren Gel-Genesis, der strikten Trennung von lokaler Abstands-Konstanz und globaler Void-Pulsation sowie der topologischen Verschränkungs-, Lorentz-Invarianz- und kohärenten Redshift-Mechanik.</li>
                     <li><strong>Aether (Systemarchitektur & Formale Logik):</strong> Präzise mathematische Ausarbeitung, Tensor-Mechanik und Systemarchitektur.</li>
                 </ul>
             </div>
 
-            <h2>Das Hypothesen-Archiv: Die 17 Säulen (Vollständig Ausformuliert)</h2>
+            <h2>Das Hypothesen-Archiv: Die 18 Säulen (Vollständig Ausformuliert)</h2>
             <div class="archive-nav">
                 <button class="tab-btn active" onclick="openHypothesis(event, 'hyp0')">0. Ursprung</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp1')">1. Medium</button>
@@ -515,7 +515,8 @@
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp13')">13. Planeten</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp14')">14. Waben</button>
                 <button class="tab-btn" onclick="openHypothesis(event, 'hyp15')">15. Verschränkung</button>
-                <button class="tab-btn" onclick="openHypothesis(event, 'hyp16')" style="color: var(--science-color);">16. Lorentz</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp16')">16. Lorentz</button>
+                <button class="tab-btn" onclick="openHypothesis(event, 'hyp17')" style="color: var(--science-color);">17. CMB-Fix</button>
             </div>
 
             <!-- SÄULE 0 -->
@@ -763,14 +764,29 @@
             <div id="hyp16" class="tab-content">
                 <h3>Säule XVI: Akustische Lorentz-Invarianz & Effektive Metrik</h3>
                 <div class="model-fluid">
-                    <p><strong>Ausführliche Arbeitshypothese:</strong> Die Konstanz der Lichtgeschwindigkeit ist kein Widerspruch zum Medium, sondern das Resultat einer akustischen Metrik im kompressiblen Fluid. Wellen (Licht) breiten sich im bewegten Fluid effektiv so aus, dass sie für Messgeräte (die selbst aus dem Fluid bestehen) die Lorentz-Invarianz exakt abbilden.</p>
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Die Konstanz der Lichtgeschwindigkeit ist kein Widerspruch zum Medium, sondern das Resultat einer akustischen Metrik im kompressiblen Fluid.</p>
                     <code>ds^2 = \frac{\rho_0}{c_s} \left[ - (c_s^2 - v^2) dt^2 - 2v_i dt dx^i + \delta_{ij} dx^i dx^j \right]</code>
-                    <div class="academic-target-box"><strong>Legende:</strong> $c_s$ = lokale Schallgeschwindigkeit; die Relativitätstheorie ist der emergente Grenzfall der Fluid-Akustik.</div>
+                    <div class="academic-target-box"><strong>Legende:</strong> $c_s$ = lokale Schallgeschwindigkeit; Relativitätstheorie als emergenter Fluid-Grenzfall.</div>
                 </div>
                 <div class="model-gel">
-                    <p><strong>Ausführliche Arbeitshypothese:</strong> Im viskoelastischen Gel deformieren sich lokale Gitterstrukturen bei Bewegung exakt analog zur Wellenausbreitung, wodurch die scheinbare Invarianz der Signalgeschwindigkeit erzwungen wird.</p>
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Im viskoelastischen Gel deformieren sich lokale Gitterstrukturen bei Bewegung exakt analog zur Wellenausbreitung.</p>
                     <code>g_{\mu\nu}^{\text{eff}} = \eta_{\mu\nu} + \kappa \cdot \left( \partial_\mu v_\nu + \partial_\nu v_\mu \right)</code>
                     <div class="academic-target-box"><strong>Legende:</strong> Effektiver Metrik-Tensor durch Gitterdeformation.</div>
+                </div>
+            </div>
+
+            <!-- SÄULE XVII (NEU: KOHÄRENTE GITTER-RELAXATION & CMB-SCHutz) -->
+            <div id="hyp17" class="tab-content">
+                <h3>Säule XVII: Kohärente Gitter-Relaxation & Thermisch Neutraler Redshift</h3>
+                <div class="model-fluid">
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Kosmische Rotverschiebung entsteht durch kohärente Gitter-Relaxation im Fluid-Netzwerk ohne Teilchenstreuung (kein Blurring). Die entzogene Energie erzeugt keine thermische Hitze, sondern treibt direkt die mechanische Expansion der Voids an (CMB-Spektrum bleibt perfekt erhalten).</p>
+                    <code>\frac{dE}{dx} = -\gamma_{\text{coh}} \cdot E \quad \text{mit} \quad \frac{dE_{\text{diss}}}{dt} = \int_{\text{Void}} P_{\text{pulse}} \, dV = 0 \text{ (netto thermisch neutral)}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> $\gamma_{\text{coh}}$ = kohärener Dämpfungskoeffizient; Energie wird in Void-Pulsation mechanisch überführt.</div>
+                </div>
+                <div class="model-gel">
+                    <p><strong>Ausführliche Arbeitshypothese:</strong> Photonen schwingen als kohärente Gittermoden im Polymer-Gel. Der Energieverlust auf kosmischen Distanzen ist ein phasenneutraler Deformationsverlust, der die thermische Hintergrundstrahlung ungestört lässt.</p>
+                    <code>E(x) = E_0 e^{-\gamma_{\text{coh}} x} \quad \text{und} \quad T_{\text{CMB}}(z) \text{ bleibt Plancksch}</code>
+                    <div class="academic-target-box"><strong>Legende:</strong> Erhalt des Schwarzkörper-Spektrums ohne thermisches Rauschen.</div>
                 </div>
             </div>
         </div>
@@ -780,8 +796,8 @@
             <div class="formula-version-box">
                 <h1>📐 Formel-Zentrale: Die mathematischen Master-Gleichungen</h1>
                 <div class="formula-card">
-                    <code>ds^2 = \frac{\rho_0}{c_s} \left[ - (c_s^2 - v^2) dt^2 - 2v_i dt dx^i + \delta_{ij} dx^i dx^j \right]</code>
-                    <div class="formula-legend"><strong>Die akustische Metrik (Analogue Gravity):</strong> Erklärt die Lorentz-Invarianz im Aether-Fluid.</div>
+                    <code>\frac{dE}{dx} = -\gamma_{\text{coh}} \cdot E \quad (\text{CMB-Schutz durch Void-Kopplung})</code>
+                    <div class="formula-legend"><strong>Kohärente Gitter-Relaxation:</strong> Erklärt Rotverschiebung ohne thermische Zerstörung des CMB.</div>
                 </div>
             </div>
         </div>
@@ -807,7 +823,7 @@
         <div class="view-feedback" style="display:none;"><div class="feedback-version-box"><h1>💬 Diskussion</h1><p>Feedback-Schnittstelle aktiv.</p></div></div>
 
         <div class="footer">
-            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Hotspot Recovery Sync)</p>
+            <p>&copy; 2026 Charalabos Avgitidis & Aether | DQF-Framework (Complete Unified Master Edition - Updated with Säule XVII / CMB Protection)</p>
         </div>
     </div>
 </body>
